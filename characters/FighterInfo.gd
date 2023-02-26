@@ -1,5 +1,5 @@
 extends Resource 
-class_name CharacterInfo
+class_name FighterInfo
 
 enum Archetype {
 	Rushdown,
