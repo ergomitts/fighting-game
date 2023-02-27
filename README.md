@@ -8,28 +8,28 @@ This is a fighting game made in the [Godot Engine](https://godotengine.org/) usi
 * Enter = Select
 * Backspace = Cancel
 * P = Pause
-### P1
-    * W = Up
-    * S = Down
-    * A = Left
-    * D = Right
-    * J = Light Move
-    * U = Heavy Move
-    * I = EX Move
-    * O = Special Command
-### P2
-    * Arrow Keys = Up, Down, Left, Right
-    * Numpad 1 = Light Move
-    * Numpad 4 = Heavy Move
-    * Numpad 5 = EX Move
-    * Numpad 6 = Special Command
+### Player 1
+* W = Up
+* S = Down
+* A = Left
+* D = Right
+* J = Light Move
+* U = Heavy Move
+* I = EX Move
+* O = Special Command
+### Player 2
+* Arrow Keys = Up, Down, Left, Right
+* Numpad 1 = Light Move
+* Numpad 4 = Heavy Move
+* Numpad 5 = EX Move
+* Numpad 6 = Special Command
 ### Controller (PS4)
-    * Left Stick / DPad = Up, Down, Left, Right
-    * Square = Light Move / Select
-    * Cross = Heavy Move
-    * Triangle = EX Move
-    * Circle = Special Command / Cancel
-    * Options = Pause
+* Left Stick / DPad = Up, Down, Left, Right
+* Square = Light Move / Select
+* Cross = Heavy Move
+* Triangle = EX Move
+* Circle = Special Command / Cancel
+* Options = Pause
 
 ## 📖 Features:
 * Both players have Resources: Health, Barrier, and Special Meter

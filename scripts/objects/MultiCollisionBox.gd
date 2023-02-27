@@ -12,7 +12,7 @@ export(bool) var flipped setget flip
 var shapes := []
 
 func _ready():
-	host = get_owner()
+	host = get_parent()
 
 func _init():
 	z_index = 99

@@ -14,20 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/Character.gd"
 }, {
-"base": "Resource",
-"class": "CharacterInfo",
-"language": "GDScript",
-"path": "res://characters/CharacterInfo.gd"
-}, {
 "base": "Node2D",
 "class": "CollisionBox",
 "language": "GDScript",
 "path": "res://scripts/objects/CollisionBox.gd"
 }, {
-"base": "Reference",
+"base": "EditorProperty",
 "class": "EC_CreateCategory",
 "language": "GDScript",
 "path": "res://addons/export_categories/ec_create_category.gd"
+}, {
+"base": "Resource",
+"class": "FighterInfo",
+"language": "GDScript",
+"path": "res://characters/FighterInfo.gd"
 }, {
 "base": "Node2D",
 "class": "GameObject",
@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "HitBox",
 "language": "GDScript",
 "path": "res://scripts/objects/HitBox.gd"
+}, {
+"base": "State",
+"class": "Idle",
+"language": "GDScript",
+"path": "res://characters/States/Idle.gd"
 }, {
 "base": "Node2D",
 "class": "MultiCollisionBox",
@@ -61,11 +66,12 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Character": "",
-"CharacterInfo": "",
 "CollisionBox": "",
 "EC_CreateCategory": "",
+"FighterInfo": "",
 "GameObject": "",
 "HitBox": "",
+"Idle": "",
 "MultiCollisionBox": "",
 "PushBox": "",
 "State": "",
@@ -76,10 +82,10 @@ _global_script_class_icons={
 
 config/name="Fighting Game"
 run/main_scene="res://scenes/main.tscn"
+config/icon="res://icon.png"
 boot_splash/show_image=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
-config/icon="res://icon.png"
 
 [autoload]
 
@@ -93,7 +99,7 @@ settings/fps/force_fps=60
 
 window/size/width=1920
 window/size/height=1080
-window/stretch/mode="2d"
+window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [editor_plugins]

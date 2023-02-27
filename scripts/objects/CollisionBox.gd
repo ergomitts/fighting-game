@@ -9,7 +9,7 @@ export var shape := Rect2(-10, -10, 20, 20)
 export var color := Color.red
 
 func _ready():
-	host = get_owner()
+	host = get_parent()
 
 func _init():
 	z_index = 99
@@ -19,7 +19,7 @@ func is_colliding(_shape: Rect2):
 	return active and get_global_rect().intersects(_shape)
 	
 func get_center() -> Vector2:
-	return (shape.position + global_position)/2
+	return global_position - shape.size/2
 	
 func get_global_rect() -> Rect2:
 	return Rect2(shape.position + global_position, shape.size)
