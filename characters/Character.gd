@@ -50,7 +50,31 @@ func snap_to_corner(_velocity):
 		_velocity.x -= push_box.left_global() + _velocity.x - GameGlobals.StageLeft	
 	return _velocity
 
-func move_and_push(_velocity, enemy = null):
+func move_and_push(_velocity, enemy = null):	
+	if enemy and enemy.get('push_box'):
+		var enemy_rect := enemy.push_box.get_global_rect() as Rect2	
+		var projected_rect := Rect2(push_box.get_center() + _velocity, push_box.shape.size)
+		
+		if projected_rect.intersects(enemy_rect):
+			var center = projected_rect.position.x + projected_rect.size.x/2
+			var clip = (push_box.left_global() + _velocity.x) - enemy.push_box.right_global()
+			if center < enemy.push_box.global_position.x:
+				clip = (push_box.right_global() + _velocity.x) - enemy.push_box.left_global()
+
+			if enemy.get_corner() == 0:
+				if abs(enemy.velocity.x) < abs(clip):
+					enemy.move_and_push(Vector2(enemy.velocity.x + clip, 0))
+				elif abs(enemy.velocity.x) > abs(clip):
+					_velocity.x -= clip
+				else:
+					_velocity.x = 0
+			else:
+				if get_corner() == 1:
+					clip = (push_box.right_global() + _velocity.x) - enemy.push_box.left_global()
+				elif get_corner() == -1:
+					clip = (push_box.left_global() + _velocity.x) - enemy.push_box.right_global()
+				_velocity.x -= clip
+	
 	var up = push_box.up_global() + _velocity.y
 	var down = push_box.down_global() + _velocity.y
 			
@@ -59,33 +83,6 @@ func move_and_push(_velocity, enemy = null):
 	if up < GameGlobals.StageTop:
 		_velocity.y -= up - GameGlobals.StageTop
 	_velocity.x = snap_to_corner(_velocity).x	
-		
-	if enemy and enemy.get('push_box'):
-		var enemy_rect := enemy.push_box.get_global_rect() as Rect2	
-		var projected_rect := Rect2(push_box.get_center() + _velocity, push_box.shape.size)
-		
-		if projected_rect.intersects(enemy_rect):
-			var center = projected_rect.position.x + projected_rect.size.x/2
-			if center > enemy.push_box.global_position.x:
-				if enemy.get_corner() == -1:
-					_velocity.x -= (push_box.left_global() + _velocity.x) - enemy.push_box.right_global()
-				elif enemy.get_corner() == 0:
-					enemy.move_and_push(Vector2((push_box.left_global() + _velocity.x) - enemy.push_box.right_global(), 0))
-			elif center < enemy.push_box.global_position.x:
-				if enemy.get_corner() == 1:
-					_velocity.x -= (push_box.right_global() + _velocity.x) - enemy.push_box.left_global()
-				elif enemy.get_corner() == 0:
-					enemy.move_and_push(Vector2((push_box.right_global() + _velocity.x) - enemy.push_box.left_global(), 0))	
-				
-			_velocity.x = snap_to_corner(_velocity).x	
-			var corner = get_corner()
-			if corner != 0 and corner == enemy.get_corner():
-				if get_corner() == 1:
-					_velocity.x -= (push_box.right_global() + _velocity.x) - enemy.push_box.left_global()
-#					enemy.move_and_push(Vector2(push_box.left_global() + _velocity.x - enemy.push_box.right_global(), 0))
-				elif get_corner() == -1:
-					_velocity.x -= (push_box.left_global() + _velocity.x) - enemy.push_box.right_global()
-#					enemy.move_and_push(Vector2(push_box.right_global() + _velocity.x - enemy.push_box.left_global(), 0))
 	
 	move(_velocity)
 	return _velocity
