@@ -87,9 +87,27 @@ func move_and_push(_velocity, enemy = null):
 	move(_velocity)
 	return _velocity
 	
+func stage_collisions():
+	var up = push_box.up_global()
+	var down = push_box.down_global()
+	
+	if down > GameGlobals.StageBottom:
+		global_position.y = GameGlobals.StageBottom - push_box.shape.size.y/2
+		velocity.y = 0
+	if up < GameGlobals.StageTop:
+		global_position.y = GameGlobals.StageTop + push_box.shape.size.y/2
+		velocity.y = 0
+	if push_box.left_global() < GameGlobals.StageLeft:
+		global_position.x = GameGlobals.StageLeft + push_box.shape.size.x/2
+		velocity.x = 0
+	if push_box.right_global() > GameGlobals.StageRight:
+		global_position.x = GameGlobals.StageRight - push_box.shape.size.x/2
+		velocity.x = 0
+	
 func update_physics(delta: float):
 	velocity.y += gravity
-	velocity = move_and_push(velocity, enemy)
+#	velocity = move_and_push(velocity, enemy)
+#	global_position += velocity
 
 func get_state():
 	return state_machine.current_state.name

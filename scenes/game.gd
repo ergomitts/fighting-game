@@ -11,12 +11,30 @@ func _ready():
 	start_game()
 	
 func get_center():
-	return (GameGlobals.players[0].position + GameGlobals.players[1].position)/2	
+	
+	var left = 0
+	var right = 0
+	
+	if GameGlobals.players[0].global_position.x < GameGlobals.players[1].global_position.x:
+		left = GameGlobals.players[0].global_position.x - GameGlobals.players[0].push_box.shape.size.x/2
+		right = GameGlobals.players[1].global_position.x + GameGlobals.players[1].push_box.shape.size.x/2
+	else:
+		left = GameGlobals.players[1].global_position.x - GameGlobals.players[1].push_box.shape.size.x/2
+		right = GameGlobals.players[0].global_position.x + GameGlobals.players[0].push_box.shape.size.x/2
+	
+	return Vector2(left + right, 0)/2
 	
 func get_distance():
-	var left = GameGlobals.players[0].position.x - GameGlobals.players[0].push_box.shape.size.x/2
-	var right = GameGlobals.players[1].position.x + GameGlobals.players[1].push_box.shape.size.x/2
+	var left = 0
+	var right = 0
 	
+	if GameGlobals.players[0].global_position.x < GameGlobals.players[1].global_position.x:
+		left = GameGlobals.players[0].global_position.x - GameGlobals.players[0].push_box.shape.size.x/2
+		right = GameGlobals.players[1].global_position.x + GameGlobals.players[1].push_box.shape.size.x/2
+	else:
+		left = GameGlobals.players[1].global_position.x - GameGlobals.players[1].push_box.shape.size.x/2
+		right = GameGlobals.players[0].global_position.x + GameGlobals.players[0].push_box.shape.size.x/2
+		
 	return Vector2(left, 0).distance_to(Vector2(right, 0))
 	
 func start_game():
@@ -36,8 +54,31 @@ func start_game():
 
 func _physics_process(delta: float) -> void:
 	if GameGlobals.players.size() > 0:
+		GameGlobals.players[0].global_position += GameGlobals.players[0].velocity
+		GameGlobals.players[1].global_position += GameGlobals.players[1].velocity
+		
+		var p1_rect := GameGlobals.players[0].push_box.get_global_rect() as Rect2
+		var p2_rect := GameGlobals.players[1].push_box.get_global_rect() as Rect2
+		
+		if p1_rect.intersects(p2_rect):
+			var clip = p1_rect.clip(p2_rect).size.x/2
+			
+			var p1_facing = 1 if GameGlobals.players[0].global_position.x < GameGlobals.players[1].global_position.x else -1
+			var p2_facing = -1 if GameGlobals.players[0].global_position.x < GameGlobals.players[1].global_position.x else 1
+			
+			GameGlobals.players[0].global_position.x -= clip * p1_facing
+			GameGlobals.players[1].global_position.x -= clip * p2_facing
+			
+			var p1_wall_clip = GameGlobals.players[0].snap_to_corner(Vector2.ZERO).x
+			var p2_wall_clip = GameGlobals.players[1].snap_to_corner(Vector2.ZERO).x
+			
+			GameGlobals.players[0].global_position.x += p2_wall_clip * p1_facing
+			GameGlobals.players[1].global_position.x += p1_wall_clip * p2_facing
+		
+		GameGlobals.players[0].stage_collisions()
+		GameGlobals.players[1].stage_collisions()
+		
 		var center = get_center()
-		var distance = get_distance()
 		
 		if center.x - GameGlobals.WallDistanceMax/2 < - GameGlobals.StageDistance/2:
 			GameGlobals.StageLeft = - GameGlobals.StageDistance/2
@@ -48,5 +89,5 @@ func _physics_process(delta: float) -> void:
 		else:
 			GameGlobals.StageLeft = center.x - GameGlobals.WallDistanceMax/2
 			GameGlobals.StageRight = center.x + GameGlobals.WallDistanceMax/2
-			
-		camera.distance = distance
+		
+		camera.distance = get_distance()

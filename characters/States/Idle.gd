@@ -20,7 +20,9 @@ func physics_process(delta: float):
 		host.push_box.shape.size.x = 125
 		host.push_box.shape.position.x = -125/2
 		host.push_box.shape.size.y = 250
+		host.push_box.shape.position.y = -250/2
 	else:
 		host.push_box.shape.size.x = 250
 		host.push_box.shape.position.x = -250/2
 		host.push_box.shape.size.y = 650
+		host.push_box.shape.position.y = -650/2

@@ -1,7 +1,7 @@
 extends Camera2D
 
 const SMOOTHING := 50.0
-const CUT_OFF_RATIO := 0.7
+const CUT_OFF_RATIO := 0.8
 const FLOOR_PADDING := 150
 
 var rng := RandomNumberGenerator.new()
