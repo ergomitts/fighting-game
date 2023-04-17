@@ -15,10 +15,3 @@ const CollisionColors = {
 	CollisionType.Grab : Color.BLUE_VIOLET,
 	CollisionType.Proximity : Color.BLUE
 }
-
-enum CharacterStance {
-	Standing,
-	Crouching,
-	Aerial,
-	Knockdown
-}

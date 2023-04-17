@@ -10,7 +10,7 @@ func enter():
 	pass
 func exit():
 	pass
-
+	
 func process(_delta: float):
 	return
 func physics_process(_delta: float):

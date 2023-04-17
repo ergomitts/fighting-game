@@ -1,0 +1,26 @@
+@tool
+extends Node2D
+class_name PushBox
+
+var color := Color.YELLOW
+
+@export var active := true
+@export var can_push := true
+@export var shape := Rect2i(-32, -32, 64, 64)
+
+func _init():
+	z_index = 99
+	z_as_relative = false
+		
+func get_center():
+	return global_position + Vector2(shape.get_center())
+		
+func draw_collisions():
+	draw_rect(shape, color, false)
+	draw_rect(shape, Color(color, 0.3), true)
+	
+func _process(_delta: float):
+	queue_redraw()
+func _draw():
+	if Engine.is_editor_hint() or Globals.debug:
+		draw_collisions()

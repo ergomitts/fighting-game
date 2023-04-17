@@ -38,7 +38,7 @@ func init(init_state: String = default_state):
 	change_state(init_state)
 	
 func change_state(state_name: String):
-	if state_name == ".previous":
+	if state_name == "!previous":
 		_stack.pop_front()
 	else: 
 		var new_state = state_map.get(state_name, null)
@@ -47,7 +47,6 @@ func change_state(state_name: String):
 			
 	if state == _stack[0]:
 		return
-
 	if state != null:
 		state.exit()
 		

@@ -4,17 +4,17 @@ class_name GameObject
 @export var sprite_container : Marker2D
 @export var animation_player : AnimationPlayer
 
-var hitstop : int = 0
-var velocity : Vector2
-var facing : int = 1: set = _set_facing
+var hitstop := 0
+var velocity := Vector2.ZERO
+var flipped := false : set = _flip
 
 func move(dir: Vector2):
 	position = Vector2i(position + dir)
 
-func _set_facing(value: int = 1):
-	if abs(value) > 0:
-		facing = value
-		sprite_container.scale.x = value
+func _flip(value):
+	flipped = value
+	if flipped:
+		sprite_container.scale.x = -1 if flipped else 1
 		
 func _update_physics(delta: float):
 	pass
