@@ -5,5 +5,3 @@
 [node name="Game" type="Node2D"]
 position = Vector2(120, 91)
 script = ExtResource("1_flah8")
-
-[node name="Camera2D" type="Camera2D" parent="."]

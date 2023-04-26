@@ -7,7 +7,6 @@ const CHARGE_DELAY_FRAMES = 12
 
 var actions := []
 var buffer := []
-var pressed := []
 
 var charge_axis := {"x" : 0, "y" : 0}
 var charge_time := 0 

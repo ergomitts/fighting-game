@@ -6,7 +6,7 @@ var color := Color.BLUE_VIOLET
 
 @export var active := true
 @export var flipped := false : set = _flip
-@export var data : Array[Rect2i] = [] : set = _update
+@export var data : Array[Rect2] = [] : set = _update
 
 var _flipped_data := []
 var _data := []
@@ -31,7 +31,7 @@ func _update(value):
 	_flipped_data.clear()
 	_modified = false
 	for i in range(0, value.size()):
-		_flipped_data.append(Rect2i(Vector2(-(value[i].position.x + value[i].size.x), value[i].position.y), value[i].size))
+		_flipped_data.append(Rect2(Vector2(-(value[i].position.x + value[i].size.x), value[i].position.y), value[i].size))
 	if flipped:
 		_flip(true)
 

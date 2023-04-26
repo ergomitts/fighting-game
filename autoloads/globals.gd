@@ -3,7 +3,7 @@ extends Node
 var debug = true
 
 const SPAWN_DISTANCE = 480
-const PLAYER_DISTANCE = 1980
+const MAX_PLAYER_DISTANCE = 1980
 
 var StageTop = 0
 var StageBottom = 480
