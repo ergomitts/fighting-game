@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cskmfvm247teb"]
+
+[ext_resource type="Script" path="res://Node2D.gd" id="1_o5v4l"]
+[ext_resource type="Texture2D" uid="uid://23up4a25u6y1" path="res://icon.svg" id="2_o3nmk"]
+[ext_resource type="Script" path="res://Icon.gd" id="3_ty416"]
+[ext_resource type="Script" path="res://Icon3.gd" id="4_dwnse"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="4_ip3ou"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("player1", "player2")]
+script = ExtResource("1_o5v4l")
+player1 = NodePath("Player1")
+player2 = NodePath("Player2")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(-1152, 353)
+texture = ExtResource("2_o3nmk")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(2304, 350)
+texture = ExtResource("2_o3nmk")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+position = Vector2(568, 288)
+scale = Vector2(1, 3.52344)
+texture = ExtResource("2_o3nmk")
+
+[node name="Player1" type="Sprite2D" parent="." node_paths=PackedStringArray("other_player")]
+position = Vector2(412, 328)
+texture = ExtResource("2_o3nmk")
+script = ExtResource("3_ty416")
+is_player = true
+other_player = NodePath("../Player2")
+speed = 15
+
+[node name="Player2" type="Sprite2D" parent="." node_paths=PackedStringArray("other_player")]
+position = Vector2(756, 336)
+texture = ExtResource("2_o3nmk")
+script = ExtResource("3_ty416")
+other_player = NodePath("../Player1")
+speed = 20
+
+[node name="Icon3" type="Sprite2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+texture = ExtResource("2_o3nmk")
+script = ExtResource("4_dwnse")
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player1", "player2")]
+position = Vector2(576, 324)
+limit_smoothed = true
+editor_draw_limits = true
+script = ExtResource("4_ip3ou")
+player1 = NodePath("../Player1")
+player2 = NodePath("../Player2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 395.0
+offset_top = 183.0
+offset_right = 775.0
+offset_bottom = 256.0
