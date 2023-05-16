@@ -1,7 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpg42uirkseid"]
+[gd_scene load_steps=3 format=3 uid="uid://cpg42uirkseid"]
 
 [ext_resource type="Script" path="res://scenes/test_room.gd" id="1_flah8"]
+[ext_resource type="Texture2D" uid="uid://dcxkqgb7t6aip" path="res://icon.svg" id="2_63wry"]
 
 [node name="Game" type="Node2D"]
-position = Vector2(120, 91)
 script = ExtResource("1_flah8")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-1920, -64.5)
+scale = Vector2(1, 5.05469)
+texture = ExtResource("2_63wry")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(1920, -64.5)
+scale = Vector2(1, 5.05469)
+texture = ExtResource("2_63wry")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(46.5, 480)
+scale = Vector2(33.4609, 0.464844)
+texture = ExtResource("2_63wry")
+centered = false
+offset = Vector2(-64, 0)
+
+[node name="Icon4" type="Sprite2D" parent="."]
+texture = ExtResource("2_63wry")

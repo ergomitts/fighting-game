@@ -24,14 +24,22 @@ func _physics_process(delta):
 	var center = get_center()
 	position = center + center_offset
 	
-	limit_left = Globals.limit_left
-	limit_right = Globals.limit_right
+#	limit_left = Globals.limit_left
+#	limit_right = Globals.limit_right
+	
+#	var left = center.x - Globals.MAX_PLAYER_DISTANCE/2
+#	var right = center.x + Globals.MAX_PLAYER_DISTANCE/2
+#	if left < Globals.StageLeft:
+#		position.x += Globals.StageLeft - left
+#	elif right > Globals.StageRight:
+#		position.x += Globals.StageRight - right
 	
 	var player1 = Globals.players[0]
 	var player2 = Globals.players[1]
 	var distance = get_distance()
-	var _zoom
+	var _zoom = zoom_scale
 	if distance > cutoff:
-		_zoom = zoom_scale - (1-zoom_scale) * ((distance-cutoff)/Globals.MAX_PLAYER_DISTANCE) 
+		_zoom = zoom_scale + (1-zoom_scale) * ((distance - cutoff)/(Globals.MAX_PLAYER_DISTANCE - cutoff)) 
+	zoom = lerp(zoom, Vector2(_zoom, _zoom), 50 * delta)
 	
 	

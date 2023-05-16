@@ -6,3 +6,5 @@ class_name HitBox
 
 func _init():
 	color = Color.RED
+	z_index = 99
+	z_as_relative = false

@@ -13,13 +13,13 @@ config_version=5
 config/name="Fighting Game"
 run/main_scene="res://scenes/test_room.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
 
 Constants="*res://autoloads/constants.gd"
 Globals="*res://autoloads/globals.gd"
-Collisions="*res://autoloads/collisions.gd"
 InputManager="*res://autoloads/input_manager.tscn"
 
 [display]

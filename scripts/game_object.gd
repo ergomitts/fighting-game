@@ -13,13 +13,16 @@ func move(dir: Vector2):
 
 func _flip(value):
 	flipped = value
-	if flipped:
-		sprite_container.scale.x = -1 if flipped else 1
+	sprite_container.scale.x = -1 if flipped else 1
 		
-func _update_physics(delta: float):
+func physics_process(delta: float):
 	pass
+	
 func _physics_process(delta: float):
 	if hitstop > 0:
 		hitstop -= 1 
+		animation_player.pause()
 	else:
-		_update_physics(delta)
+		if !animation_player.is_playing() and !animation_player.current_animation.is_empty():
+			animation_player.play(animation_player.current_animation)
+		physics_process(delta)
