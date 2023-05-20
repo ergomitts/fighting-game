@@ -29,90 +29,92 @@ func get_axis():
 	var axis = buffer[BUFFER_FRAMES - 1].axis
 	return Vector2(axis.x, axis.y)
 	
-func check_buttons():
-	var buttons = {}
-	for i in range(BUFFER_FRAMES - 1, BUFFER_FRAMES - 20, -1):
-		var input = buffer[i]
-		var _buttons = input.buttons
-		if _buttons.size() > 0:
-			buttons = _buttons
-			break
+func get_buttons():
+	var buttons = buffer[BUFFER_FRAMES - 1].buttons
 	return buttons
+
+func is_pressing(button := "") -> bool:
+	var buttons = get_buttons()
+	if buttons.has(button):
+		return buttons.get(button) >= 0
+	return false
 	
-func check_qcf(flipped):
-	var p = 0
-	var passed = false
-	for i in range(BUFFER_FRAMES - 1, BUFFER_FRAMES - 14, -1):
-		var input = buffer[i]
-		var axis = input.axis
+func check_combined_buttons(combo_buttons := [], duration := 10, start := BUFFER_FRAMES - 1):
+	var found_buttons := []
+	start = max(start, (BUFFER_FRAMES - 1) - duration)
+	for i in range(start, (BUFFER_FRAMES - 1) - duration, -1):
+		var buttons := buffer[i].buttons as Dictionary
+		for x in combo_buttons:
+			if buttons.has(x) and !found_buttons.has(x):
+				if buttons.get(x) >= 0:
+					found_buttons.append(x)
+		if found_buttons.hash() == combo_buttons.hash():
+			break
+	return found_buttons.hash() == combo_buttons.hash()
+	
+func read_directional_input(c_axis: Vector2, c_button: String, flipped := false, duration := 10, start := BUFFER_FRAMES - 1):
+	start = max(start, (BUFFER_FRAMES - 1) - duration)
+	var c0 = false
+	var c1 = false
+	for i in range(start, (BUFFER_FRAMES - 1) - duration, -1):
+		var axis := buffer[i].axis as Vector2
+		var button := buffer[i].buttons as Dictionary
 		if flipped:
 			axis.x *= -1
-		if p == 0:
-			if axis.x != 1 or axis.y != 0:
+		if !c0:
+			c0 = axis == c_axis 
+		if !c1:
+			if button.has(c_button):
+				c1 = button.get(c_button, -1) >= 0
+		if c0 and c1:
+			break
+	return c0 and c1
+		
+func read_motion_input(index: int, flipped := false, start := BUFFER_FRAMES - 1):
+	var failed = true
+	
+	if index == Constants.MotionInput.Empty:
+		return true
+	
+	if Constants.MOTION_INPUT_DATA.has(index):
+		var duration := Constants.MOTION_INPUT_DATA[index].get('duration', 0) as int
+		var directions := Constants.MOTION_INPUT_DATA[index].get('directions', []) as Array
+		var misinputs := Constants.MOTION_INPUT_DATA[index].get('misinputs', 0) as int
+		var ignore := Constants.MOTION_INPUT_DATA[index].get('ignore', []) as Array
+		
+		var checks := directions.size() - 1
+		var mistakes := 0 
+		var last_dir := Vector2(99, 99)
+		
+		start = max(start, (BUFFER_FRAMES - 1) - duration)
+		for i in range(start, (BUFFER_FRAMES - 1) - duration, -1):
+			var dir := buffer[i].axis as Vector2
+			
+			if mistakes > misinputs:
 				break
-		if p == 1:
-			if axis.x != 1 or axis.y != 1:
-				continue
-		if p == 2:
-			if axis.y != 1 or axis.x != 0:
+			
+			if checks >= 0:
+				if directions[checks] is Vector2:
+					var target_dir = directions[checks] * (Vector2(-1, 1) if flipped else Vector2.ONE)
+					if dir == target_dir:
+						checks -= 1
+					elif last_dir != dir:
+					#	if ignore.size() > 0 and ignore.find(checks) != -1:
+					#		checks -= 1
+					#	else:
+					#		mistakes += 1	
+						mistakes += 1
+					#	print(last_dir, i, " got: ", dir, " expected: ", target_dir)
+					
+			if checks < 0:
+				failed = false
 				break
-		p += 1
-		if p >= 2:
-			passed = true
-			break
-	return passed	
-	
-func check_fdash(flipped):
-	var p = 0
-	var passed = false
-	for i in range(BUFFER_FRAMES - 1, BUFFER_FRAMES - 12, -1):
-		var input = buffer[i]
-		var axis = input.axis
-		if flipped:
-			axis.x *= -1
-		if p == 0:
-			if axis.x != 1:
-				continue
-		if p == 1:
-			if axis.x != 0:
-				continue
-		if p == 2:
-			if axis.x != 1:
-				continue
-		if p == 3:
-			if axis.x != 0:
-				continue
-		p += 1
-		if p >= 4:
-			passed = true
-			break
-	return passed
-	
-func check_bdash(flipped):
-	var p = 0
-	var passed = false
-	for i in range(BUFFER_FRAMES - 1, BUFFER_FRAMES - 12, -1):
-		var input = buffer[i]
-		var axis = input.axis
-		if flipped:
-			axis.x *= -1
-		if p == 0:
-			if axis.x != -1:
-				continue
-		if p == 1:
-			if axis.x != 0:
-				continue
-		if p == 2:
-			if axis.x != -1:
-				continue
-		if p == 3:
-			if axis.x != 0:
-				continue
-		p += 1
-		if p >= 4:
-			passed = true
-			break
-	return passed
+			last_dir = dir
+		
+#		if !failed:
+#			print(Constants.MotionInput.keys()[index])
+		
+	return !failed
 
 func process_input():
 	var input = FGInput.new()

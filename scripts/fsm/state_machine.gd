@@ -40,7 +40,7 @@ func init(init_state: String = default_state):
 func change_state(state_name: String):
 	if state_name == "!previous":
 		_stack.pop_front()
-	else: 
+	elif !state_name.is_empty(): 
 		var new_state = state_map.get(state_name, null)
 		if new_state:
 			_stack.push_front(new_state)

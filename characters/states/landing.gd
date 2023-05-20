@@ -1,10 +1,13 @@
 extends CharacterState
 
+@export var frames := 2
+var time := 0
+
 func enter():
 	host.animation_player.play("Landing")
-	host.velocity.x = 0
-	host.velocity.y = 0
+	time = 0
 	
 func physics_process(delta):
-	if host.animation_finished():
-		return "Idle"
+	time += 1
+	if time >= frames:
+		return "Grounded"

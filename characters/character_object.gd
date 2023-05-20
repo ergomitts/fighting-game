@@ -3,6 +3,7 @@ class_name CharacterObject
 
 @export var state_machine : StateMachine
 @export var health : Node
+@export var attack_states := []
 
 @export var push_box : PushBox
 @export var hurt_box : CollisionBox
@@ -11,11 +12,15 @@ class_name CharacterObject
 @export var forward_walk_speed := 25.0
 @export var backward_walk_speed := 15.0
 @export var jump_velocity := 50
+@export var friction := 50
 
 @export var gravity := 5
 
 var id := 0
 var nemesis : CharacterObject
+var immune := false
+var grab_immune := false
+var hit_confirmed := false
 
 func _ready():
 	state_machine.init()

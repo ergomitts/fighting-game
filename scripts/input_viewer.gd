@@ -24,11 +24,11 @@ func update(id : int, buffer : Array):
 		if last_input.buttons[button] >= 0:
 			txt += " " + button
 	
-#	if last_label.text != txt:
-	for i in range(0, list.get_child_count()):
-		var last = list.get_child(max(i - 1, 0))
-		last.text = list.get_child(i).text
-	last_label.text = txt
+	if last_label.text != txt:
+		for i in range(0, list.get_child_count()):
+			var last = list.get_child(max(i - 1, 0))
+			last.text = list.get_child(i).text
+		last_label.text = txt
 	
 			
 		

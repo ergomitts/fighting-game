@@ -5,7 +5,7 @@ func wall_clip(rect : Rect2):
 	var position := rect.position.x
 	var size := rect.size.x
 	if position < Globals.limit_left:
-		x = Globals.limit_left - (position)
+		x = Globals.limit_left - position
 	elif position + size > Globals.limit_right:
 		x = Globals.limit_right - (position + size)
 	return x

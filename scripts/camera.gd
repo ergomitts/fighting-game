@@ -34,8 +34,6 @@ func _physics_process(delta):
 #	elif right > Globals.StageRight:
 #		position.x += Globals.StageRight - right
 	
-	var player1 = Globals.players[0]
-	var player2 = Globals.players[1]
 	var distance = get_distance()
 	var _zoom = zoom_scale
 	if distance > cutoff:
