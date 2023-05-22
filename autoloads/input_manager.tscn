@@ -19,8 +19,12 @@ script = ExtResource("2_ewjyx")
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 128.0
+offset_top = 144.0
+offset_right = 345.0
+offset_bottom = 144.0
 grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+theme_override_constants/separation = 4
 
 [node name="Player2" type="VBoxContainer" parent="InputViewer"]
 layout_mode = 1
@@ -28,6 +32,11 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -128.0
+offset_left = -259.0
+offset_top = 144.0
+offset_right = 86.0
+offset_bottom = 144.0
 grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+theme_override_constants/separation = 4

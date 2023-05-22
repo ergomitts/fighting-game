@@ -1,22 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpg42uirkseid"]
+[gd_scene load_steps=6 format=3 uid="uid://cpg42uirkseid"]
 
 [ext_resource type="Script" path="res://scenes/test_room.gd" id="1_flah8"]
 [ext_resource type="Texture2D" uid="uid://dcxkqgb7t6aip" path="res://icon.svg" id="2_63wry"]
+[ext_resource type="Texture2D" uid="uid://2ojiuhh4ylty" path="res://assets/textures/stages/mountains/ground.png" id="3_tav31"]
+[ext_resource type="Texture2D" uid="uid://dkuil2n2chv6r" path="res://assets/textures/stages/mountains/layer1.png" id="5_6p5ci"]
+[ext_resource type="Texture2D" uid="uid://dryie24s05sef" path="res://assets/textures/stages/mountains/layer2.png" id="6_igkck"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_flah8")
 
+[node name="StageBackground" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="StageBackground"]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="StageBackground/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Layer0" type="Sprite2D" parent="StageBackground/ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(0, 136)
+scale = Vector2(3, 3)
+texture = ExtResource("5_6p5ci")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="StageBackground/ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="Layer0" type="Sprite2D" parent="StageBackground/ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(0, 632)
+scale = Vector2(3, 3)
+texture = ExtResource("6_igkck")
+
 [node name="Icon" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-1920, -64.5)
 scale = Vector2(1, 5.05469)
 texture = ExtResource("2_63wry")
 
 [node name="Icon2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1920, -64.5)
 scale = Vector2(1, 5.05469)
 texture = ExtResource("2_63wry")
 
 [node name="Icon3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(46.5, 480)
 scale = Vector2(33.4609, 0.464844)
 texture = ExtResource("2_63wry")
@@ -24,4 +53,11 @@ centered = false
 offset = Vector2(-64, 0)
 
 [node name="Icon4" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_63wry")
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 783)
+scale = Vector2(3, 3)
+texture = ExtResource("3_tav31")

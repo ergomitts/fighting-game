@@ -10,8 +10,12 @@ func _ready():
 		controller.id = i + 1
 		add_child(controller)
 		controllers.append(controller)
+		controller.connect("changed", update_viewer)
+
+func update_viewer(id):
+	var controller = controllers[id - 1]
+	viewer.update(id, controller.buffer)
 
 func _physics_process(_delta):
 	for controller in controllers:
 		controller.update()
-		viewer.update(controller.id, controller.buffer)

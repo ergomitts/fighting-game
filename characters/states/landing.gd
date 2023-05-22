@@ -4,6 +4,8 @@ extends CharacterState
 var time := 0
 
 func enter():
+	host.velocity.x = 0 
+	host.velocity.y = 0
 	host.animation_player.play("Landing")
 	time = 0
 	

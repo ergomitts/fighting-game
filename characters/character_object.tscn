@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c8goshj4p7p2m"]
+[gd_scene load_steps=55 format=3 uid="uid://c8goshj4p7p2m"]
 
 [ext_resource type="Script" path="res://characters/character_object.gd" id="1_7v1m0"]
 [ext_resource type="Script" path="res://scripts/fsm/state_machine.gd" id="2_ii632"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://characters/components/health.gd" id="4_lmlhl"]
 [ext_resource type="Script" path="res://characters/states/walk.gd" id="4_nv6cl"]
 [ext_resource type="Script" path="res://characters/states/grounded.gd" id="5_6gg82"]
+[ext_resource type="Script" path="res://characters/states/blocking.gd" id="6_ahygp"]
 [ext_resource type="Script" path="res://characters/states/landing.gd" id="6_mghvc"]
 [ext_resource type="Script" path="res://characters/states/aerial.gd" id="6_r3syh"]
 [ext_resource type="Script" path="res://characters/states/jumping.gd" id="7_7qu6k"]
@@ -136,6 +137,71 @@ animations = [{
 "name": &"walk",
 "speed": 11.0
 }]
+
+[sub_resource type="Animation" id="Animation_2p0xn"]
+resource_name = "5L"
+length = 0.500002
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Main:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteContainer/Main:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox:data")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.25, 0.266667),
+"transitions": PackedFloat32Array(0, 0, 0, 0),
+"update": 1,
+"values": [Array[Rect2]([]), Array[Rect2]([Rect2(65, 0, 44, 44)]), Array[Rect2]([Rect2(65, 0, 140, 44)]), Array[Rect2]([])]
+}
 
 [sub_resource type="Animation" id="Animation_0l6hi"]
 resource_name = "Air"
@@ -296,7 +362,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_r152r"]
 resource_name = "Prejump"
-length = 0.20001
+length = 0.10001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -396,6 +462,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [&"idle"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBox:data")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
 
 [sub_resource type="Animation" id="Animation_w6llw"]
 resource_name = "Walk"
@@ -448,114 +526,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(-48, -14, 96, 160)]
-}
-
-[sub_resource type="Animation" id="Animation_4j15p"]
-resource_name = "standing"
-length = 0.500002
-loop_mode = 1
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteContainer/Main:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox:data")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)])]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PushBox:shape")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Rect2(-48, -14, 96, 160)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteContainer/Main:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-
-[sub_resource type="Animation" id="Animation_h5mvn"]
-resource_name = "crouching"
-length = 0.500002
-loop_mode = 1
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteContainer/Main:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox:data")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Array[Rect2]([Rect2(-64, 46, 128, 100)])]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PushBox:shape")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Rect2(-48, 66, 96, 80)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteContainer/Main:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
 }
 
 [sub_resource type="Animation" id="Animation_f8jhv"]
@@ -664,8 +634,117 @@ tracks/3/keys = {
 "values": [&"idle"]
 }
 
+[sub_resource type="Animation" id="Animation_h5mvn"]
+resource_name = "crouching"
+length = 0.500002
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Main:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-64, 46, 128, 100)])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(-48, 66, 96, 80)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteContainer/Main:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_4j15p"]
+resource_name = "standing"
+length = 0.500002
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Main:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteContainer/Main:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t1sxr"]
 _data = {
+"5L": SubResource("Animation_2p0xn"),
 "Air": SubResource("Animation_0l6hi"),
 "Jump": SubResource("Animation_e800o"),
 "Landing": SubResource("Animation_wuvau"),
@@ -682,6 +761,7 @@ _data = {
 script = ExtResource("1_7v1m0")
 state_machine = NodePath("StateMachine")
 health = NodePath("Health")
+attack_states = Array[String](["LightAttack"])
 push_box = NodePath("PushBox")
 hurt_box = NodePath("HurtBox")
 hit_box = NodePath("HitBox")
@@ -696,32 +776,45 @@ default_state = "Grounded"
 [node name="CharacterState" type="Node" parent="StateMachine"]
 script = ExtResource("3_svn2e")
 
-[node name="ActionState" type="Node" parent="StateMachine"]
-script = ExtResource("4_fh8td")
-
 [node name="Grounded" type="Node" parent="StateMachine"]
 script = ExtResource("5_6gg82")
-attack_states = null
+
+[node name="LightAttack" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+animation = "5L"
+startup_frames = 12
+active_frames = 2
+recovery_frames = 15
+hitstun = 15
+blockstun = 7
+cancel_into = PackedStringArray("LightAttack")
+
+[node name="Blocking" type="Node" parent="StateMachine"]
+script = ExtResource("6_ahygp")
+
+[node name="Stunned" type="Node" parent="StateMachine"]
+script = ExtResource("5_6gg82")
 
 [node name="Landing" type="Node" parent="StateMachine"]
 script = ExtResource("6_mghvc")
-attack_states = null
 
 [node name="Aerial" type="Node" parent="StateMachine"]
 script = ExtResource("6_r3syh")
-attack_states = null
+
+[node name="BlockingAir" type="Node" parent="StateMachine"]
+script = ExtResource("6_r3syh")
+
+[node name="Launched" type="Node" parent="StateMachine"]
+script = ExtResource("6_r3syh")
 
 [node name="Jumping" type="Node" parent="StateMachine"]
 script = ExtResource("7_7qu6k")
-attack_states = null
 
 [node name="Walking" type="Node" parent="StateMachine"]
 script = ExtResource("4_nv6cl")
-attack_states = null
 
 [node name="Prejump" type="Node" parent="StateMachine"]
 script = ExtResource("8_pdhdy")
-attack_states = null
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_lmlhl")
@@ -736,14 +829,12 @@ shape = Rect2(-32, -14, 64, 160)
 z_index = 99
 z_as_relative = false
 script = ExtResource("3_koo64")
-active = false
 data = Array[Rect2]([Rect2(-64, -94, 128, 240)])
 
 [node name="HitBox" type="Node2D" parent="."]
 z_index = 99
 z_as_relative = false
 script = ExtResource("4_cji4j")
-active = false
 
 [node name="SpriteContainer" type="Marker2D" parent="."]
 
@@ -755,6 +846,7 @@ sprite_frames = SubResource("SpriteFrames_g607v")
 animation = &"idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_t1sxr")
 }

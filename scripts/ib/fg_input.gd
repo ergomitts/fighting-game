@@ -1,5 +1,5 @@
 extends Resource
 class_name FGInput
 
-var axis := Vector2i.ZERO
+var axis := Vector2.ZERO
 var buttons := {}

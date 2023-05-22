@@ -38,7 +38,27 @@ class_name ActionState
 var hits := 0
 
 func enter():
-	pass
+	host.animation_player.play(animation)
 	
 func exit():
+	host.animation_player.stop()
 	host.hit_confirmed = false
+	host.hit_box.clear()
+	
+func physics_process(delta):
+	process_physics(delta)
+	if host.hit_confirmed:
+		var state = process_input()
+		if state:
+			print(state)
+			if state in cancel_into:
+				if state == name:
+					exit()
+					enter()
+				else:
+					return state
+	if host.animation_finished():
+		if aerial:
+			return "Aerial"
+		else:
+			return "Grounded"

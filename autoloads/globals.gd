@@ -10,7 +10,7 @@ var StageBottom = 480
 var StageLeft = -1920
 var StageRight = 1920
 
-var limit_left = -990
-var limit_right = 990
+var limit_left = -960
+var limit_right = 960
 
 var players = []

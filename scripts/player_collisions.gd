@@ -1,5 +1,7 @@
 extends Node
 
+var in_corner = 0
+
 func wall_clip(rect : Rect2):
 	var x := 0
 	var position := rect.position.x
@@ -28,10 +30,13 @@ func player_clip(rect1 : Rect2, rect2 : Rect2):
 			clip = -clip
 		return clip
 	return 0
-	
-func _physics_process(delta):
+
+func push_collisions():
 	var player1 = Globals.players[0]
 	var player2 = Globals.players[1]
+	
+	var p1_corner = player1.get_corner()
+	var p2_corner = player2.get_corner()
 	
 	if player1.push_box.can_push and player2.push_box.can_push:
 		var clip = player_clip(player1.push_box.get_global(), player2.push_box.get_global())
@@ -48,15 +53,55 @@ func _physics_process(delta):
 	if player1.push_box.can_push and player2.push_box.can_push:
 		var clip = player_clip(player1.push_box.get_global(), player2.push_box.get_global())
 		if abs(clip) > 0:
-			if abs(clip_1) > abs(clip_2):
-				player2.position.x -= clip
-			else:
-				player1.position.x += clip
-				
+#			if abs(clip_1) > abs(clip_2):
+#				player2.position.x -= clip
+#			else:
+#				player1.position.x += clip
+	
+			if in_corner == 1:
+				var rect = player1.push_box.get_global()
+				if p1_corner < 0:
+					player2.position.x = (rect.position.x + rect.size.x) - (player2.push_box.shape.position.x)
+				elif p1_corner > 0:
+					player2.position.x = rect.position.x  - (player2.push_box.shape.position.x + player2.push_box.shape.size.x)
+			elif in_corner == 2:
+				var rect = player2.push_box.get_global()
+				if p2_corner < 0:
+					player1.position.x =  (rect.position.x + rect.size.x) - (player1.push_box.shape.position.x )
+				elif p2_corner > 0:
+					player1.position.x = rect.position.x  - (player1.push_box.shape.position.x + player1.push_box.shape.size.x)
+		
+	if in_corner == 0:
+		if player1.in_corner():
+			in_corner = 1
+		elif player2.in_corner():
+			in_corner = 2
+	elif !player1.in_corner() and !player2.in_corner():
+		in_corner = 0		
+		
+func update_walls():		
+	var player1 = Globals.players[0]
+	var player2 = Globals.players[1]			
 	var center = (player1.position + player2.position)/2
 	var left = center.x - Globals.MAX_PLAYER_DISTANCE/2
 	var right = center.x + Globals.MAX_PLAYER_DISTANCE/2
 	if left < Globals.limit_left or right > Globals.limit_right:
 		Globals.limit_left = max(left, Globals.StageLeft)
 		Globals.limit_right = min(right, Globals.StageRight)
+		
+func hit_collisions():
+	var player1 = Globals.players[0]
+	var player2 = Globals.players[1]
+	for i in range(0, 2):
+		var hitter = player1 if i == 0 else player2
+		var hitbox = player1.hit_box if i == 0 else player2.hit_box
+		var hurtbox = player2.hurt_box if i == 0 else player1.hurt_box
+		var pos = hitbox.check_collision(hurtbox)
+		if pos != null:
+			hitter.hit_confirmed = true
+		
+func _physics_process(delta):
+	push_collisions()
+	update_walls()
+	hit_collisions()
 	

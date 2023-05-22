@@ -8,11 +8,14 @@ const CHARGE_DELAY_FRAMES = 12
 var actions := []
 var buffer := []
 
-var charge_axis := Vector2i.ZERO
+var charge_axis := Vector2.ZERO
 var charge_time := 0 
 var charge_delay := 0
 
 var id := 1
+
+var has_changed = false
+signal changed
 
 func _ready():
 	buffer.resize(BUFFER_FRAMES)
@@ -29,14 +32,15 @@ func get_axis():
 	var axis = buffer[BUFFER_FRAMES - 1].axis
 	return Vector2(axis.x, axis.y)
 	
-func get_buttons():
-	var buttons = buffer[BUFFER_FRAMES - 1].buttons
+func get_buttons(frame := BUFFER_FRAMES):
+	var buttons = buffer[frame - 1].buttons
 	return buttons
 
 func is_pressing(button := "") -> bool:
-	var buttons = get_buttons()
-	if buttons.has(button):
-		return buttons.get(button) >= 0
+	for i in range(BUFFER_FRAMES, BUFFER_FRAMES - 5, -1):
+		var buttons = get_buttons(i)
+		if buttons.has(button):
+			return buttons.get(button) == 1
 	return false
 	
 func check_combined_buttons(combo_buttons := [], duration := 10, start := BUFFER_FRAMES - 1):
@@ -111,8 +115,9 @@ func read_motion_input(index: int, flipped := false, start := BUFFER_FRAMES - 1)
 				break
 			last_dir = dir
 		
-#		if !failed:
-#			print(Constants.MotionInput.keys()[index])
+		if !failed:
+			print(Constants.MotionInput.keys()[index])
+			clear()
 		
 	return !failed
 
@@ -134,10 +139,12 @@ func process_input():
 		else:
 			if Input.is_action_just_pressed(action):
 				input.buttons[raw_action] = 1
+				has_changed = true
 			elif Input.is_action_pressed(action):
 				input.buttons[raw_action] = 0
 			elif Input.is_action_just_released(action):
 				input.buttons[raw_action] = -1
+				has_changed = true
 	return input
 	
 func update_charge(axis):
@@ -147,6 +154,7 @@ func update_charge(axis):
 		if charge_delay > 0:
 			charge_delay -= 1
 	else:
+		has_changed = true
 		charge_axis = axis
 		charge_time = 0 
 		if charge_time == CHARGE_FRAMES:
@@ -159,5 +167,8 @@ func update():
 	update_charge(_input.axis)
 	buffer.pop_front()
 	buffer.append(_input)
+	if has_changed:
+		has_changed = false
+		changed.emit(id)
 
 	

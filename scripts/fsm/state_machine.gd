@@ -33,7 +33,7 @@ func init(init_state: String = default_state):
 		if child is State:
 			state_map[child.name] = child
 			child.init(host)
-	
+			
 	active = true
 	change_state(init_state)
 	
@@ -54,16 +54,16 @@ func change_state(state_name: String):
 	state.enter()
 	emit_signal("state_changed", state.name)
 
-func _update_state(event: String, arg = null):
+func update_state(event: String, arg = null):
 	if active:
 		var new_state = state.call(event, arg)
 		if new_state:
 			change_state(new_state)
 			
-func _process(delta: float) -> void:
-	_update_state("process", delta)
-func _physics_process(delta: float) -> void:
-	_update_state("physics_process", delta)
-func _input(event: InputEvent) -> void:
-	_update_state("input", event)
+#func _process(delta: float) -> void:
+#	update_state("process", delta)
+#func _physics_process(delta: float) -> void:
+#	update_state("physics_process", delta)
+#func _input(event: InputEvent) -> void:
+#	update_state("input", event)
 

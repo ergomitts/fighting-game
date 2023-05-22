@@ -39,35 +39,35 @@ const MOTION_INPUT_DATA = {
 	# Tricky Inputs
 	MotionInput.HalfCircleF_GG : {
 		'directions' : [Vector2.RIGHT, Vector2.RIGHT + Vector2.DOWN, Vector2.DOWN, Vector2.DOWN + Vector2.LEFT, Vector2.LEFT, Vector2.RIGHT], 
-		'duration' : 32, 
+		'duration' : 26, 
 		'misinputs' : 4
 	},
 	MotionInput.HalfCircleF : {
 		'directions' : [Vector2.LEFT, Vector2.LEFT + Vector2.DOWN, Vector2.DOWN, Vector2.DOWN + Vector2.RIGHT, Vector2.RIGHT], 
-		'duration' : 32, 
+		'duration' : 26, 
 		'misinputs' : 4,
 	},
 	MotionInput.HalfCircleB : {
 		'directions' : [Vector2.RIGHT, Vector2.RIGHT + Vector2.DOWN, Vector2.DOWN, Vector2.DOWN + Vector2.LEFT, Vector2.LEFT], 
-		'duration' : 32, 
+		'duration' : 26, 
 		'misinputs' : 4,
 	},
 	
 	# Simple Inputs
 	MotionInput.DragonPunch : {
 		'directions' : [Vector2.RIGHT, Vector2.DOWN, Vector2.DOWN + Vector2.RIGHT], 
-		'duration' : 24, 
-		'misinputs' : 3
+		'duration' : 18, 
+		'misinputs' : 2
 	},
 	MotionInput.QuarterCircleF : {
 		'directions' : [Vector2.DOWN, Vector2.DOWN + Vector2.RIGHT, Vector2.RIGHT], 
-		'duration' : 15, 
-		'misinputs' : 2
+		'duration' : 12, 
+		'misinputs' : 1
 	},
 	MotionInput.QuarterCircleB : {
 		'directions' : [Vector2.DOWN, Vector2.DOWN + Vector2.LEFT, Vector2.LEFT], 
-		'duration' : 15, 
-		'misinputs' : 2
+		'duration' : 12, 
+		'misinputs' : 1
 	},
 	
 	# Double Taps
