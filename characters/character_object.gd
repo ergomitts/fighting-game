@@ -1,6 +1,7 @@
 extends GameObject
 class_name CharacterObject
 
+@export_category("Nodes")
 @export var state_machine : StateMachine
 @export var health : Node
 @export var attack_states : Array[String] = []
@@ -9,18 +10,23 @@ class_name CharacterObject
 @export var hurt_box : CollisionBox
 @export var hit_box : CollisionBox
 
+@export_category("Settings")
 @export var forward_walk_speed := 15.0
 @export var backward_walk_speed := 13.0
 @export var jump_velocity := 70
 @export var friction := 50
-
 @export var gravity := 5
+
+@export_category("Properties")
+@export var immune := false
+@export var grab_immune := false
+@export var counterable := false
+@export var punishable := false
 
 var id := 0
 var nemesis : CharacterObject
 var stance := Constants.Stance.Normal
-var immune := false
-var grab_immune := false
+
 var hit_confirmed := false
 var hitstun := 0
 

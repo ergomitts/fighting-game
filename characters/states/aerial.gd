@@ -2,7 +2,7 @@ extends CharacterState
 class_name AerialState
 
 func enter():
-	host.animation_player.play("Air")
+	host.animation_player.play("falling")
 
 func physics_process(delta):
 	if host.grounded():

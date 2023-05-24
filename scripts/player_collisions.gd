@@ -61,15 +61,19 @@ func push_collisions():
 			if in_corner == 1:
 				var rect = player1.push_box.get_global()
 				if p1_corner < 0:
+					player1.position.x = Globals.limit_left - player1.push_box.shape.position.x
 					player2.position.x = (rect.position.x + rect.size.x) - (player2.push_box.shape.position.x)
 				elif p1_corner > 0:
+					player1.position.x = Globals.limit_right - (player1.push_box.shape.position.x + player1.push_box.shape.size.x)
 					player2.position.x = rect.position.x  - (player2.push_box.shape.position.x + player2.push_box.shape.size.x)
 			elif in_corner == 2:
 				var rect = player2.push_box.get_global()
 				if p2_corner < 0:
-					player1.position.x =  (rect.position.x + rect.size.x) - (player1.push_box.shape.position.x )
+					player1.position.x =  (rect.position.x + rect.size.x) - (player1.push_box.shape.position.x)
+					player2.position.x = Globals.limit_left - player2.push_box.shape.position.x
 				elif p2_corner > 0:
 					player1.position.x = rect.position.x  - (player1.push_box.shape.position.x + player1.push_box.shape.size.x)
+					player2.position.x = Globals.limit_right - (player2.push_box.shape.position.x + player2.push_box.shape.size.x)
 		
 	if in_corner == 0:
 		if player1.in_corner():

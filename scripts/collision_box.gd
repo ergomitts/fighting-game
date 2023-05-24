@@ -64,7 +64,7 @@ func check_collision(other : CollisionBox):
 func draw_collisions():
 	for rect in _data:
 		draw_rect(rect, color, false)
-		draw_rect(rect, Color(color, 0.3), true)
+	#	draw_rect(rect, Color(color, 0.2), true)
 		
 func _process(_delta: float):
 	queue_redraw()

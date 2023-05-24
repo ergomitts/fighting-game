@@ -26,7 +26,7 @@ class_name ActionState
 @export var push_back := 100
 @export var push_back_block := 50
 @export var launch_on_hit := false
-@export var launch_amount := 50
+@export var launch_velocity := 50
 @export var max_wall_bounce := 0
 @export var max_ground_bounce := 0
 
@@ -35,9 +35,11 @@ class_name ActionState
 @export var cancel_into : PackedStringArray
 @export var hit_amount := 1
 
+var frame := 0
 var hits := 0
 
 func enter():
+	frame = 0
 	host.animation_player.play(animation)
 	
 func exit():
@@ -62,3 +64,4 @@ func physics_process(delta):
 			return "Aerial"
 		else:
 			return "Grounded"
+	frame += 1

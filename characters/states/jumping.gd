@@ -8,7 +8,7 @@ func enter():
 	var dir = axis.x * (-1 if host.flipped else 1)
 	if dir < 0:
 		speed = host.backward_walk_speed
-	host.animation_player.play("Jump")
+	host.animation_player.play("jumping")
 	host.velocity.x = axis.x * speed
 	host.velocity.y = -host.jump_velocity
 	started_straight = axis.x == 0

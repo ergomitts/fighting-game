@@ -3,7 +3,7 @@ class_name WalkState
 
 func enter():
 	host.face_target()
-	host.animation_player.play("Walk")
+	host.animation_player.play("walking")
 
 func exit():
 	host.face_target()

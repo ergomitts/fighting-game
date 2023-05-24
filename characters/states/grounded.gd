@@ -16,9 +16,9 @@ func change_stance(new_stance):
 	if host.stance != new_stance:
 		host.stance = new_stance
 		if host.stance == Constants.Stance.Normal:
-			host.animation_player.play("crouch_exit")
+			host.animation_player.play("crouching_exit")
 		elif host.stance == Constants.Stance.Crouching:
-			host.animation_player.play("crouch_enter")
+			host.animation_player.play("crouching_enter")
 		
 func process_stance(delta):
 	var axis = get_axis()

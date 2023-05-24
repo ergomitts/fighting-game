@@ -21,6 +21,7 @@ func physics_process(delta: float):
 func _physics_process(delta: float):
 	if hitstop > 0:
 		hitstop -= 1 
+		animation_player.speed_scale = 0.0
 	else:
-		animation_player.advance(delta)
+		animation_player.speed_scale = 1.0
 		physics_process(delta)
