@@ -1,13 +1,19 @@
 extends Node2D
 
 const PLAYER_SCENE := preload(Constants.CharacterPaths[0])
-const CAMERA_SCENE := preload("res://scripts/camera.gd")
 const PLAYER_COLLISIONS := preload("res://scripts/player_collisions.gd")
+const CAMERA_SCENE := preload("res://scripts/camera.gd")
+
+var collisions
+var camera
 
 func _ready():
 	load_players()
-	add_child(PLAYER_COLLISIONS.new())
-	add_child(CAMERA_SCENE.new())
+	collisions = PLAYER_COLLISIONS.new()
+	camera = CAMERA_SCENE.new()
+	add_child(collisions)
+	add_child(camera)
+	collisions.connect("player_hit", on_player_hit)
 	
 func load_players():
 	Globals.players.clear()
@@ -31,3 +37,27 @@ func load_players():
 	
 func reset_players():
 	pass
+
+func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
+	if clashing:
+		Globals.players[0].hit_confirmed = true
+		Globals.players[1].hit_confirmed = true
+	else:
+		var hitter : CharacterObject
+		var victim : CharacterObject
+		var attack : ActionState
+		if p1_hit:
+			hitter = Globals.players[0]
+			victim = Globals.players[1]
+			attack = p1_attack
+		elif p2_hit:
+			hitter = Globals.players[1]
+			victim = Globals.players[0]
+			attack = p2_attack
+		hitter.hit_confirmed = true
+		var dir = sign(victim.global_position.x - hitter.global_position.x)
+		if !victim.in_corner():
+			victim.velocity.x = attack.push_back * dir
+		else:
+			hitter.velocity.x = attack.push_back * -dir
+		

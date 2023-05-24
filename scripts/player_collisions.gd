@@ -2,6 +2,8 @@ extends Node
 
 var in_corner = 0
 
+signal player_hit
+
 func wall_clip(rect : Rect2):
 	var x := 0
 	var position := rect.position.x
@@ -96,13 +98,33 @@ func update_walls():
 func hit_collisions():
 	var player1 = Globals.players[0]
 	var player2 = Globals.players[1]
+	
+	var p1_clash := false
+	var p2_clash := false
+	var p1_hit
+	var p2_hit
+	var p1_attack = player1.state_machine.state
+	var p2_attack = player2.state_machine.state
+	
 	for i in range(0, 2):
-		var hitter = player1 if i == 0 else player2
-		var hitbox = player1.hit_box if i == 0 else player2.hit_box
-		var hurtbox = player2.hurt_box if i == 0 else player1.hurt_box
-		var pos = hitbox.check_collision(hurtbox)
-		if pos != null:
-			hitter.hit_confirmed = true
+		var hit = player1.hit_box.check_collision(player2.hurt_box) if i == 0 else player2.hit_box.check_collision(player1.hurt_box)
+		if hit != null:
+			var hitter = player1 if i == 0 else player2
+			var victim = player2 if i == 0 else player1
+			if i == 0:
+				p1_hit = hit
+			elif i == 1:
+				p2_hit = hit
+		else:
+			var clash = player1.hit_box.check_collision(player2.hit_box)
+			if clash != null:
+				if i == 0:
+					p1_clash = true
+				elif i == 1:
+					p2_clash = true
+	
+	if p1_hit or p2_hit or (p1_clash and p2_clash):
+		player_hit.emit(p1_hit, p2_hit, p1_clash and p2_clash, p1_attack, p2_attack)
 		
 func _physics_process(delta):
 	push_collisions()
