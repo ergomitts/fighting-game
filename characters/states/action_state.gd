@@ -3,6 +3,7 @@ class_name ActionState
 
 @export_category("Inputs")
 @export var motion := Constants.MotionInput.Empty
+@export var direction := Vector2(0, 0)
 @export var button := Constants.Buttons.Light
 
 @export_category("Frame Data")

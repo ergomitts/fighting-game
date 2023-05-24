@@ -117,7 +117,8 @@ func read_motion_input(index: int, flipped := false, start := BUFFER_FRAMES - 1)
 		
 		if !failed:
 			print(Constants.MotionInput.keys()[index])
-			clear()
+			if index != Constants.MotionInput.Empty:
+				clear()
 		
 	return !failed
 

@@ -21,7 +21,7 @@ func is_pressing(button := "") -> bool:
 	var controller = InputManager.controllers[host.id - 1]
 	return controller.is_pressing(button)
 	
-func get_attack_state(motion_input):
+func get_attack_state(motion_input, axis := Vector2.ZERO):
 	var state := ""
 	var pressing := -1
 	if is_pressing("special"):
@@ -36,6 +36,10 @@ func get_attack_state(motion_input):
 	for attack_name in host.attack_states:
 		var i = host.get_attack_state(attack_name)
 		if i.motion == motion_input and i.button == pressing:
+			if i.motion == Constants.MotionInput.Empty:
+				if i.direction != axis and i.direction != Vector2.ZERO:
+					continue
+			#print(attack_name)
 			if (host.grounded() and !i.aerial) or (!host.grounded() and i.aerial):
 				state = i.name
 				break
@@ -57,7 +61,7 @@ func process_input():
 				motion_input = i
 				break
 		if motion_input:
-			var state = get_attack_state(motion_input)
+			var state = get_attack_state(motion_input, axis)
 			if state:
 				return state
 		

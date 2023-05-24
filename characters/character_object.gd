@@ -50,7 +50,8 @@ func in_corner():
 	return position <= Globals.limit_left or position + size >= Globals.limit_right
 	
 func grounded():
-	return global_position.y + push_box.shape.size.y > Globals.StageBottom
+	var rect := push_box.get_global() as Rect2
+	return rect.position.y + rect.size.y >= Globals.StageBottom
 	
 func get_attack_state(attack_name):
 	return state_machine.get_node(attack_name)
@@ -67,6 +68,8 @@ func face_target():
 	hit_box.flipped = flipped
 	
 func physics_process(delta):
+	if hitstun > 0:
+		hitstun -= 1
 	state_machine.update_state("physics_process", delta)
 	move(velocity)
 	

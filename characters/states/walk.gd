@@ -1,4 +1,4 @@
-extends GroundedState
+extends StandState
 class_name WalkState
 
 func enter():

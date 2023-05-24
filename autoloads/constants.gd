@@ -86,6 +86,10 @@ const MOTION_INPUT_DATA = {
 		'duration' : 14,
 		'misinputs' : 1
 	},
-	MotionInput.Empty : {}
+	MotionInput.Empty : {
+		'directions' : [Vector2.ZERO],
+		'duration' : 5,
+		'misinputs' : 0
+	}
 }
 
