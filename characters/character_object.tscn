@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://c8goshj4p7p2m"]
+[gd_scene load_steps=72 format=3 uid="uid://cosc2d17vuk1b"]
 
 [ext_resource type="Script" path="res://characters/character_object.gd" id="1_7v1m0"]
 [ext_resource type="Script" path="res://scripts/fsm/state_machine.gd" id="2_ii632"]
@@ -10,7 +10,8 @@
 [ext_resource type="Script" path="res://scripts/hit_box.gd" id="4_cji4j"]
 [ext_resource type="Script" path="res://characters/states/action_state.gd" id="4_fh8td"]
 [ext_resource type="Script" path="res://characters/components/health.gd" id="4_lmlhl"]
-[ext_resource type="Script" path="res://characters/states/walk.gd" id="4_nv6cl"]
+[ext_resource type="Script" path="res://characters/states/walking.gd" id="5_frrp1"]
+[ext_resource type="Script" path="res://characters/states/running.gd" id="6_1wp87"]
 [ext_resource type="Script" path="res://characters/states/blocking.gd" id="6_ahygp"]
 [ext_resource type="Script" path="res://characters/states/stunned.gd" id="6_cg38t"]
 [ext_resource type="Script" path="res://characters/states/landing.gd" id="6_mghvc"]
@@ -1480,6 +1481,12 @@ script = ExtResource("3_4lhrq")
 [node name="Standing" type="Node" parent="StateMachine"]
 script = ExtResource("3_ruyv0")
 
+[node name="Walking" type="Node" parent="StateMachine"]
+script = ExtResource("5_frrp1")
+
+[node name="Running" type="Node" parent="StateMachine"]
+script = ExtResource("6_1wp87")
+
 [node name="Crouching" type="Node" parent="StateMachine"]
 script = ExtResource("4_6ks4i")
 
@@ -1491,6 +1498,7 @@ active_frames = 2
 recovery_frames = 15
 hitstun = 15
 blockstun = 7
+hitstop = 5
 cancel_into = PackedStringArray("LightAttack")
 
 [node name="Blocking" type="Node" parent="StateMachine"]
@@ -1513,9 +1521,6 @@ script = ExtResource("6_r3syh")
 
 [node name="Jumping" type="Node" parent="StateMachine"]
 script = ExtResource("7_7qu6k")
-
-[node name="Walking" type="Node" parent="StateMachine"]
-script = ExtResource("4_nv6cl")
 
 [node name="Prejump" type="Node" parent="StateMachine"]
 script = ExtResource("8_pdhdy")

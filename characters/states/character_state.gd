@@ -73,7 +73,7 @@ func process_input():
 			return get_attack_state(Constants.MotionInput.DragonPunch)
 		elif controller.read_directional_input(Vector2.DOWN, "special"):
 			return get_attack_state(Constants.MotionInput.HalfCircleF)
-		
+
 func process_physics(delta):
 	if !host.grounded():
 		host.velocity.y += host.gravity

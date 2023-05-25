@@ -13,6 +13,7 @@ class_name ActionState
 @export var recovery_frames := 0
 @export var hitstun := 0
 @export var blockstun := 0
+@export var hitstop := 0
 
 @export_category("Attributes")
 @export var aerial := false
@@ -40,6 +41,7 @@ var frame := 0
 var hits := 0
 
 func enter():
+	hits = hit_amount
 	frame = 0
 	host.animation_player.play(animation)
 	

@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/input_viewer.gd" id="2_ewjyx"]
 
 [node name="InputManager" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_kx8s5")
 
 [node name="InputViewer" type="Control" parent="."]

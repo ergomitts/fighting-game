@@ -14,7 +14,8 @@ class_name CharacterObject
 @export var forward_walk_speed := 15.0
 @export var backward_walk_speed := 13.0
 @export var jump_velocity := 70
-@export var friction := 50
+@export var run_speed := 35.0
+@export var friction := 10
 @export var gravity := 5
 
 @export_category("Properties")
@@ -29,6 +30,7 @@ var stance := Constants.Stance.Normal
 
 var hit_confirmed := false
 var hitstun := 0
+var hit_id := 0
 
 func _ready():
 	state_machine.init()

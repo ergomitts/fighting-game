@@ -1,5 +1,4 @@
-extends StandState
-class_name WalkState
+extends GroundedState
 
 func enter():
 	host.face_target()
