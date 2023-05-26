@@ -1,0 +1,274 @@
+[gd_scene load_steps=20 format=3 uid="uid://bkjutxn8uw17d"]
+
+[ext_resource type="Texture2D" uid="uid://bqhqw7nbphki6" path="res://assets/textures/health_back.png" id="1_ww5tb"]
+[ext_resource type="Texture2D" uid="uid://bbipjbwqgf4ha" path="res://assets/textures/health_border.png" id="2_0hsh2"]
+[ext_resource type="Texture2D" uid="uid://cw2iil7yjljow" path="res://assets/textures/health_front.png" id="3_psh5t"]
+[ext_resource type="FontFile" uid="uid://bxdlr7x70a115" path="res://assets/fonts/battlenet.ttf" id="4_jp1cl"]
+[ext_resource type="Texture2D" uid="uid://4ehf5amxob4b" path="res://assets/textures/timer_back.png" id="5_ustri"]
+[ext_resource type="FontFile" uid="uid://c8ejx8kh1xebr" path="res://assets/fonts/framd.ttf" id="6_bvxul"]
+[ext_resource type="Texture2D" uid="uid://bs6pytbc87mqg" path="res://assets/textures/shield.png" id="7_heolb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eoys"]
+bg_color = Color(0.0627451, 0.0745098, 0.145098, 1)
+skew = Vector2(-0.25, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuu68"]
+bg_color = Color(0.470588, 0.85098, 1, 1)
+skew = Vector2(-0.25, 0)
+
+[sub_resource type="Theme" id="Theme_wccuh"]
+default_font = ExtResource("4_jp1cl")
+default_font_size = 32
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8eoys")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va80t"]
+bg_color = Color(0.0627451, 0.0745098, 0.145098, 1)
+skew = Vector2(0.25, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6lsc"]
+bg_color = Color(0.470588, 0.85098, 1, 1)
+skew = Vector2(0.25, 0)
+
+[sub_resource type="Theme" id="Theme_gkxed"]
+default_font = ExtResource("4_jp1cl")
+default_font_size = 32
+ProgressBar/styles/background = SubResource("StyleBoxFlat_va80t")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_q6lsc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2n43"]
+bg_color = Color(0.0784314, 0.0745098, 0.113725, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 12
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67a3i"]
+bg_color = Color(0.737255, 0.0117647, 0.686275, 1)
+border_width_bottom = 16
+border_color = Color(0.313945, 0.0516431, 0.369998, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_48732"]
+default_font = ExtResource("4_jp1cl")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_a2n43")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_67a3i")
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3s2i"]
+font_size = 48
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_qtx3c"]
+default_font = ExtResource("6_bvxul")
+default_font_size = 32
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8eoys")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7bet"]
+font_size = 192
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUDLayer" type="CanvasLayer"]
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health1" type="TextureProgressBar" parent="Main"]
+texture_filter = 1
+layout_mode = 1
+offset_left = 48.0
+offset_top = 80.0
+offset_right = 400.0
+offset_bottom = 180.0
+scale = Vector2(2, 2)
+value = 45.0
+texture_under = ExtResource("1_ww5tb")
+texture_over = ExtResource("2_0hsh2")
+texture_progress = ExtResource("3_psh5t")
+
+[node name="Defense1" type="ProgressBar" parent="Main"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 310.0
+offset_right = 670.0
+offset_bottom = 344.0
+theme = SubResource("Theme_wccuh")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+value = 25.0
+
+[node name="Defense2" type="ProgressBar" parent="Main"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -670.0
+offset_top = 310.0
+offset_right = -180.0
+offset_bottom = 344.0
+grow_horizontal = 0
+theme = SubResource("Theme_gkxed")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+value = 25.0
+fill_mode = 1
+
+[node name="Special1" type="ProgressBar" parent="Main"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 950.0
+offset_right = 669.0
+offset_bottom = 1030.0
+theme = SubResource("Theme_48732")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+value = 25.0
+
+[node name="Special2" type="ProgressBar" parent="Main"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -669.0
+offset_top = 950.0
+offset_right = -100.0
+offset_bottom = 1030.0
+grow_horizontal = 0
+theme = SubResource("Theme_48732")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+value = 25.0
+fill_mode = 1
+
+[node name="Name1" type="Label" parent="Main"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 29.0
+offset_right = 246.0
+offset_bottom = 74.0
+theme = SubResource("Theme_wccuh")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "PLAYER 1"
+label_settings = SubResource("LabelSettings_m3s2i")
+
+[node name="Health2" type="TextureProgressBar" parent="Main"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 80.0
+offset_right = 304.0
+offset_bottom = 180.0
+grow_horizontal = 0
+scale = Vector2(-2, 2)
+value = 65.0
+texture_under = ExtResource("1_ww5tb")
+texture_over = ExtResource("2_0hsh2")
+texture_progress = ExtResource("3_psh5t")
+
+[node name="Name2" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -246.0
+offset_top = 32.0
+offset_right = -48.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme = SubResource("Theme_wccuh")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "PLAYER 2"
+label_settings = SubResource("LabelSettings_m3s2i")
+horizontal_alignment = 2
+
+[node name="TimerBack" type="TextureRect" parent="Main"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -153.0
+offset_top = 48.0
+offset_right = 153.0
+offset_bottom = 348.0
+grow_horizontal = 2
+texture = ExtResource("5_ustri")
+
+[node name="TimerLabel" type="Label" parent="Main"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.0
+offset_top = 64.0
+offset_right = 113.0
+offset_bottom = 291.0
+grow_horizontal = 2
+theme = SubResource("Theme_qtx3c")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "00"
+label_settings = SubResource("LabelSettings_w7bet")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DefenseIcon1" type="TextureRect" parent="Main"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 76.0
+offset_top = 295.0
+offset_right = 147.0
+offset_bottom = 368.0
+texture = ExtResource("7_heolb")
+
+[node name="DefenseIcon2" type="TextureRect" parent="Main"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -147.0
+offset_top = 295.0
+offset_right = -76.0
+offset_bottom = 368.0
+grow_horizontal = 0
+texture = ExtResource("7_heolb")

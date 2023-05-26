@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjepiygra8opl"]
+
+[ext_resource type="FontFile" uid="uid://c8ejx8kh1xebr" path="res://assets/fonts/framd.ttf" id="1_jj1a5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eoys"]
+bg_color = Color(0.0627451, 0.0745098, 0.145098, 1)
+skew = Vector2(-0.25, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuu68"]
+bg_color = Color(0.470588, 0.85098, 1, 1)
+skew = Vector2(-0.25, 0)
+
+[sub_resource type="Theme" id="Theme_qtx3c"]
+default_font = ExtResource("1_jj1a5")
+default_font_size = 32
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8eoys")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7bet"]
+font_size = 192
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="UILayer" type="CanvasLayer"]
+
+[node name="Main" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ready" type="Label" parent="Main"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.5
+offset_top = -113.5
+offset_right = 330.5
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qtx3c")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "READY?"
+label_settings = SubResource("LabelSettings_w7bet")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fight" type="Label" parent="Main"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.5
+offset_top = -113.5
+offset_right = 330.5
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qtx3c")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "FIGHT!"
+label_settings = SubResource("LabelSettings_w7bet")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Winner" type="Label" parent="Main"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.5
+offset_top = -113.5
+offset_right = 330.5
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qtx3c")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "PLAYER 1 WINS!"
+label_settings = SubResource("LabelSettings_w7bet")
+horizontal_alignment = 1
+vertical_alignment = 1

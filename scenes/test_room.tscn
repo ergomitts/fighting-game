@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpg42uirkseid"]
+
+[ext_resource type="Script" path="res://scenes/test_room.gd" id="1_flah8"]
+[ext_resource type="Texture2D" uid="uid://2ojiuhh4ylty" path="res://assets/textures/stages/mountains/ground.png" id="3_tav31"]
+[ext_resource type="PackedScene" uid="uid://bkjutxn8uw17d" path="res://scenes/ui/hud.tscn" id="4_46sha"]
+[ext_resource type="Texture2D" uid="uid://dkuil2n2chv6r" path="res://assets/textures/stages/mountains/layer1.png" id="5_6p5ci"]
+[ext_resource type="PackedScene" uid="uid://bjepiygra8opl" path="res://scenes/ui/callouts.tscn" id="5_g1d0m"]
+[ext_resource type="Texture2D" uid="uid://dryie24s05sef" path="res://assets/textures/stages/mountains/layer2.png" id="6_igkck"]
+[ext_resource type="Texture2D" uid="uid://dmgvxierfwfoi" path="res://assets/textures/effects/circle.png" id="12_u51go"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eq2d5"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_flah8")
+
+[node name="StageBackground" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="StageBackground"]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="StageBackground/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Layer0" type="Sprite2D" parent="StageBackground/ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(0, 136)
+scale = Vector2(3, 3)
+texture = ExtResource("5_6p5ci")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="StageBackground/ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="Layer0" type="Sprite2D" parent="StageBackground/ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(0, 632)
+scale = Vector2(3, 3)
+texture = ExtResource("6_igkck")
+metadata/_edit_lock_ = true
+
+[node name="HUDLayer" parent="." instance=ExtResource("4_46sha")]
+
+[node name="GameLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="CalloutLayer" parent="." instance=ExtResource("5_g1d0m")]
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 783)
+scale = Vector2(3, 3)
+texture = ExtResource("3_tav31")
+metadata/_edit_lock_ = true
+
+[node name="Particle" type="GPUParticles2D" parent="."]
+texture_filter = 1
+process_material = SubResource("ParticleProcessMaterial_eq2d5")
+texture = ExtResource("12_u51go")
