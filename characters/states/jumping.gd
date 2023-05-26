@@ -1,6 +1,7 @@
 extends AerialState
 
 var started_straight := false
+var frame := 0
 
 func enter():
 	var axis = get_axis()
@@ -12,10 +13,9 @@ func enter():
 	host.velocity.x = axis.x * speed
 	host.velocity.y = -host.jump_velocity
 	started_straight = axis.x == 0
+	frame = 5
 
 func physics_process(delta):
-	super.physics_process(delta)
-	
 	if started_straight:
 		var axis = get_axis()
 		var speed = host.forward_walk_speed
@@ -24,7 +24,16 @@ func physics_process(delta):
 			speed = host.backward_walk_speed
 		host.velocity.x = axis.x * speed
 	
+	var state = super.physics_process(delta)
+	if state and frame == 0:
+		return state
+	
 	if host.grounded():
 		return "Landing"
 	elif host.velocity.y > 0:
 		return "Aerial"
+		
+	if frame > 0:
+		frame -= 1
+		
+		

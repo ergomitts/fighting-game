@@ -35,13 +35,14 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 	
 	for attack_name in host.attack_states:
 		var i = host.get_attack_state(attack_name)
-		if i.motion == motion_input and i.button == pressing:
+		if i.motion == motion_input and (i.button == pressing or (i.can_special and pressing == Constants.Buttons.Special)):
 			if i.motion == Constants.MotionInput.Empty:
 				if i.direction != axis and i.direction != Vector2.ZERO:
 					continue
-			#print(attack_name)
+			print(attack_name)
 			if (host.grounded() and !i.aerial) or (!host.grounded() and i.aerial):
 				state = i.name
+				InputManager.controllers[host.id - 1].clear()
 				break
 			
 	return state
@@ -65,13 +66,13 @@ func process_input():
 			if state:
 				return state
 		
-		if controller.read_directional_input(Vector2.LEFT, "special") or controller.read_directional_input(Vector2.DOWN + Vector2.LEFT, "special"):
+		if controller.read_directional_input(Vector2.LEFT, "special", host.flipped) or controller.read_directional_input(Vector2.DOWN + Vector2.LEFT, "special", host.flipped):
 			return get_attack_state(Constants.MotionInput.QuarterCircleB)
-		elif controller.read_directional_input(Vector2.RIGHT, "special"):	
+		elif controller.read_directional_input(Vector2.RIGHT, "special", host.flipped):	
 			return get_attack_state(Constants.MotionInput.QuarterCircleF)
-		elif controller.read_directional_input(Vector2.DOWN + Vector2.RIGHT, "special"):	
+		elif controller.read_directional_input(Vector2.DOWN + Vector2.RIGHT, "special", host.flipped):	
 			return get_attack_state(Constants.MotionInput.DragonPunch)
-		elif controller.read_directional_input(Vector2.DOWN, "special"):
+		elif controller.read_directional_input(Vector2.DOWN, "special", host.flipped):
 			return get_attack_state(Constants.MotionInput.HalfCircleF)
 
 func process_physics(delta):

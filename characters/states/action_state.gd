@@ -5,6 +5,7 @@ class_name ActionState
 @export var motion := Constants.MotionInput.Empty
 @export var direction := Vector2(0, 0)
 @export var button := Constants.Buttons.Light
+@export var can_special := false
 
 @export_category("Frame Data")
 @export var animation := ""
@@ -52,10 +53,11 @@ func exit():
 	
 func physics_process(delta):
 	process_physics(delta)
+	if aerial and host.grounded():
+		return "Landing"
 	if host.hit_confirmed:
 		var state = process_input()
 		if state:
-			print(state)
 			if state in cancel_into:
 				if state == name:
 					exit()

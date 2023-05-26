@@ -115,11 +115,9 @@ func read_motion_input(index: int, flipped := false, start := BUFFER_FRAMES - 1)
 				break
 			last_dir = dir
 		
-		if !failed:
-			print(Constants.MotionInput.keys()[index])
-			if index != Constants.MotionInput.Empty:
-				clear()
-		
+#		if !failed:
+#			print(Constants.MotionInput.keys()[index])
+
 	return !failed
 
 func process_input():
