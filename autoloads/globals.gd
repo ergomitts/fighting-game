@@ -14,3 +14,7 @@ var limit_left = -960
 var limit_right = 960
 
 var players = []
+
+func _process(delta):
+	if Input.is_action_just_pressed("toggle_hitboxes"):
+		debug = not debug

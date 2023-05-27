@@ -53,6 +53,10 @@ func update(id : int, buffer : Array):
 	change_dir(pressed.get_node("Arrow"), current_input.axis)
 	for button in current_input.buttons:
 		pressed.get_node(button.capitalize()).visible = current_input.buttons[button] >= 0
+		
+func _process(delta):
+	if Input.is_action_just_pressed("toggle_input_display"):
+		visible = not visible
 	
 			
 		

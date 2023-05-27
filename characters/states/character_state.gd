@@ -20,6 +20,30 @@ func get_dir() -> int:
 func is_pressing(button := "") -> bool:
 	var controller = InputManager.controllers[host.id - 1]
 	return controller.is_pressing(button)
+func is_holding_away():
+	var axis = get_axis()
+	var dir = host.get_flipped()
+	if axis.x * dir == -1:
+		return true
+	return false
+		
+func on_hit(attack: ActionState):
+	if is_holding_away() and attack.attack_type != Constants.AttackType.Unblockable:
+		var axis = get_axis()
+		var crouching = axis.y == 1
+		var low = crouching and attack.attack_type != Constants.AttackType.High
+		var high = !crouching and attack.attack_type != Constants.AttackType.Low
+		var air = !host.grounded() and attack.attack_type != Constants.AttackType.AirUnblockable
+		if low or high or air:
+			return "Blocking"
+	if attack.launch_on_hit or !host.grounded():
+		return "Launched"
+	else:
+		if attack.force_stance == Constants.Stance.Normal:
+			host.crouching = false
+		elif attack.force_stance == Constants.Stance.Crouching:
+			host.crouching = true
+		return "Stunned"
 	
 func get_attack_state(motion_input, axis := Vector2.ZERO):
 	var state := ""
@@ -32,14 +56,15 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 		pressing = Constants.Buttons.Medium
 	elif is_pressing("light"):
 		pressing = Constants.Buttons.Light
-	
+
 	for attack_name in host.attack_states:
 		var i = host.get_attack_state(attack_name)
 		if i.motion == motion_input and (i.button == pressing or (i.can_special and pressing == Constants.Buttons.Special)):
 			if i.motion == Constants.MotionInput.Empty:
 				if i.direction != axis and i.direction != Vector2.ZERO:
 					continue
-			print(attack_name)
+				elif i.direction == Vector2.ZERO and (axis.y == 1) != i.crouch:
+					continue
 			if (host.grounded() and !i.aerial) or (!host.grounded() and i.aerial):
 				state = i.name
 				InputManager.controllers[host.id - 1].clear()

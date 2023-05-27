@@ -2,7 +2,8 @@ extends GroundedState
 class_name StandState
 
 func enter():
-	if !host.animation_player.current_animation == "crouching_exit":
+	host.crouching = false
+	if !host.animation_player.current_animation == "crouching_exit" and !host.animation_player.current_animation == "landing":
 		host.animation_player.play("standing")
 
 func process_input():

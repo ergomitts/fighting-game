@@ -15,14 +15,19 @@ class_name CharacterObject
 @export var backward_walk_speed := 13.0
 @export var jump_velocity := 70
 @export var run_speed := 35.0
-@export var friction := 10
-@export var gravity := 5
+@export var back_dash_velocity := 24.0
+@export var friction := 10.0
+@export var drag := 2.0
+@export var default_gravity := 5.0
+@export var gravity := default_gravity
 
 @export_category("Properties")
 @export var immune := false
 @export var grab_immune := false
 @export var counterable := false
 @export var punishable := false
+@export var crouching := false
+@export var hard_knockdown := false
 
 var id := 0
 var nemesis : CharacterObject
@@ -34,6 +39,27 @@ var hit_id := 0
 
 func _ready():
 	state_machine.init()
+
+func get_input() -> FGInput:
+	var controller = InputManager.controllers[id - 1]
+	var input = controller.buffer[controller.BUFFER_FRAMES - 1]
+	return input
+func get_axis() -> Vector2:
+	var controller = InputManager.controllers[id - 1]
+	return controller.get_axis()
+func get_buttons() -> Dictionary:
+	var controller = InputManager.controllers[id - 1]
+	return controller.get_buttons()
+func get_dir() -> int:
+	var axis = get_axis()
+	var dir = axis.x * get_flipped()
+	return dir
+func is_pressing(button := "") -> bool:
+	var controller = InputManager.controllers[id - 1]
+	return controller.is_pressing(button)
+
+func get_flipped():
+	return -1 if flipped else 1
 
 func get_corner():
 	var rect := push_box.get_global() as Rect2
@@ -68,6 +94,10 @@ func face_target():
 		flipped = false
 	hurt_box.flipped = flipped
 	hit_box.flipped = flipped
+	
+func on_hit(attack: ActionState):
+	if state_machine.state.has_method("on_hit"):
+		return state_machine.state.call("on_hit", attack)
 	
 func physics_process(delta):
 	if hitstun > 0:

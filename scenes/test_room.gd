@@ -66,15 +66,24 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 			if attack.hits == 0:
 				continue
 			hitter.hit_confirmed = true
-			var dir = sign(victim.global_position.x - hitter.global_position.x)
-			if !victim.in_corner():
-				victim.velocity.x = attack.push_back * dir
-			else:
-				hitter.velocity.x = attack.push_back * -dir
 			hitter.hitstop = attack.hitstop
-			victim.hitstop = attack.hitstop
+			victim.hitstop = attack.hitstop + attack.v_hitstop
 			attack.hits -= 1
 			hitstop = attack.hitstop
+			var on_hit = victim.on_hit(attack)
+			if on_hit:
+				victim.hitstun = attack.blockstun if on_hit == "Blocking" else attack.hitstun
+				if victim.state_machine.state.name == on_hit:
+					victim.state_machine.state.enter()
+				victim.state_machine.change_state(on_hit)
+				var push_back = attack.push_back_block if on_hit == "Blocking" else attack.push_back
+				var dir = sign(victim.global_position.x - hitter.global_position.x)
+				if !victim.in_corner():
+					victim.velocity.x = push_back * dir
+				else:
+					hitter.velocity.x = push_back * -dir
+				if on_hit != "Blocking" and (!victim.grounded() or attack.launch_on_hit):
+					victim.velocity.y = -attack.launch_velocity
 
 func _physics_process(delta):
 	if hitstop > 0:

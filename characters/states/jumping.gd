@@ -10,7 +10,10 @@ func enter():
 	if dir < 0:
 		speed = host.backward_walk_speed
 	host.animation_player.play("jumping")
-	host.velocity.x = axis.x * speed
+	if host.velocity.x != 0:
+		host.velocity.x *= dir
+	else:
+		host.velocity.x = axis.x * speed
 	host.velocity.y = -host.jump_velocity
 	started_straight = axis.x == 0
 	frame = 5

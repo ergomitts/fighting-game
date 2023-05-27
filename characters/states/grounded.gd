@@ -21,8 +21,10 @@ func process_input():
 	if axis.y == 1:
 		return "Crouching"
 	elif axis.y == -1:
+		host.crouching = false
 		return "Prejump"
 	elif abs(axis.x) > 0:
+		host.crouching = false
 		if name != "Running":
 			return "Walking"
 		else:
