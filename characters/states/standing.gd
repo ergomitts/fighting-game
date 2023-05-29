@@ -12,8 +12,6 @@ func process_input():
 		return state
 	
 	var controller := InputManager.controllers[host.id - 1] as Controller
-	var axis = controller.get_axis()
-
 	var grab_combo = controller.check_combined_buttons(["light", "medium"])
 	if grab_combo:
 		return "Grab"

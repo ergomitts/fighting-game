@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://bkjutxn8uw17d"]
+[gd_scene load_steps=21 format=3 uid="uid://bkjutxn8uw17d"]
 
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_g72on"]
 [ext_resource type="Texture2D" uid="uid://bqhqw7nbphki6" path="res://assets/textures/health_back.png" id="1_ww5tb"]
 [ext_resource type="Texture2D" uid="uid://bbipjbwqgf4ha" path="res://assets/textures/health_border.png" id="2_0hsh2"]
 [ext_resource type="Texture2D" uid="uid://cw2iil7yjljow" path="res://assets/textures/health_front.png" id="3_psh5t"]
@@ -102,6 +103,7 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [node name="HUDLayer" type="CanvasLayer"]
+script = ExtResource("1_g72on")
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 3

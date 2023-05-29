@@ -37,7 +37,6 @@ func change_dir(arrow: TextureRect, axis: Vector2):
 				
 func update(id : int, buffer : Array):
 	var list = player1 if id == 1 else player2
-	var last_input = buffer[buffer.size()-2]
 	var current_input = buffer[buffer.size()-1]
 	
 	var last_label = list.get_child(list.get_child_count() - 1)

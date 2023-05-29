@@ -5,7 +5,7 @@ var in_corner = 0
 signal player_hit
 
 func wall_clip(rect : Rect2):
-	var x := 0
+	var x := 0.0
 	var position := rect.position.x
 	var size := rect.size.x
 	if position < Globals.limit_left:
@@ -42,8 +42,8 @@ func push_collisions():
 	
 	if player1.push_box.can_push and player2.push_box.can_push:
 		var clip = player_clip(player1.push_box.get_global(), player2.push_box.get_global())
-		player1.position.x += clip/2
-		player2.position.x -= clip/2
+		player1.position.x += clip/2.0
+		player2.position.x -= clip/2.0
 	
 	var clip_1 = wall_clip(player1.push_box.get_global())
 	var clip_2 = wall_clip(player2.push_box.get_global())
@@ -88,9 +88,9 @@ func push_collisions():
 func update_walls():		
 	var player1 = Globals.players[0]
 	var player2 = Globals.players[1]			
-	var center = (player1.position + player2.position)/2
-	var left = center.x - Globals.MAX_PLAYER_DISTANCE/2
-	var right = center.x + Globals.MAX_PLAYER_DISTANCE/2
+	var center = (player1.position + player2.position)/2.0
+	var left = center.x - Globals.MAX_PLAYER_DISTANCE/2.0
+	var right = center.x + Globals.MAX_PLAYER_DISTANCE/2.0
 	if left < Globals.limit_left or right > Globals.limit_right:
 		Globals.limit_left = max(left, Globals.StageLeft)
 		Globals.limit_right = min(right, Globals.StageRight)
@@ -109,8 +109,6 @@ func hit_collisions():
 	for i in range(0, 2):
 		var hit = player1.hit_box.check_collision(player2.hurt_box) if i == 0 else player2.hit_box.check_collision(player1.hurt_box)
 		if hit != null:
-			var hitter = player1 if i == 0 else player2
-			var victim = player2 if i == 0 else player1
 			if i == 0:
 				p1_hit = hit
 			elif i == 1:

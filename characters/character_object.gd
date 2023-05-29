@@ -13,21 +13,27 @@ class_name CharacterObject
 @export_category("Settings")
 @export var forward_walk_speed := 15.0
 @export var backward_walk_speed := 13.0
-@export var jump_velocity := 70
+@export var jump_velocity := 70.0
+@export var leap_speed := 18.0
 @export var run_speed := 35.0
 @export var back_dash_velocity := 24.0
 @export var friction := 10.0
 @export var drag := 2.0
 @export var default_gravity := 5.0
 @export var gravity := default_gravity
+@export var gravity_modifier := 1.0
 
 @export_category("Properties")
 @export var immune := false
 @export var grab_immune := false
+@export var projectile_immune := false
 @export var counterable := false
 @export var punishable := false
 @export var crouching := false
 @export var hard_knockdown := false
+
+@export_category("Cheats")
+@export var autoblock := false
 
 var id := 0
 var nemesis : CharacterObject
@@ -39,6 +45,8 @@ var hit_id := 0
 
 func _ready():
 	state_machine.init()
+	if id == 2:
+		sprite_container.get_node("Main").material.set_shader_parameter("main_color", Color(0.4, 0.6, 1.0, 1.0))
 
 func get_input() -> FGInput:
 	var controller = InputManager.controllers[id - 1]
@@ -63,19 +71,19 @@ func get_flipped():
 
 func get_corner():
 	var rect := push_box.get_global() as Rect2
-	var position := rect.position.x
+	var pos := rect.position.x
 	var size := rect.size.x
-	if position <= Globals.limit_left:
+	if pos <= Globals.limit_left:
 		return -1
-	if position + size >= Globals.limit_right:
+	if pos + size >= Globals.limit_right:
 		return 1
 	return 0
 
 func in_corner():
 	var rect := push_box.get_global() as Rect2
-	var position := rect.position.x
+	var pos := rect.position.x
 	var size := rect.size.x
-	return position <= Globals.limit_left or position + size >= Globals.limit_right
+	return pos <= Globals.limit_left or pos + size >= Globals.limit_right
 	
 func grounded():
 	var rect := push_box.get_global() as Rect2
@@ -86,6 +94,16 @@ func get_attack_state(attack_name):
 	
 func animation_finished():
 	return animation_player.current_animation_position >= animation_player.current_animation_length
+
+func animation_pos_in_frames():
+	if animation_player.current_animation:
+		return int(animation_player.current_animation_position * 60.0)
+	return 0
+	
+func animation_length_in_frames():
+	if animation_player.current_animation:
+		return int(animation_player.current_animation_length * 60.0)
+	return 0
 	
 func face_target():
 	if global_position.x > nemesis.global_position.x:

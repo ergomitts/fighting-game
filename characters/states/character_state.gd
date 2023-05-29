@@ -3,8 +3,8 @@ class_name CharacterState
 
 func get_input() -> FGInput:
 	var controller = InputManager.controllers[host.id - 1]
-	var input = controller.buffer[controller.BUFFER_FRAMES - 1]
-	return input
+	var _input = controller.buffer[controller.BUFFER_FRAMES - 1]
+	return _input
 func get_axis() -> Vector2:
 	var controller = InputManager.controllers[host.id - 1]
 	return controller.get_axis()
@@ -28,20 +28,22 @@ func is_holding_away():
 	return false
 		
 func on_hit(attack: ActionState):
-	if is_holding_away() and attack.attack_type != Constants.AttackType.Unblockable:
+	if (is_holding_away() or host.autoblock) and attack.attack_type != Constants.AttackType.Unblockable and name != "Launched" and name != "Stunned" and name != "Grabbed" and name != "HardKnockdown" and self is ActionState == false:
 		var axis = get_axis()
 		var crouching = axis.y == 1
 		var low = crouching and attack.attack_type != Constants.AttackType.High
 		var high = !crouching and attack.attack_type != Constants.AttackType.Low
 		var air = !host.grounded() and attack.attack_type != Constants.AttackType.AirUnblockable
-		if low or high or air:
+		if host.autoblock and attack.attack_type != Constants.AttackType.Medium:
+			host.crouching = attack.attack_type == Constants.AttackType.Low
+		if low or high or air or host.autoblock:
 			return "Blocking"
 	if attack.launch_on_hit or !host.grounded():
 		return "Launched"
-	else:
-		if attack.force_stance == Constants.Stance.Normal:
+	elif name != "Knockdown":
+		if attack.force_stance == "Standing":
 			host.crouching = false
-		elif attack.force_stance == Constants.Stance.Crouching:
+		elif attack.force_stance == "Crouching":
 			host.crouching = true
 		return "Stunned"
 	
@@ -74,8 +76,11 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 	
 func process_input():
 	var controller := InputManager.controllers[host.id - 1] as Controller
-	var input = controller.buffer[controller.BUFFER_FRAMES - 1]
-	var axis = input.axis
+	var axis = get_axis()
+	
+	var grab_combo = controller.check_combined_buttons(["light", "medium"])
+	if grab_combo and (name == "Standing" or name == "Walking" or name == "Running"):
+		return "Grab"
 	
 	var buttons = get_buttons()
 	
