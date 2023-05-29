@@ -1,4 +1,4 @@
-[gd_scene load_steps=220 format=3 uid="uid://cosc2d17vuk1b"]
+[gd_scene load_steps=226 format=3 uid="uid://cosc2d17vuk1b"]
 
 [ext_resource type="Script" path="res://characters/character_object.gd" id="1_7v1m0"]
 [ext_resource type="Script" path="res://scripts/fsm/state_machine.gd" id="2_ii632"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://characters/states/back_dash.gd" id="7_grwx5"]
 [ext_resource type="Script" path="res://characters/states/prejump.gd" id="8_pdhdy"]
 [ext_resource type="Script" path="res://characters/shoto/states/dragon_punch.gd" id="9_5rtk8"]
+[ext_resource type="Script" path="res://characters/states/knocked_out.gd" id="12_c7v56"]
 [ext_resource type="Script" path="res://characters/states/launched.gd" id="15_1lq0p"]
 [ext_resource type="Shader" path="res://characters/color.gdshader" id="15_35ltf"]
 [ext_resource type="Texture2D" uid="uid://dbdpcop36jf3d" path="res://characters/shoto/sprites/idle_0.png" id="16_y1cw6"]
@@ -30,6 +31,7 @@
 [ext_resource type="Script" path="res://characters/states/throw_clash.gd" id="18_nf8vm"]
 [ext_resource type="Texture2D" uid="uid://c3gfxuh0aosax" path="res://characters/shoto/sprites/crouch_3.png" id="19_1wgba"]
 [ext_resource type="Texture2D" uid="uid://bitsjhdp44r6p" path="res://characters/shoto/sprites/crouch_4.png" id="20_b0wuy"]
+[ext_resource type="Script" path="res://characters/states/burst.gd" id="20_tbwwb"]
 [ext_resource type="Script" path="res://characters/shoto/states/spin_kick.gd" id="20_u3074"]
 [ext_resource type="Texture2D" uid="uid://c6exalbi7por6" path="res://characters/shoto/sprites/back_dash_0.png" id="20_ua71g"]
 [ext_resource type="Texture2D" uid="uid://dpsmibdmonasd" path="res://characters/shoto/sprites/back_dash_1.png" id="21_2cqc5"]
@@ -44,6 +46,8 @@
 [ext_resource type="Texture2D" uid="uid://d3hg1xbnov8vu" path="res://characters/shoto/sprites/block_high_1.png" id="24_8ht2b"]
 [ext_resource type="Texture2D" uid="uid://0pits1yuvaq0" path="res://characters/shoto/sprites/landing_0.png" id="24_ha8ej"]
 [ext_resource type="Texture2D" uid="uid://dgmhp2wpn4f7k" path="res://characters/shoto/sprites/light_jab_3.png" id="24_mq2cu"]
+[ext_resource type="Script" path="res://characters/components/defense_meter.gd" id="24_twdjm"]
+[ext_resource type="Script" path="res://characters/components/special_meter.gd" id="25_bve3b"]
 [ext_resource type="Texture2D" uid="uid://ca5rjkpvaw0aj" path="res://characters/shoto/sprites/landing_1.png" id="25_dme8p"]
 [ext_resource type="Texture2D" uid="uid://dgbsyhudwu8ii" path="res://characters/shoto/sprites/block_low_0.png" id="25_pao1v"]
 [ext_resource type="Texture2D" uid="uid://cyculsnaw247r" path="res://characters/shoto/sprites/run_0.png" id="25_ut08m"]
@@ -1164,7 +1168,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_bjivm"]
 resource_name = "burst"
-length = 0.233335
+length = 0.66667
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1173,10 +1177,10 @@ tracks/0/path = NodePath("HitBox:data")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0001, 0.233334, 0.266667, 0.3),
+"transitions": PackedFloat32Array(1, 0, 0, 1),
 "update": 1,
-"values": [Array[Rect2]([])]
+"values": [Array[Rect2]([]), Array[Rect2]([Rect2(-128, -128, 256, 256)]), Array[Rect2]([Rect2(-256, -256, 512, 512)]), Array[Rect2]([])]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1209,10 +1213,10 @@ tracks/3/path = NodePath("PushBox:shape")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0, 1),
 "update": 1,
-"values": [Rect2(-48, -14, 0, 0)]
+"values": [Rect2(-48, -14, 0, 0), Rect2(-48, -14, 96, 120)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1609,9 +1613,9 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_sj0bu"]
 resource_name = "crouching"
-length = 0.0666733
+length = 0.0166683
 loop_mode = 1
-step = 0.0666667
+step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1962,6 +1966,96 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_73ioe"]
+resource_name = "dead"
+length = 0.0166684
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:data")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PushBox:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PushBox:can_push")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteContainer/Main:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"land_back"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteContainer/Main:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_txjh3"]
@@ -2575,7 +2669,6 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_pqyb4"]
 resource_name = "grabbing"
-length = 0.600002
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2584,7 +2677,7 @@ tracks/0/path = NodePath("HitBox:data")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.35, 0.466667),
+"times": PackedFloat32Array(0, 0.7, 0.816667),
 "transitions": PackedFloat32Array(0, 0, 0),
 "update": 1,
 "values": [Array[Rect2]([]), Array[Rect2]([Rect2(64, -100, 100, 200)]), Array[Rect2]([])]
@@ -2644,7 +2737,7 @@ tracks/5/path = NodePath("SpriteContainer/Main:animation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.233333),
+"times": PackedFloat32Array(0, 0.583333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [&"light", &"punch"]
@@ -2656,7 +2749,7 @@ tracks/6/path = NodePath("SpriteContainer/Main:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.216667, 0.266667, 0.333333, 0.4, 0.45, 0.5, 0.55, 0.566667),
+"times": PackedFloat32Array(0, 0.566667, 0.616667, 0.683333, 0.75, 0.8, 0.85, 0.9, 0.916667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [3, 1, 2, 3, 4, 5, 6, 7, 0]
@@ -2668,10 +2761,10 @@ tracks/7/path = NodePath("SpriteContainer/GrabPosition:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.533333, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(76, -14)]
+"values": [Vector2(76, -14), Vector2(76, -14), Vector2(41, -15)]
 }
 
 [sub_resource type="Animation" id="Animation_yrd35"]
@@ -3653,7 +3746,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_vo8td"]
 resource_name = "punch"
-length = 0.750003
+length = 0.633336
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -3665,7 +3758,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.216667, 0.266667),
 "transitions": PackedFloat32Array(0, 0, 0),
 "update": 1,
-"values": [Array[Rect2]([]), Array[Rect2]([Rect2(90, -55, 65, 80)]), Array[Rect2]([])]
+"values": [Array[Rect2]([]), Array[Rect2]([Rect2(90, -55, 80, 80)]), Array[Rect2]([])]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -4011,7 +4104,7 @@ tracks/6/keys = {
 resource_name = "spin_kick"
 length = 0.800007
 loop_mode = 1
-step = 0.0666667
+step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -4099,7 +4192,9 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_2hqdu"]
 resource_name = "standing"
+length = 0.0166683
 loop_mode = 1
+step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -4541,6 +4636,96 @@ tracks/6/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
+[sub_resource type="Animation" id="Animation_srd8x"]
+resource_name = "spin_kick_special"
+length = 0.400003
+loop_mode = 1
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:data")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-120, -40, 240, 90)])]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBox:active")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PushBox:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PushBox:can_push")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteContainer/Main:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"spin_kick"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteContainer/Main:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_omfbg"]
 _data = {
 "RESET": SubResource("Animation_ftweh"),
@@ -4556,6 +4741,7 @@ _data = {
 "crouching_enter": SubResource("Animation_p0h54"),
 "crouching_exit": SubResource("Animation_h1a4a"),
 "crouching_stunned": SubResource("Animation_4l3oa"),
+"dead": SubResource("Animation_73ioe"),
 "default": SubResource("Animation_txjh3"),
 "dp": SubResource("Animation_jbf4a"),
 "dp_landing": SubResource("Animation_4jfc6"),
@@ -4580,6 +4766,7 @@ _data = {
 "running_end": SubResource("Animation_tjkja"),
 "running_start": SubResource("Animation_byle8"),
 "spin_kick": SubResource("Animation_vqpl3"),
+"spin_kick_special": SubResource("Animation_srd8x"),
 "standing": SubResource("Animation_2hqdu"),
 "standing_blocking": SubResource("Animation_x7fwe"),
 "standing_stunned": SubResource("Animation_uwae6"),
@@ -4587,17 +4774,18 @@ _data = {
 "walking": SubResource("Animation_ws6q1")
 }
 
-[node name="CharacterObject" type="Node2D" node_paths=PackedStringArray("state_machine", "health", "push_box", "hurt_box", "hit_box", "sprite_container", "animation_player")]
+[node name="CharacterObject" type="Node2D" node_paths=PackedStringArray("state_machine", "health", "defense", "special", "push_box", "hurt_box", "hit_box", "sprite_container", "animation_player")]
 script = ExtResource("1_7v1m0")
 state_machine = NodePath("StateMachine")
 health = NodePath("Health")
-attack_states = Array[String](["Light", "Light_Air", "Light_Crouch", "Medium", "SpinKick_M", "SpinKick_M_Air", "DragonPunch_M", "DragonPunch_H"])
+defense = NodePath("DefenseMeter")
+special = NodePath("SpecialMeter")
+attack_states = Array[String](["Light", "Light_Air", "Light_Crouch", "Medium", "Medium_Air", "Medium_Crouch", "Heavy", "Heavy_Air", "Heavy_Crouch", "SpinKick_M", "SpinKick_M_Air", "SpinKick_S", "SpinKick_H", "DragonPunch_M", "DragonPunch_H"])
 push_box = NodePath("PushBox")
 hurt_box = NodePath("HurtBox")
 hit_box = NodePath("HitBox")
 forward_walk_speed = 13.0
 backward_walk_speed = 11.0
-autoblock = true
 sprite_container = NodePath("SpriteContainer")
 animation_player = NodePath("AnimationPlayer")
 
@@ -4605,6 +4793,9 @@ animation_player = NodePath("AnimationPlayer")
 script = ExtResource("2_ii632")
 host = NodePath("..")
 default_state = "Standing"
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("12_c7v56")
 
 [node name="Grounded" type="Node" parent="StateMachine"]
 script = ExtResource("3_4lhrq")
@@ -4633,9 +4824,6 @@ script = ExtResource("6_cg38t")
 [node name="Launched" type="Node" parent="StateMachine"]
 script = ExtResource("15_1lq0p")
 
-[node name="Landing" type="Node" parent="StateMachine"]
-script = ExtResource("6_mghvc")
-
 [node name="Knockdown" type="Node" parent="StateMachine"]
 script = ExtResource("6_mghvc")
 frames = 30
@@ -4648,10 +4836,21 @@ frames = 55
 animation = "landing_front"
 grab_immune = true
 
+[node name="Landing" type="Node" parent="StateMachine"]
+script = ExtResource("6_mghvc")
+
+[node name="Landing_SpinKick" type="Node" parent="StateMachine"]
+script = ExtResource("6_mghvc")
+frames = 20
+
 [node name="Landing_DP" type="Node" parent="StateMachine"]
 script = ExtResource("6_mghvc")
 frames = 16
 animation = "dp_landing"
+
+[node name="Landing_Burst" type="Node" parent="StateMachine"]
+script = ExtResource("6_mghvc")
+frames = 16
 
 [node name="Aerial" type="Node" parent="StateMachine"]
 script = ExtResource("6_r3syh")
@@ -4689,7 +4888,7 @@ script = ExtResource("17_wa42t")
 [node name="Throwing" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
 animation = "grabbing"
-recovery_frames = 36
+recovery_frames = 60
 hitstop = 14
 attack_type = 4
 hard_knockdown = true
@@ -4699,10 +4898,27 @@ damage = 80
 push_back = 50
 launch_on_hit = true
 launch_velocity = 20
+meter_gain = 20
 attack_level = 3
 
 [node name="ThrowClash" type="Node" parent="StateMachine"]
 script = ExtResource("18_nf8vm")
+
+[node name="Burst" type="Node" parent="StateMachine"]
+script = ExtResource("20_tbwwb")
+button = 3
+animation = "burst"
+startup_frames = 14
+active_frames = 12
+recovery_frames = 30
+hitstun = 40
+blockstun = 12
+hitstop = 5
+damage = 0
+push_back = 60
+push_back_block = 40
+launch_on_hit = true
+attack_level = 2
 
 [node name="Light" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
@@ -4710,12 +4926,14 @@ animation = "light_jab"
 startup_frames = 3
 active_frames = 2
 recovery_frames = 7
-hitstun = 11
+hitstun = 12
 blockstun = 7
-hitstop = 5
+hitstop = 3
 proration = 0.8
 damage = 26
-push_back = 15
+push_back = 12
+push_back_block = 10
+meter_gain = 5
 can_cancel_startup = true
 cancel_into = PackedStringArray("Light", "Light_Crouch", "Medium")
 
@@ -4726,12 +4944,17 @@ startup_frames = 4
 active_frames = 2
 recovery_frames = 12
 hitstun = 16
-blockstun = 13
+blockstun = 11
 hitstop = 5
 aerial = true
+attack_type = 2
 damage = 22
 push_back = 15
-cancel_into = PackedStringArray("Light_Air")
+push_back_block = 10
+launch_velocity = 65
+meter_gain = 5
+jump_cancelable = true
+cancel_into = PackedStringArray("Light_Air", "Medium_Air")
 
 [node name="Light_Crouch" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
@@ -4740,12 +4963,15 @@ startup_frames = 2
 active_frames = 2
 recovery_frames = 5
 hitstun = 9
-blockstun = 5
-hitstop = 5
+blockstun = 4
+hitstop = 3
 crouch = true
 proration = 0.8
 damage = 20
 push_back = 15
+push_back_block = 10
+launch_velocity = 15
+meter_gain = 5
 cancel_into = PackedStringArray("Light_Crouch", "Light")
 
 [node name="Medium" type="Node" parent="StateMachine"]
@@ -4755,21 +4981,148 @@ animation = "light_kick"
 startup_frames = 9
 active_frames = 2
 recovery_frames = 11
-hitstun = 16
+hitstun = 18
 blockstun = 11
-hitstop = 3
+hitstop = 7
 attack_type = 1
 damage = 30
-push_back = 15
-otg = true
+push_back = 12
+push_back_block = 10
+launch_velocity = 30
+meter_gain = 10
 can_cancel_startup = true
 cancel_into = PackedStringArray("Heavy", "SpinKick_M")
+
+[node name="Medium_Crouch" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+button = 1
+animation = "crouch_kick"
+startup_frames = 4
+active_frames = 2
+recovery_frames = 8
+hitstun = 14
+blockstun = 8
+hitstop = 3
+crouch = true
+attack_type = 1
+hard_knockdown = true
+proration = 0.65
+damage = 24
+push_back = 12
+push_back_block = 10
+launch_on_hit = true
+launch_velocity = 20
+meter_gain = 10
+otg = true
+can_cancel_startup = true
+
+[node name="Medium_Air" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+button = 1
+animation = "jump_kick"
+startup_frames = 9
+active_frames = 2
+recovery_frames = 7
+hitstun = 14
+blockstun = 10
+hitstop = 3
+aerial = true
+attack_type = 2
+damage = 28
+push_back = 18
+push_back_block = 14
+launch_velocity = 70
+meter_gain = 10
+jump_cancelable = true
+cancel_into = PackedStringArray("Heavy_Air", "SpinKick_H")
+
+[node name="Heavy" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+button = 2
+animation = "punch"
+startup_frames = 13
+active_frames = 3
+recovery_frames = 22
+hitstun = 36
+blockstun = 20
+hitstop = 8
+damage = 50
+push_back = 24
+push_back_block = 20
+launch_velocity = 70
+meter_gain = 20
+attack_level = 2
+jump_cancelable = true
+can_cancel_startup = true
+cancel_into = PackedStringArray("SpinKick_M", "DragonPunch_M", "DragonPunch_H")
+
+[node name="Heavy_Crouch" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+button = 2
+animation = "crouch_uppercut"
+startup_frames = 11
+active_frames = 3
+recovery_frames = 16
+hitstun = 24
+blockstun = 12
+hitstop = 8
+crouch = true
+damage = 45
+push_back = 10
+push_back_block = 15
+launch_on_hit = true
+launch_velocity = 70
+meter_gain = 18
+attack_level = 2
+gravity_modifier = 0.75
+jump_cancelable = true
+can_cancel_startup = true
+
+[node name="Heavy_Air" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+button = 2
+animation = "jump_spike"
+startup_frames = 7
+active_frames = 2
+recovery_frames = 13
+hitstun = 20
+blockstun = 13
+hitstop = 10
+aerial = true
+attack_type = 2
+damage = 36
+push_back = 20
+push_back_block = 14
+launch_velocity = -40
+meter_gain = 16
+jump_cancelable = true
+cancel_into = PackedStringArray("SpinKick_M", "SpinKick_H")
 
 [node name="SpinKick_M" type="Node" parent="StateMachine"]
 script = ExtResource("20_u3074")
 motion = 5
 button = 1
-can_special = true
+animation = "spin_kick"
+startup_frames = 72
+hitstun = 24
+blockstun = 18
+hitstop = 20
+proration = 0.8
+damage = 20
+push_back = 30
+push_back_block = 20
+launch_on_hit = true
+launch_velocity = 30
+meter_gain = 10
+attack_level = 2
+gravity_modifier = 0.5
+hit_delay = 10
+hit_amount = 5
+
+[node name="SpinKick_S" type="Node" parent="StateMachine"]
+script = ExtResource("20_u3074")
+direction = Vector2(-1, 0)
+button = 3
 animation = "spin_kick"
 startup_frames = 72
 hitstun = 24
@@ -4790,7 +5143,6 @@ hit_amount = 5
 script = ExtResource("20_u3074")
 motion = 5
 button = 1
-can_special = true
 animation = "spin_kick"
 startup_frames = 72
 hitstun = 24
@@ -4803,10 +5155,35 @@ push_back = 30
 push_back_block = 20
 launch_on_hit = true
 launch_velocity = 30
+meter_gain = 12
 attack_level = 2
 gravity_modifier = 0.5
 hit_delay = 10
 hit_amount = 5
+
+[node name="SpinKick_H" type="Node" parent="StateMachine"]
+script = ExtResource("20_u3074")
+rise_speed = 12.0
+motion = 5
+direction = Vector2(-1, 0)
+button = 2
+animation = "spin_kick_special"
+startup_frames = 72
+hitstun = 32
+blockstun = 24
+hitstop = 20
+hard_knockdown = true
+proration = 0.8
+damage = 40
+push_back = 35
+push_back_block = 20
+launch_on_hit = true
+launch_velocity = 30
+meter_usage = 50
+attack_level = 3
+gravity_modifier = 0.2
+hit_delay = 5
+hit_amount = 8
 
 [node name="DragonPunch_M" type="Node" parent="StateMachine"]
 script = ExtResource("9_5rtk8")
@@ -4814,7 +5191,6 @@ rise_velocity = Vector2(10, 65)
 gravity = 3.25
 motion = 3
 button = 1
-can_special = true
 animation = "dp"
 startup_frames = 7
 active_frames = 5
@@ -4822,11 +5198,12 @@ recovery_frames = 17
 hitstun = 15
 blockstun = 12
 hitstop = 15
-damage = 48
+damage = 60
 push_back = 25
 push_back_block = 25
 launch_on_hit = true
 launch_velocity = 100
+meter_gain = 16
 attack_level = 2
 
 [node name="DragonPunch_H" type="Node" parent="StateMachine"]
@@ -4843,17 +5220,24 @@ hitstun = 22
 blockstun = 16
 hitstop = 20
 hard_knockdown = true
-damage = 60
+damage = 120
 push_back = 45
-push_back_block = 25
+push_back_block = 30
 launch_on_hit = true
 launch_velocity = 100
+meter_usage = 50
 attack_level = 3
 gravity_modifier = 0.7
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_lmlhl")
 toughness = 20
+
+[node name="DefenseMeter" type="Node" parent="."]
+script = ExtResource("24_twdjm")
+
+[node name="SpecialMeter" type="Node" parent="."]
+script = ExtResource("25_bve3b")
 
 [node name="PushBox" type="Node2D" parent="."]
 z_index = 99

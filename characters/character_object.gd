@@ -4,6 +4,8 @@ class_name CharacterObject
 @export_category("Nodes")
 @export var state_machine : StateMachine
 @export var health : Node
+@export var defense : Node
+@export var special : Node
 @export var attack_states : Array[String] = []
 
 @export var push_box : PushBox
@@ -31,22 +33,25 @@ class_name CharacterObject
 @export var punishable := false
 @export var crouching := false
 @export var hard_knockdown := false
+@export var max_jumps := 2
 
 @export_category("Cheats")
 @export var autoblock := false
 
 var id := 0
 var nemesis : CharacterObject
-var stance := Constants.Stance.Normal
 
 var hit_confirmed := false
+var jumps := max_jumps
 var hitstun := 0
-var hit_id := 0
 
 func _ready():
 	state_machine.init()
 	if id == 2:
 		sprite_container.get_node("Main").material.set_shader_parameter("main_color", Color(0.4, 0.6, 1.0, 1.0))
+
+func is_dead():
+	return health.value <= 0
 
 func get_input() -> FGInput:
 	var controller = InputManager.controllers[id - 1]
@@ -120,6 +125,7 @@ func on_hit(attack: ActionState):
 func physics_process(delta):
 	if hitstun > 0:
 		hitstun -= 1
+	defense.update(delta)	
 	state_machine.update_state("physics_process", delta)
 	move(velocity)
 	

@@ -16,10 +16,6 @@ func enter():
 	frame = 5
 
 func physics_process(delta):
-#	if started_straight:
-#		var axis = get_axis()
-#		host.velocity.x = axis.x * host.leap_speed
-
 	var state = super.physics_process(delta)
 	if state and frame == 0:
 		return state

@@ -4,6 +4,7 @@ class_name GroundedState
 func enter():
 	host.velocity.y = 0 
 	host.face_target()
+	host.jumps = host.max_jumps
 
 func process_input():
 	var state = super.process_input()
@@ -20,7 +21,7 @@ func process_input():
 	
 	if axis.y == 1:
 		return "Crouching"
-	elif axis.y == -1:
+	elif axis.y == -1 and host.jumps > 0:
 		host.crouching = false
 		return "Prejump"
 	elif abs(axis.x) > 0:
@@ -33,6 +34,5 @@ func process_input():
 		return "Standing"
 	
 func physics_process(delta):
-	if !host.in_corner() and !host.nemesis.in_corner():
-		host.face_target()
+	host.face_target()
 	return super.physics_process(delta)

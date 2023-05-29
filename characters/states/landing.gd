@@ -14,6 +14,7 @@ func enter():
 	host.punishable = true
 	host.gravity = host.default_gravity
 	host.grab_immune = grab_immune
+	host.jumps = host.max_jumps
 	
 func exit():
 	host.punishable = false
@@ -21,6 +22,7 @@ func exit():
 	host.hard_knockdown = false
 	
 func physics_process(delta):
+	host.velocity.y = 0
 	time += 1
 	if time >= frames:
 		return "Grounded"

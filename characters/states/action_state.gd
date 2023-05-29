@@ -38,11 +38,13 @@ class_name ActionState
 @export var launch_on_hit := false
 @export var launch_velocity := 50
 @export var wall_bounce := false
-@export var meter_gain := 25
+@export var meter_gain := 0
+@export var meter_usage := 0
 @export var attack_level := 0
 @export var gravity_modifier := 1.0
 @export var otg := false
 @export var hit_delay := 0
+@export var jump_cancelable := false
 
 @export_category("States")
 @export var can_cancel_startup := false
@@ -59,7 +61,8 @@ func enter():
 	host.animation_player.play(animation)
 	host.counterable = true
 	host.punishable = false
-	if !host.hit_confirmed:
+	host.special.use(meter_usage)
+	if !host.hit_confirmed and !aerial:
 		host.velocity.x = 0.0
 	host.hit_confirmed = false
 	host.crouching = crouch
@@ -71,6 +74,8 @@ func enter():
 			host.nemesis.global_position = host.sprite_container.get_node("GrabPosition").global_position
 			host.face_target()
 			host.nemesis.face_target()
+			if host.in_corner():
+				host.position.x += -(host.push_box.shape.size.x) * host.get_corner()
 	
 func exit():
 	host.animation_player.stop()
@@ -89,6 +94,10 @@ func physics_process(delta):
 			return throw_state
 		else:
 			host.crouching = get_axis().y == 1
+			var controller := InputManager.controllers[host.id - 1] as Controller
+			if get_axis().y == -1 and jump_cancelable or (is_a_throw and controller.read_motion_input(Constants.MotionInput.HalfCircleF_GG, host.flipped)):
+				host.velocity.x = 0
+				return "Prejump"
 			var state = process_input()
 			if state:
 				if state in cancel_into:

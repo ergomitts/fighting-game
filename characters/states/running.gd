@@ -37,8 +37,5 @@ func physics_process(delta):
 		if state in host.attack_states:
 			return state
 		if host.animation_finished():
-			if dir.y == -1:
-				return "Prejump"
-			else:
-				return "Grounded"
+			return "Grounded"
 	

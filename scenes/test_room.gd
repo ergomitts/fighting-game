@@ -55,7 +55,16 @@ func load_players():
 			$GameLayer.add_child(player)
 	
 func reset_players():
-	pass
+	var center = (Globals.StageRight + Globals.StageLeft)/2.0
+	
+	for i in range(0, 2):
+		var player = Globals.players[i]
+		player.state_machine.change_state("Grounded")
+		player.health.value = player.health.max_health
+		
+		var height = player.push_box.shape.position.y + player.push_box.shape.size.y
+		var offset = Globals.SPAWN_DISTANCE * (-1 if i == 0 else 1)
+		player.position = Vector2(center + offset, Globals.StageBottom - height)
 	
 func start_game():
 	pass	
@@ -89,8 +98,9 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 		for i in range(0, 2):
 			var hitter : CharacterObject
 			var victim : CharacterObject
-			var attack : ActionState
-			var attack_2 : State
+			var attack : CharacterState
+			var attack_2 : CharacterState
+			
 			if i == 0:
 				if p1_hit == null:
 					continue
@@ -112,8 +122,8 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 			var hit_confirmed := false
 			var grabbing := false
 			
-			if on_hit:	
-				if (attack.is_a_grab or (attack.is_a_command_grab and on_hit != "Blocking")) and victim.grounded() and victim.state_machine.state is GroundedState:
+			if on_hit and attack is ActionState:	
+				if (attack.is_a_grab or (attack.is_a_command_grab and on_hit != "Blocking")) and victim.grounded() and on_hit != "HardKnockdown":
 					var can_grab := !victim.grab_immune
 					if attack_2 is ActionState:
 						can_grab = attack_2.is_a_grab != attack.is_a_grab
@@ -122,13 +132,13 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 						
 					if i == 0:
 						p1_grab = can_grab
-						if p2_attack is ActionState == false:
-							grabbing = true
+						grabbing = true
 					elif i == 1:
 						p2_grab = can_grab
 						grabbing = true
 				elif (!attack.is_a_grab):
-					hit_confirmed = true
+					if (victim.grounded() and victim.hard_knockdown and attack.otg) or !victim.hard_knockdown or (victim.hard_knockdown and !victim.grounded()):
+						hit_confirmed = true
 			
 			if grabbing:
 				if p1_grab and p2_grab:
@@ -141,6 +151,12 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 					hitter.state_machine.change_state(attack.throw_state)
 					victim.state_machine.change_state(attack.grabbed_state)
 					hit_confirmed = true
+			
+			if !attack.is_a_grab and hit_confirmed:
+				var state = victim.state_machine.state
+				if state is ActionState and state.is_a_grab:
+					if victim.hit_box.get_boxes().size() > 0:
+						hit_confirmed = false
 					
 			if hit_confirmed:
 				if hit_delay == 0:
@@ -150,7 +166,7 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 					
 					if !in_combo:
 						player_data[i].combo_hits = 1
-						player_data[i].proration = 1.0
+						player_data[i].proration = attack.proration
 						player_data[i].combo_damage = damage
 					else:
 						if (player_data[i].proration > attack.proration or attack.force_proration):
@@ -158,8 +174,11 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 						player_data[i].combo_hits += 1
 						damage *= player_data[i].proration
 						player_data[i].combo_damage += damage
-						
-					victim.health.take_damage(damage)
+					
+					if on_hit == "Blocking" and victim.defense.value > 0:
+						victim.defense.take_damage(damage)
+					else:
+						victim.health.take_damage(damage)
 								
 					if player_data[i].max_combo_damage < player_data[i].combo_damage:
 						player_data[i].max_combo_damage = player_data[i].combo_damage	
@@ -170,20 +189,25 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 					victim.hitstop = attack.hitstop + attack.v_hitstop
 					victim.hitstun = attack.blockstun if on_hit == "Blocking" else attack.hitstun
 					
-					if !attack.is_a_grab and ((victim.hard_knockdown and attack.otg) or (!victim.hard_knockdown)):
-						if victim.state_machine.state.name == on_hit:
-							victim.state_machine.state.enter()
-						victim.state_machine.change_state(on_hit)
+					if !attack.is_a_grab:
 						var push_back = attack.push_back_block if on_hit == "Blocking" else attack.push_back
 						var dir = sign(victim.global_position.x - hitter.global_position.x)
-						if !victim.in_corner() or attack.launch_on_hit:
+						if !victim.in_corner():
 							victim.velocity.x = push_back * dir
 						else:
 							hitter.velocity.x = push_back * -dir
+						if victim.hard_knockdown and attack.otg:
+							victim.hard_knockdown = false
+							victim.state_machine.change_state("Launched")
+						elif !victim.hard_knockdown:
+							if victim.state_machine.state.name == on_hit:
+								victim.state_machine.state.enter()
+							victim.state_machine.change_state(on_hit)
 							
 						if on_hit != "Blocking":
-							victim.hard_knockdown = attack.hard_knockdown
 							if (!victim.grounded() or attack.launch_on_hit):
+								if victim_state != "HardKnockdown":
+									victim.hard_knockdown = attack.hard_knockdown
 								victim.velocity.y = -attack.launch_velocity
 								victim.gravity_modifier = attack.gravity_modifier
 					
@@ -206,11 +230,15 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 						else:
 							frame_advantage += 30
 					frame_layer.update_data(i, player_data[i].combo_damage, player_data[i].max_combo_damage, player_data[i].combo_hits, player_data[i].proration * 100.0, frame_advantage)
-						
+					
 				if attack.hits > 1:
 					hit_delay = attack.hit_delay
+				hitter.special.gain(attack.meter_gain)
 				attack.hits -= 1
 				
+				if victim.is_dead():
+					victim.state_machine.change_state("Dead")
+					reset_players()	
 					
 
 func _physics_process(delta):
@@ -218,3 +246,4 @@ func _physics_process(delta):
 		hitstop -= 1
 	elif hit_delay > 0:
 		hit_delay -= 1
+	hud_layer.update_bars(Globals.players[0], Globals.players[1])

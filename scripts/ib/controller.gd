@@ -139,7 +139,7 @@ func process_input():
 				input.buttons[raw_action] = 1 
 				has_changed = true
 			elif Input.is_action_pressed(action):
-				var prev = buffer[(BUFFER_FRAMES - 1) - 5]
+				var prev = buffer[(BUFFER_FRAMES - 1) - 4]
 				if prev.buttons.get(raw_action, -1) == -1:
 					input.buttons[raw_action] = 1
 				else:

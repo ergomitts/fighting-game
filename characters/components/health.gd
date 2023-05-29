@@ -5,7 +5,7 @@ extends Node
 
 var value := max_health
 
-func take_damage(amount : int):
+func take_damage(amount: int):
 	var damage = amount
 	if value < max_health * 0.25:
 		damage = floor(amount * max(0.5 - toughness/20.0, 0.15))
@@ -15,7 +15,7 @@ func take_damage(amount : int):
 		damage = floor(amount * max(0.9 - toughness/20.0, 0.3))
 	else:
 		damage = amount
-	value -= max(damage, 1)
+	value -= max(damage, 1) if amount > 0 else 0
 	
-func heal(amount : int):
+func heal(amount: int):
 	value += amount

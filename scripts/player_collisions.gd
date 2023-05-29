@@ -8,6 +8,8 @@ func wall_clip(rect : Rect2):
 	var x := 0.0
 	var position := rect.position.x
 	var size := rect.size.x
+	if size <= 0:
+		return 0
 	if position < Globals.limit_left:
 		x = Globals.limit_left - position
 	elif position + size > Globals.limit_right:
@@ -19,7 +21,7 @@ func floor_clip(character : CharacterObject):
 	var rect := character.push_box.get_global() as Rect2
 	var position := rect.position.y
 	var size := rect.size.y
-	if position + size > Globals.StageBottom:
+	if position + size > Globals.StageBottom and size > 0:
 		var height = character.push_box.shape.position.y + size
 		character.position.y = Globals.StageBottom - height
 	
@@ -55,11 +57,6 @@ func push_collisions():
 	if player1.push_box.can_push and player2.push_box.can_push:
 		var clip = player_clip(player1.push_box.get_global(), player2.push_box.get_global())
 		if abs(clip) > 0:
-#			if abs(clip_1) > abs(clip_2):
-#				player2.position.x -= clip
-#			else:
-#				player1.position.x += clip
-	
 			if in_corner == 1:
 				var rect = player1.push_box.get_global()
 				if p1_corner < 0:

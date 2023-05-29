@@ -28,7 +28,7 @@ func is_holding_away():
 	return false
 		
 func on_hit(attack: ActionState):
-	if (is_holding_away() or host.autoblock) and attack.attack_type != Constants.AttackType.Unblockable and name != "Launched" and name != "Stunned" and name != "Grabbed" and name != "HardKnockdown" and self is ActionState == false:
+	if (is_holding_away() or host.autoblock) and host.defense.value > 0 and attack.attack_type != Constants.AttackType.Unblockable and name != "Launched" and name != "Stunned" and name != "Grabbed" and name != "HardKnockdown" and self is ActionState == false:
 		var axis = get_axis()
 		var crouching = axis.y == 1
 		var low = crouching and attack.attack_type != Constants.AttackType.High
@@ -61,7 +61,7 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 
 	for attack_name in host.attack_states:
 		var i = host.get_attack_state(attack_name)
-		if i.motion == motion_input and (i.button == pressing or (i.can_special and pressing == Constants.Buttons.Special)):
+		if i.motion == motion_input and (i.button == pressing or (i.can_special and pressing == Constants.Buttons.Special)) and host.special.value >= i.meter_usage:
 			if i.motion == Constants.MotionInput.Empty:
 				if i.direction != axis and i.direction != Vector2.ZERO:
 					continue
