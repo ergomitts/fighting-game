@@ -5,6 +5,7 @@ extends Camera2D
 @export var cutoff := 960
 @export var center_offset := Vector2(0, -90)
 @export var zoom_scale := 1.2
+@export var wall_thickness := 300.0
 
 func _ready():
 	add_child(shaker)
@@ -28,6 +29,15 @@ func get_distance():
 func _process(delta):
 	var center = get_center()
 	position = center + center_offset
+	
+	var left = center.x - Globals.MAX_PLAYER_DISTANCE/2.0
+	var right = center.x + Globals.MAX_PLAYER_DISTANCE/2.0
+	var left_wall = Globals.StageLeft - wall_thickness
+	var right_wall = Globals.StageRight + wall_thickness
+	if left < left_wall:
+		position.x += left_wall - left
+	elif right > right_wall:
+		position.x += right_wall - right
 
 	var distance = get_distance()
 	var _zoom = zoom_scale

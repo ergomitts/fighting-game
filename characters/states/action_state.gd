@@ -96,7 +96,8 @@ func physics_process(delta):
 			host.crouching = get_axis().y == 1
 			var controller := InputManager.controllers[host.id - 1] as Controller
 			if get_axis().y == -1 and jump_cancelable or (is_a_throw and controller.read_motion_input(Constants.MotionInput.HalfCircleF_GG, host.flipped)):
-				host.velocity.x = 0
+				host.velocity.x = 0.0
+				host.hit_box.clear()
 				return "Prejump"
 			var state = process_input()
 			if state:

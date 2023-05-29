@@ -6,6 +6,7 @@ func enter():
 	host.face_target()
 	host.animation_player.stop()
 	host.animation_player.play("burst")
+	host.special.use(meter_usage)
 	host.velocity.x = 0.0
 	host.velocity.y = -10.0
 	host.gravity = 0.0
@@ -13,6 +14,7 @@ func enter():
 	host.punishable = false
 	host.crouching = false
 	host.hard_knockdown = false
+	host.hit_confirmed = false
 	host.hitstun = 0
 
 func exit():
