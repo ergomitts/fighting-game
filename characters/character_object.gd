@@ -43,6 +43,7 @@ var nemesis : CharacterObject
 
 var hit_confirmed := false
 var jumps := max_jumps
+var jump_dir := 0
 var hitstun := 0
 
 func _ready():

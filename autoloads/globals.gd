@@ -1,6 +1,6 @@
 extends Node
 
-var debug = true
+var debug = false
 
 const SPAWN_DISTANCE = 480.0
 const MAX_PLAYER_DISTANCE = 1980.0

@@ -80,6 +80,7 @@ follow_viewport_enabled = true
 [node name="CalloutLayer" parent="." instance=ExtResource("5_g1d0m")]
 
 [node name="FrameLayer" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("6_3ydgl")
 
 [node name="FrameDataViewer" type="Control" parent="FrameLayer"]

@@ -6,7 +6,7 @@ var color := Color.BLUE_VIOLET
 
 @export var active := true
 @export var flipped := false : set = _flip
-@export var data : Array = []
+@export var data : Array = [] : set = _update
 
 var flipped_data := []
 var data_meat := []
@@ -66,10 +66,9 @@ func check_collision(other : CollisionBox):
 func draw_collisions():
 	for rect in data_meat:
 		draw_rect(rect, color, false)
-	#	draw_rect(rect, Color(color, 0.2), true)
+		draw_rect(rect, Color(color, 0.1), true)
 		
 func _process(_delta: float):
-	_update(data)
 	queue_redraw()
 func _draw():
 	if Engine.is_editor_hint() or Globals.debug:

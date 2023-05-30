@@ -102,20 +102,12 @@ func read_motion_input(index: int, flipped := false, start := BUFFER_FRAMES - 1)
 					if dir == target_dir:
 						checks -= 1
 					elif last_dir != dir:
-					#	if ignore.size() > 0 and ignore.find(checks) != -1:
-					#		checks -= 1
-					#	else:
-					#		mistakes += 1	
 						mistakes += 1
-					#	print(last_dir, i, " got: ", dir, " expected: ", target_dir)
 					
 			if checks < 0:
 				failed = false
 				break
 			last_dir = dir
-		
-#		if !failed:
-#			print(Constants.MotionInput.keys()[index])
 
 	return !failed
 
@@ -166,9 +158,9 @@ func update_charge(axis):
 	
 func update():
 	var _input = process_input()
-	update_charge(_input.axis)
 	buffer.pop_front()
 	buffer.append(_input)
+	update_charge(_input.axis)
 	if has_changed:
 		has_changed = false
 		changed.emit(id)

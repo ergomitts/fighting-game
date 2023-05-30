@@ -18,6 +18,7 @@ class_name ActionState
 @export var v_hitstop := 0
 
 @export_category("Attributes")
+@export var ground := true
 @export var aerial := false
 @export var crouch := false
 @export var attack_type : Constants.AttackType
@@ -62,7 +63,7 @@ func enter():
 	host.counterable = true
 	host.punishable = false
 	host.special.use(meter_usage)
-	if !host.hit_confirmed and !aerial:
+	if !host.hit_confirmed and host.grounded():
 		host.velocity.x = 0.0
 	host.hit_confirmed = false
 	host.crouching = crouch
@@ -97,7 +98,6 @@ func physics_process(delta):
 			var controller := InputManager.controllers[host.id - 1] as Controller
 			if get_axis().y == -1 and jump_cancelable or (is_a_throw and controller.read_motion_input(Constants.MotionInput.HalfCircleF_GG, host.flipped)):
 				host.velocity.x = 0.0
-				host.hit_box.clear()
 				return "Prejump"
 			var state = process_input()
 			if state:
@@ -107,7 +107,7 @@ func physics_process(delta):
 					else:
 						return state
 	if frame > startup_frames + active_frames + recovery_frames:
-		if aerial:
+		if !host.grounded():
 			return "Aerial"
 		else:
 			return "Grounded"

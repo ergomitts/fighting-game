@@ -56,11 +56,16 @@ func load_players():
 	
 func reset_players():
 	var center = (Globals.StageRight + Globals.StageLeft)/2.0
+	Globals.limit_left = -Globals.MAX_PLAYER_DISTANCE/2.0
+	Globals.limit_right = Globals.MAX_PLAYER_DISTANCE/2.0
 	
 	for i in range(0, 2):
 		var player = Globals.players[i]
 		player.state_machine.change_state("Grounded")
 		player.health.value = player.health.max_health
+		player.defense.value = player.defense.max_defense
+		player.special.value = 0
+		player.velocity = Vector2.ZERO
 		
 		var height = player.push_box.shape.position.y + player.push_box.shape.size.y
 		var offset = Globals.SPAWN_DISTANCE * (-1 if i == 0 else 1)
@@ -115,6 +120,8 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 				victim = Globals.players[0]
 				attack = p2_attack
 				attack_2 = p1_attack
+			if attack is ActionState == false:
+				continue
 			if attack.hits == 0:
 				continue
 				
@@ -177,7 +184,9 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack):
 					
 					if on_hit == "Blocking" and victim.defense.value > 0:
 						victim.defense.take_damage(damage)
+						victim.special.gain(attack.meter_gain / 2 + 2)
 					else:
+						victim.special.gain(damage / 10)
 						victim.health.take_damage(damage)
 								
 					if player_data[i].max_combo_damage < player_data[i].combo_damage:

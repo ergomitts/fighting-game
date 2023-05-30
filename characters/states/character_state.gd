@@ -63,11 +63,13 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 		var i = host.get_attack_state(attack_name)
 		if i.motion == motion_input and (i.button == pressing or (i.can_special and pressing == Constants.Buttons.Special)) and host.special.value >= i.meter_usage:
 			if i.motion == Constants.MotionInput.Empty:
-				if i.direction != axis and i.direction != Vector2.ZERO:
+				var dir := axis
+				dir.x *= host.get_flipped()
+				if i.direction != dir and i.direction != Vector2.ZERO:
 					continue
 				elif i.direction == Vector2.ZERO and (axis.y == 1) != i.crouch:
 					continue
-			if (host.grounded() and !i.aerial) or (!host.grounded() and i.aerial):
+			if (host.grounded() and i.ground) or (!host.grounded() and i.aerial):
 				state = i.name
 				InputManager.controllers[host.id - 1].clear()
 				break

@@ -789,6 +789,84 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_fdqo7"]
+resource_local_to_scene = true
+resource_name = "RESET"
+length = 0.0166683
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:data")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PushBox:can_push")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteContainer/Main:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"standing"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteContainer/Main:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_6j4sk"]
 resource_local_to_scene = true
 resource_name = "air_blocking"
@@ -1259,7 +1337,7 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_itp2s"]
 resource_local_to_scene = true
 resource_name = "crouch_kick"
-length = 0.233335
+length = 0.333335
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -2437,10 +2515,10 @@ tracks/0/path = NodePath("HitBox:data")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.183333),
+"times": PackedFloat32Array(0, 0.1, 0.133333),
 "transitions": PackedFloat32Array(0, 1, 0),
 "update": 1,
-"values": [Array[Rect2]([]), Array[Rect2]([Rect2(90, -45, 45, 25)]), Array[Rect2]([])]
+"values": [Array[Rect2]([]), Array[Rect2]([Rect2(90, -45, 65, 30)]), Array[Rect2]([])]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -2449,7 +2527,7 @@ tracks/1/path = NodePath("HurtBox:data")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.183333),
+"times": PackedFloat32Array(0, 0.1, 0.133333),
 "transitions": PackedFloat32Array(0, 1, 0),
 "update": 1,
 "values": [Array[Rect2]([Rect2(-40, -94, 115, 150)]), Array[Rect2]([Rect2(-40, -94, 115, 150), Rect2(55, -45, 45, 35)]), Array[Rect2]([Rect2(-40, -94, 115, 150)])]
@@ -2497,7 +2575,7 @@ tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.0166667, 0.0333333, 0.05, 0.0666667, 0.1, 0.133333, 0.166667, 0.266667),
+"times": PackedFloat32Array(0, 0.0166667, 0.0333333, 0.05, 0.0666667, 0.0833333, 0.1, 0.116667, 0.266667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 0]
@@ -2919,7 +2997,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.633333),
 "transitions": PackedFloat32Array(0, 0),
 "update": 1,
-"values": [Array[Rect2]([Rect2(-50, 81, 250, 65)]), Array[Rect2]([])]
+"values": [Array[Rect2]([Rect2(-50, 61, 250, 85)]), Array[Rect2]([])]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -4178,84 +4256,6 @@ tracks/6/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
-[sub_resource type="Animation" id="Animation_fdqo7"]
-resource_local_to_scene = true
-resource_name = "RESET"
-length = 0.0166683
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox:data")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0),
-"update": 1,
-"values": [Array[Rect2]([])]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox:data")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0),
-"update": 1,
-"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)])]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PushBox:shape")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0),
-"update": 1,
-"values": [Rect2(-48, -14, 96, 160)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:can_push")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("SpriteContainer/Main:animation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"standing"]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SpriteContainer/Main:frame")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_omfbg"]
 _data = {
 "RESET": SubResource("Animation_fdqo7"),
@@ -4310,7 +4310,7 @@ state_machine = NodePath("StateMachine")
 health = NodePath("Health")
 defense = NodePath("DefenseMeter")
 special = NodePath("SpecialMeter")
-attack_states = Array[String](["Light", "Light_Air", "Light_Crouch", "Medium", "Medium_Air", "Medium_Crouch", "Heavy", "Heavy_Air", "Heavy_Crouch", "SpinKick_M", "SpinKick_M_Air", "SpinKick_S", "SpinKick_H", "DragonPunch_M", "DragonPunch_H"])
+attack_states = Array[String](["Light", "Light_Air", "Light_Crouch", "Medium", "Medium_Air", "Medium_Crouch", "Heavy", "Heavy_Air", "Heavy_Crouch", "SpinKick_M", "SpinKick_S", "SpinKick_H", "DragonPunch_M", "DragonPunch_H", "DragonPunch_S"])
 push_box = NodePath("PushBox")
 hurt_box = NodePath("HurtBox")
 hit_box = NodePath("HitBox")
@@ -4419,7 +4419,7 @@ script = ExtResource("17_wa42t")
 script = ExtResource("4_fh8td")
 animation = "grabbing"
 recovery_frames = 60
-hitstop = 14
+hitstop = 20
 attack_type = 4
 hard_knockdown = true
 is_a_throw = true
@@ -4428,7 +4428,7 @@ damage = 80
 push_back = 50
 launch_on_hit = true
 launch_velocity = 20
-meter_gain = 20
+meter_gain = 5
 attack_level = 3
 
 [node name="ThrowClash" type="Node" parent="StateMachine"]
@@ -4485,14 +4485,14 @@ animation = "light_jab"
 startup_frames = 3
 active_frames = 2
 recovery_frames = 7
-hitstun = 12
+hitstun = 18
 blockstun = 7
-hitstop = 3
+hitstop = 5
 proration = 0.8
 damage = 26
 push_back = 12
 push_back_block = 10
-meter_gain = 5
+meter_gain = 2
 can_cancel_startup = true
 cancel_into = PackedStringArray("Light", "Light_Crouch", "Medium")
 
@@ -4505,13 +4505,14 @@ recovery_frames = 12
 hitstun = 16
 blockstun = 11
 hitstop = 5
+ground = false
 aerial = true
 attack_type = 2
 damage = 22
 push_back = 15
 push_back_block = 10
 launch_velocity = 65
-meter_gain = 5
+meter_gain = 2
 jump_cancelable = true
 cancel_into = PackedStringArray("Light_Air", "Medium_Air")
 
@@ -4521,16 +4522,17 @@ animation = "crouch_jab"
 startup_frames = 2
 active_frames = 2
 recovery_frames = 5
-hitstun = 9
-blockstun = 4
-hitstop = 3
+hitstun = 12
+blockstun = 8
+hitstop = 5
 crouch = true
 proration = 0.8
 damage = 20
 push_back = 15
 push_back_block = 10
 launch_velocity = 15
-meter_gain = 5
+meter_gain = 2
+otg = true
 cancel_into = PackedStringArray("Light_Crouch", "Light")
 
 [node name="Medium" type="Node" parent="StateMachine"]
@@ -4540,17 +4542,18 @@ animation = "light_kick"
 startup_frames = 9
 active_frames = 2
 recovery_frames = 11
-hitstun = 18
-blockstun = 11
-hitstop = 7
+hitstun = 28
+blockstun = 6
+hitstop = 8
 attack_type = 1
 damage = 30
 push_back = 12
 push_back_block = 10
 launch_velocity = 30
-meter_gain = 10
+meter_gain = 4
+otg = true
 can_cancel_startup = true
-cancel_into = PackedStringArray("Heavy", "SpinKick_M")
+cancel_into = PackedStringArray("Heavy", "SpinKick_M", "Heavy_Crouch")
 
 [node name="Medium_Crouch" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
@@ -4558,42 +4561,45 @@ button = 1
 animation = "crouch_kick"
 startup_frames = 4
 active_frames = 2
-recovery_frames = 8
-hitstun = 14
-blockstun = 8
-hitstop = 3
+recovery_frames = 14
+hitstun = 16
+blockstun = 4
+hitstop = 10
 crouch = true
 attack_type = 1
 hard_knockdown = true
 proration = 0.65
 damage = 24
-push_back = 12
+push_back = 4
 push_back_block = 10
 launch_on_hit = true
 launch_velocity = 20
-meter_gain = 10
+meter_gain = 4
+gravity_modifier = 0.65
 otg = true
 can_cancel_startup = true
+cancel_into = PackedStringArray("Heavy_Crouch")
 
 [node name="Medium_Air" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
 button = 1
 animation = "jump_kick"
-startup_frames = 9
+startup_frames = 6
 active_frames = 2
-recovery_frames = 7
+recovery_frames = 8
 hitstun = 14
-blockstun = 10
-hitstop = 3
+blockstun = 6
+hitstop = 6
+ground = false
 aerial = true
 attack_type = 2
 damage = 28
 push_back = 18
 push_back_block = 14
 launch_velocity = 70
-meter_gain = 10
+meter_gain = 4
 jump_cancelable = true
-cancel_into = PackedStringArray("Heavy_Air", "SpinKick_H")
+cancel_into = PackedStringArray("SpinKick_M_Air", "SpinKick_H")
 
 [node name="Heavy" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
@@ -4602,14 +4608,14 @@ animation = "punch"
 startup_frames = 13
 active_frames = 3
 recovery_frames = 22
-hitstun = 36
-blockstun = 20
-hitstop = 8
+hitstun = 46
+blockstun = 10
+hitstop = 12
 damage = 50
 push_back = 24
 push_back_block = 20
 launch_velocity = 70
-meter_gain = 20
+meter_gain = 6
 attack_level = 2
 jump_cancelable = true
 can_cancel_startup = true
@@ -4624,18 +4630,19 @@ active_frames = 3
 recovery_frames = 16
 hitstun = 24
 blockstun = 12
-hitstop = 8
+hitstop = 12
 crouch = true
 damage = 45
-push_back = 10
+push_back = 8
 push_back_block = 15
 launch_on_hit = true
 launch_velocity = 70
-meter_gain = 18
+meter_gain = 6
 attack_level = 2
 gravity_modifier = 0.75
 jump_cancelable = true
 can_cancel_startup = true
+cancel_into = PackedStringArray("SpinKick_H")
 
 [node name="Heavy_Air" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
@@ -4645,15 +4652,16 @@ startup_frames = 7
 active_frames = 2
 recovery_frames = 13
 hitstun = 20
-blockstun = 13
-hitstop = 10
+blockstun = 7
+hitstop = 15
+ground = false
 aerial = true
 attack_type = 2
 damage = 36
 push_back = 20
 push_back_block = 14
 launch_velocity = -40
-meter_gain = 16
+meter_gain = 6
 jump_cancelable = true
 cancel_into = PackedStringArray("SpinKick_M", "SpinKick_H")
 
@@ -4664,15 +4672,16 @@ button = 1
 animation = "spin_kick"
 startup_frames = 72
 hitstun = 24
-blockstun = 18
+blockstun = 14
 hitstop = 20
+aerial = true
 proration = 0.8
 damage = 20
 push_back = 30
 push_back_block = 20
 launch_on_hit = true
 launch_velocity = 30
-meter_gain = 10
+meter_gain = 4
 attack_level = 2
 gravity_modifier = 0.5
 hit_delay = 10
@@ -4687,26 +4696,6 @@ startup_frames = 72
 hitstun = 24
 blockstun = 18
 hitstop = 20
-proration = 0.8
-damage = 20
-push_back = 30
-push_back_block = 20
-launch_on_hit = true
-launch_velocity = 30
-attack_level = 2
-gravity_modifier = 0.5
-hit_delay = 10
-hit_amount = 5
-
-[node name="SpinKick_M_Air" type="Node" parent="StateMachine"]
-script = ExtResource("20_u3074")
-motion = 5
-button = 1
-animation = "spin_kick"
-startup_frames = 72
-hitstun = 24
-blockstun = 18
-hitstop = 20
 aerial = true
 proration = 0.8
 damage = 20
@@ -4714,7 +4703,6 @@ push_back = 30
 push_back_block = 20
 launch_on_hit = true
 launch_velocity = 30
-meter_gain = 12
 attack_level = 2
 gravity_modifier = 0.5
 hit_delay = 10
@@ -4730,7 +4718,8 @@ animation = "spin_kick_special"
 startup_frames = 72
 hitstun = 32
 blockstun = 24
-hitstop = 20
+hitstop = 30
+aerial = true
 hard_knockdown = true
 proration = 0.8
 damage = 40
@@ -4762,7 +4751,27 @@ push_back = 25
 push_back_block = 25
 launch_on_hit = true
 launch_velocity = 100
-meter_gain = 16
+meter_gain = 15
+attack_level = 2
+
+[node name="DragonPunch_S" type="Node" parent="StateMachine"]
+script = ExtResource("9_5rtk8")
+rise_velocity = Vector2(10, 65)
+gravity = 3.25
+direction = Vector2(1, 1)
+button = 3
+animation = "dp"
+startup_frames = 7
+active_frames = 5
+recovery_frames = 17
+hitstun = 15
+blockstun = 12
+hitstop = 15
+damage = 60
+push_back = 25
+push_back_block = 25
+launch_on_hit = true
+launch_velocity = 100
 attack_level = 2
 
 [node name="DragonPunch_H" type="Node" parent="StateMachine"]
@@ -4777,7 +4786,7 @@ active_frames = 5
 recovery_frames = 17
 hitstun = 22
 blockstun = 16
-hitstop = 20
+hitstop = 40
 hard_knockdown = true
 damage = 120
 push_back = 45

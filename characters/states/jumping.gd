@@ -10,7 +10,8 @@ func enter():
 	if host.velocity.x != 0:
 		host.velocity.x *= dir
 	else:
-		host.velocity.x = axis.x * host.leap_speed
+		host.velocity.x = host.jump_dir * host.leap_speed
+		host.jump_dir = 0
 	host.velocity.y = -host.jump_velocity
 	started_straight = axis.x == 0
 	frame = 5
