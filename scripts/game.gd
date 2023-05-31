@@ -23,6 +23,8 @@ var round_num := 0
 
 var player_data = []
 
+var pressing := false
+
 func _ready():
 	load_players()
 	if !training_mode:
@@ -36,7 +38,6 @@ func _ready():
 	$GameLayer.add_child(collisions)
 	$GameLayer.add_child(camera)
 	collisions.connect("player_hit", on_player_hit)
-	
 	
 func load_players():
 	Globals.players.clear()
@@ -387,3 +388,6 @@ func _physics_process(delta):
 		hud_layer.update_bars(Globals.players[0], Globals.players[1])
 		if running == 0:
 			hud_layer.update_timer(int(round_timer.time_left))
+	if Input.is_action_just_pressed("leave") and training_mode and !pressing:
+		pressing = true
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

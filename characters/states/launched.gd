@@ -4,6 +4,8 @@ func enter():
 	host.animation_player.stop()
 	host.animation_player.play("launched")
 	host.projectile_immune = false
+	host.counterable = false
+	host.punishable = false
 		
 func process_physics(delta):
 	host.velocity.y += host.gravity * host.gravity_modifier

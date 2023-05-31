@@ -150,9 +150,16 @@ func hit_collisions():
 			for x in projectiles_2:
 				p_clash = p.hit_box.check_collision(x.hit_box)
 				if p_clash != null:
-					hitter.effects.spawn_effect(p_clash, "impact", 1.0, hitter.flipped)
-					p.call_deferred("despawn")
-					x.call_deferred("despawn")
+					if p.hits > x.hits:
+						hitter.effects.spawn_effect(p_clash, "impact", 1.0, hitter.flipped)
+						x.call_deferred("despawn")
+					elif x.hits > p.hits:
+						victim.effects.spawn_effect(p_clash, "impact", 1.0, victim.flipped)
+						p.call_deferred("despawn")
+					elif p.hits == x.hits:
+						hitter.effects.spawn_effect(p_clash, "impact", 1.0, hitter.flipped)
+						p.call_deferred("despawn")
+						x.call_deferred("despawn")
 					break
 	
 	if (p1_p_hit or p2_p_hit) and !p_clash and projectile != null:
