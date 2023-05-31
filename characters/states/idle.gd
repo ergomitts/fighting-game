@@ -27,4 +27,5 @@ func physics_process(delta):
 	if host.grounded():
 		if !landed:
 			landed = true 
+		elif (!host.animation_player.is_playing() and host.animation_player.current_animation != animation) or host.animation_player.current_animation == "standing": 
 			host.animation_player.play(animation)

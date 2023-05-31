@@ -1,13 +1,11 @@
 extends CharacterState
 
 var bounces := 0
-var gravity := 0.0
 var landed := false
 
 func enter():
 	landed = false
 	bounces = 3
-	gravity = 1.0
 	host.animation_player.stop()
 	host.animation_player.play("launched")
 	host.immune = false
@@ -22,9 +20,13 @@ func enter():
 	host.hitstun = 0
 	host.projectiles.clear()
 	host.velocity.x = -15.0 * host.get_flipped()
+	host.gravity = 2.0
+	
+func exit():
+	host.gravity = host.default_gravity
 		
 func process_physics(delta):
-	host.velocity.y += gravity
+	host.velocity.y += host.gravity
 	if landed:
 		host.velocity.x = lerp(host.velocity.x, 0.0, host.drag * delta)
 		
@@ -35,7 +37,7 @@ func physics_process(delta):
 			if bounces > 0:
 				bounces -= 1
 				host.velocity.y = -12 * bounces
-				gravity += 0.5
+				host.gravity += 0.5
 				host.animation_player.stop()
 				host.animation_player.play("launched")
 			else:

@@ -5,7 +5,7 @@ extends Node
 
 var value := max_health
 
-func take_damage(amount: int, ignore := false):
+func take_damage(amount: int):
 	var damage = amount
 	if value < max_health * 0.25:
 		damage = floor(amount * max(0.7 - toughness/20.0, 0.15))

@@ -9,6 +9,8 @@ var start := 0
 func enter():
 	super.enter()
 	host.gravity = gravity
+	host.velocity.x = 0.0
+	host.velocity.y = 0.0
 	start = 0
 	
 func exit():

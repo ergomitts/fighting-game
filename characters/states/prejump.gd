@@ -7,8 +7,6 @@ func enter():
 	jump_dir = axis.x
 	host.animation_player.play("prejump")
 	host.grab_immune = true
-	if host.jumps > 0:
-		host.jumps -= 1
 	
 func exit():
 	host.grab_immune = false

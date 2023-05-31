@@ -63,7 +63,7 @@ offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_aqi5p")
-text = "[PRESS A TO FIGHT]"
+text = "PRESS A TO FIGHT"
 label_settings = SubResource("LabelSettings_0i6wx")
 horizontal_alignment = 1
 
@@ -81,7 +81,7 @@ offset_bottom = 105.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_aqi5p")
-text = "[PRESS D TO TRAIN]"
+text = "PRESS D TO TRAIN"
 label_settings = SubResource("LabelSettings_0i6wx")
 horizontal_alignment = 1
 

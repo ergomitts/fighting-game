@@ -42,8 +42,6 @@ func _ready():
 func load_players():
 	Globals.players.clear()
 	
-	var center = (Globals.StageRight + Globals.StageLeft)/2.0
-	
 	for i in range(0, 2):
 		var player = PLAYER_SCENE.instantiate()
 		player.id = i + 1
@@ -226,7 +224,8 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack, is_projectile
 						p2_grab = can_grab
 						grabbing = true
 				elif (!attack.is_a_grab):
-					if (victim.grounded() and victim.hard_knockdown and attack.otg) or !victim.hard_knockdown or (victim.hard_knockdown and !victim.grounded()):
+					var in_hard_knockdown = victim.grounded() and victim.hard_knockdown
+					if (in_hard_knockdown and attack.otg) or !in_hard_knockdown:
 						hit_confirmed = true
 			
 			if grabbing:

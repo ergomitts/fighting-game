@@ -5,11 +5,8 @@ var frame := 0
 
 func enter():
 	var axis = get_axis()
-	var dir = axis.x * (-1 if host.flipped else 1)
 	host.animation_player.play("jumping")
-	if host.velocity.x != 0:
-		host.velocity.x *= dir
-	else:
+	if host.velocity.x == 0.0:
 		host.velocity.x = host.jump_dir * host.leap_speed
 		host.jump_dir = 0
 	host.velocity.y = -host.jump_velocity
@@ -18,8 +15,9 @@ func enter():
 
 func physics_process(delta):
 	var state = super.physics_process(delta)
-	if state and frame == 0:
-		return state
+	if frame == 0:
+		if state:
+			return state
 	
 	if host.grounded():
 		return "Landing"

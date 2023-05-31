@@ -65,7 +65,7 @@ offset_top = 562.0
 offset_right = 808.0
 offset_bottom = 613.0
 theme = SubResource("Theme_aqi5p")
-text = "[PRESS A TO REMATCH]"
+text = "PRESS A TO REMATCH"
 label_settings = SubResource("LabelSettings_0i6wx")
 
 [node name="Label2" type="Label" parent="."]
@@ -75,5 +75,5 @@ offset_top = 626.0
 offset_right = 1018.0
 offset_bottom = 677.0
 theme = SubResource("Theme_aqi5p")
-text = "[PRESS D TO RETURN TO MENU]"
+text = "PRESS D TO RETURN TO MENU"
 label_settings = SubResource("LabelSettings_0i6wx")
