@@ -37,7 +37,7 @@ func get_buttons(frame := BUFFER_FRAMES):
 	return buttons
 
 func is_pressing(button := "") -> bool:
-	for i in range(BUFFER_FRAMES, BUFFER_FRAMES - 5, -1):
+	for i in range(BUFFER_FRAMES, BUFFER_FRAMES - 10, -1):
 		var buttons = get_buttons(i)
 		if buttons.has(button):
 			return buttons.get(button) == 1

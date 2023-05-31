@@ -2,8 +2,8 @@ extends Node
 
 @export var max_defense := 180
 @export var heal_delay := 90
-@export var heal_cooldown := 5
-@export var heal_rate := 60
+@export var heal_cooldown := 60
+@export var heal_rate := 30
 @export var heal_amount := 10
 var value := max_defense
 var changed := false

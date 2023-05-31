@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjepiygra8opl"]
+[gd_scene load_steps=19 format=3 uid="uid://bjepiygra8opl"]
 
 [ext_resource type="Script" path="res://scripts/callouts.gd" id="1_24ikm"]
-[ext_resource type="FontFile" uid="uid://c8ejx8kh1xebr" path="res://assets/fonts/framd.ttf" id="1_jj1a5"]
+[ext_resource type="FontFile" uid="uid://md21pn2vcn2a" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="2_217ec"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eoys"]
 bg_color = Color(0.0627451, 0.0745098, 0.145098, 1)
@@ -21,7 +21,7 @@ bg_color = Color(0.470588, 0.85098, 1, 1)
 skew = Vector2(-0.25, 0)
 
 [sub_resource type="Theme" id="Theme_qtx3c"]
-default_font = ExtResource("1_jj1a5")
+default_font = ExtResource("2_217ec")
 default_font_size = 32
 ProgressBar/styles/background = SubResource("StyleBoxFlat_8eoys")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
@@ -30,22 +30,6 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
 font_size = 72
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_oi5h1"]
-resource_name = "default"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_s3cbo"]
 length = 0.001
@@ -78,6 +62,22 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_oi5h1"]
+resource_name = "default"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bgc04"]
 _data = {
 "RESET": SubResource("Animation_s3cbo"),
@@ -85,62 +85,28 @@ _data = {
 "default": SubResource("Animation_oi5h1")
 }
 
+[sub_resource type="Theme" id="Theme_du042"]
+default_font = ExtResource("2_217ec")
+default_font_size = 32
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8eoys")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2tcw"]
+font_size = 72
+font_color = Color(1, 0.266667, 0.0470588, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jjikt"]
+font_size = 72
+font_color = Color(1, 0.266667, 0.0470588, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_w7bet"]
 font_size = 192
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Animation" id="Animation_fl1jh"]
-resource_name = "round_start"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Ready:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 1.6, 1.7),
-"transitions": PackedFloat32Array(0.5, 0.5, 2, 2),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Fight:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.7, 1.8, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Winner:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Fade:color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_pnao3"]
 length = 0.001
@@ -245,6 +211,58 @@ tracks/3/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_fl1jh"]
+resource_name = "round_start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ready:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1.6, 1.7),
+"transitions": PackedFloat32Array(0.5, 0.5, 2, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fight:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.7, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Winner:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Fade:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ep2xb"]
 _data = {
 "RESET": SubResource("Animation_pnao3"),
@@ -268,9 +286,9 @@ self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 1
 offset_left = 24.0
-offset_top = 232.0
+offset_top = 456.0
 offset_right = 427.0
-offset_bottom = 317.0
+offset_bottom = 562.0
 theme = SubResource("Theme_qtx3c")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
@@ -288,14 +306,15 @@ self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 1
 offset_left = 24.0
-offset_top = 328.0
+offset_top = 552.0
 offset_right = 427.0
-offset_bottom = 413.0
-theme = SubResource("Theme_qtx3c")
+offset_bottom = 658.0
+theme = SubResource("Theme_du042")
+theme_override_colors/font_color = Color(1, 0.427451, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 text = "Counter!"
-label_settings = SubResource("LabelSettings_j4wva")
+label_settings = SubResource("LabelSettings_h2tcw")
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player1/Callout"]
@@ -321,9 +340,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -427.0
-offset_top = -308.0
+offset_top = -94.5
 offset_right = -24.0
-offset_bottom = -223.0
+offset_bottom = 11.5
 grow_horizontal = 0
 grow_vertical = 2
 theme = SubResource("Theme_qtx3c")
@@ -349,16 +368,17 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -427.0
-offset_top = -212.0
+offset_top = 1.5
 offset_right = -24.0
-offset_bottom = -127.0
+offset_bottom = 107.5
 grow_horizontal = 0
 grow_vertical = 2
 theme = SubResource("Theme_qtx3c")
+theme_override_colors/font_color = Color(1, 0.427451, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
-text = "Counter !"
-label_settings = SubResource("LabelSettings_j4wva")
+text = "Counter!"
+label_settings = SubResource("LabelSettings_jjikt")
 horizontal_alignment = 2
 vertical_alignment = 1
 

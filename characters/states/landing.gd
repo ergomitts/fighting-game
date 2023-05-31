@@ -11,7 +11,8 @@ func enter():
 	host.velocity.y = 0
 	host.animation_player.play(animation)
 	time = 0
-	host.punishable = true
+	if !("Knockdown" in name):
+		host.punishable = true
 	host.gravity = host.default_gravity
 	host.grab_immune = grab_immune
 	host.jumps = host.max_jumps

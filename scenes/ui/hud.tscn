@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cw2iil7yjljow" path="res://assets/textures/health_front.png" id="3_psh5t"]
 [ext_resource type="FontFile" uid="uid://bxdlr7x70a115" path="res://assets/fonts/battlenet.ttf" id="4_jp1cl"]
 [ext_resource type="Texture2D" uid="uid://4ehf5amxob4b" path="res://assets/textures/timer_back.png" id="5_ustri"]
-[ext_resource type="FontFile" uid="uid://c8ejx8kh1xebr" path="res://assets/fonts/framd.ttf" id="6_bvxul"]
 [ext_resource type="Texture2D" uid="uid://bs6pytbc87mqg" path="res://assets/textures/shield.png" id="7_heolb"]
+[ext_resource type="FontFile" uid="uid://m0qt8fyv5drw" path="res://assets/fonts/WindyCity.ttf" id="7_mumhv"]
 [ext_resource type="Texture2D" uid="uid://prfjdiwi4vym" path="res://assets/textures/star.png" id="9_bujlf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eoys"]
@@ -93,7 +93,7 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_qtx3c"]
-default_font = ExtResource("6_bvxul")
+default_font = ExtResource("7_mumhv")
 default_font_size = 32
 ProgressBar/styles/background = SubResource("StyleBoxFlat_8eoys")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
@@ -252,7 +252,7 @@ theme_override_constants/outline_size = 6
 text = "00"
 label_settings = SubResource("LabelSettings_w7bet")
 horizontal_alignment = 1
-vertical_alignment = 1
+vertical_alignment = 2
 
 [node name="DefenseIcon1" type="TextureRect" parent="Main"]
 texture_filter = 1

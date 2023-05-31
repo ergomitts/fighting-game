@@ -96,10 +96,10 @@ func end_round():
 	for i in range(2):
 		var player = Globals.players[i]
 		var other_player = Globals.players[1] if i == 0 else Globals.players[0]
-		
+	
 		if player.health.value > other_player.health.value:
 			victor = i
-		else:
+		elif player.health.value == other_player.health.value:
 			var other_data = player_data[1] if i == 0 else player_data[0]
 			if player_data[i].wins < other_data.wins:
 				victor = i
@@ -118,13 +118,22 @@ func end_round():
 	elif player_data[victor].wins >= 2:
 		running = 2
 	
+	if victor != -1:
+		camera.subject = 1 if victor == 0 else 0
+		Engine.time_scale = 0.5
+	round_timer.start(1.5)	
+	await round_timer.timeout
+	Engine.time_scale = 1.0
+	camera.subject = victor
 	callout_layer.round_end(victor)
 	round_timer.start(3.0)
 	await round_timer.timeout
-		
+	camera.subject = -1
+	
 	if running == 1:	
 		start_round()
 	else:
+		Globals.winner = victor
 		end_game()
 	
 func end_game():
@@ -132,6 +141,7 @@ func end_game():
 		i.queue_free()
 	Globals.players.clear()
 	player_data.clear()
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 	
 func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack, is_projectile := false, projectile = null):
 	if hitstop > 0:
@@ -248,13 +258,13 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack, is_projectile
 						callout_layer.update_counter(i, player_data[i].combo_hits)
 					
 					if on_hit == "Blocking" and victim.defense.value > 0:
-						victim.defense.take_damage(damage)
-						victim.special.gain(attack.meter_gain / 2 + 2)
+						victim.defense.take_damage(damage / 2)
+						victim.special.gain(damage / 10 + 2)
 					else:
 						victim.special.gain(damage / 10)
 						victim.health.take_damage(damage)
 								
-					if player_data[i].max_combo_damage < player_data[i].combo_damage:
+					if player_data[i].max_combo_damage < player_data[i].combo_damage and !attack.is_finisher:
 						player_data[i].max_combo_damage = player_data[i].combo_damage	
 							
 					victim.hitstop = attack.hitstop + attack.v_hitstop
@@ -264,10 +274,36 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack, is_projectile
 						hitter.hit_confirmed = true
 						hitter.hitstop = attack.hitstop
 					
-					if victim.punishable:
-						callout_layer.update_counter(i, player_data[i].combo_hits, 1)
-					elif victim.counterable:
-						callout_layer.update_counter(i, player_data[i].combo_hits, 0)
+					if on_hit != "Blocking":
+						if victim.punishable:
+							callout_layer.update_counter(i, player_data[i].combo_hits, 1)
+						elif victim.counterable:
+							callout_layer.update_counter(i, player_data[i].combo_hits, 0)
+							var extra_hitstop := 0
+							var extra_hitstun := 0
+							var extra_damage := 0
+							match attack.attack_level:
+								0:
+									extra_hitstop = 3
+									extra_hitstun = 2
+									extra_damage = 5
+								1:
+									extra_hitstop = 10
+									extra_hitstun = 5
+									extra_damage = 8
+								2:
+									extra_hitstop = 20
+									extra_hitstun = 7
+									extra_damage = 12
+								3:
+									extra_hitstop = 35
+									extra_hitstun = 15
+									extra_damage = 24
+							
+							hitter.hitstop += extra_hitstop
+							victim.hitstop += extra_hitstop
+							victim.hitstun += extra_hitstun
+							victim.health.take_damage(extra_damage)
 					
 					if !attack.is_a_grab:
 						var push_back = attack.push_back_block if on_hit == "Blocking" else attack.push_back

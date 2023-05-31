@@ -16,6 +16,7 @@ func enter():
 	host.hard_knockdown = false
 	host.hit_confirmed = false
 	host.hitstun = 0
+	host.velocity.x = 0.0
 	
 func process_physics(delta):
 	host.velocity.y += host.gravity * host.gravity_modifier

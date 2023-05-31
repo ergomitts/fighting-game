@@ -42,6 +42,7 @@ func push_collisions():
 	for i in Globals.players:
 		if i.state_machine.state is GrabbedState:
 			i.global_position = i.nemesis.sprite_container.get_node("GrabPosition").global_position
+			break
 	
 	var p1_corner = player1.get_corner()
 	var p2_corner = player2.get_corner()
@@ -108,20 +109,18 @@ func hit_collisions():
 	var p2_attack = player2.state_machine.state
 	
 	for i in range(0, 2):
-		var hit = player1.hit_box.check_collision(player2.hurt_box) if i == 0 else player2.hit_box.check_collision(player1.hurt_box)
-		if hit != null:
+		if i == 0:
+			p1_hit = player1.hit_box.check_collision(player2.hurt_box)
+		elif i == 1:
+			p2_hit = player2.hit_box.check_collision(player1.hurt_box)
+		var clash = player1.hit_box.check_collision(player2.hit_box)
+		if clash != null:
 			if i == 0:
-				p1_hit = hit
+				p1_clash = true	
 			elif i == 1:
-				p2_hit = hit
-		else:
-			var clash = player1.hit_box.check_collision(player2.hit_box)
-			if clash != null:
-				if i == 0:
-					p1_clash = true
-				elif i == 1:
-					p2_clash = true
-				p1_hit = clash	
+				p2_clash = true
+			p1_hit = clash	
+			p2_hit = null			
 					
 	var p1_p_hit
 	var p2_p_hit

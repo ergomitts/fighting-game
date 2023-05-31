@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://t6hej2hrnqy8"]
+
+[ext_resource type="FontFile" uid="uid://md21pn2vcn2a" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="1_1532q"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_j5y6n"]
+[ext_resource type="FontFile" uid="uid://m0qt8fyv5drw" path="res://assets/fonts/WindyCity.ttf" id="3_wt3ar"]
+
+[sub_resource type="Gradient" id="Gradient_pxag5"]
+offsets = PackedFloat32Array(0, 0.612903)
+colors = PackedColorArray(0.207843, 0, 0.0941176, 1, 1, 0.00784314, 0.0313726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b5d32"]
+gradient = SubResource("Gradient_pxag5")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Theme" id="Theme_c0bbf"]
+default_font = ExtResource("1_1532q")
+default_font_size = 172
+
+[sub_resource type="Theme" id="Theme_aqi5p"]
+default_font = ExtResource("3_wt3ar")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0i6wx"]
+font_size = 48
+font_color = Color(0.658824, 0.658824, 0.658824, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j5y6n")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_b5d32")
+metadata/_edit_lock_ = true
+
+[node name="WinnerLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 50.0
+offset_right = 1008.0
+offset_bottom = 554.0
+theme = SubResource("Theme_c0bbf")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 18
+bbcode_enabled = true
+text = "[wave amp=50.0] PLAYER 1 WINS[/wave]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 562.0
+offset_right = 808.0
+offset_bottom = 613.0
+theme = SubResource("Theme_aqi5p")
+text = "[PRESS ANY BUTTON TO CONTINUE]"
+label_settings = SubResource("LabelSettings_0i6wx")

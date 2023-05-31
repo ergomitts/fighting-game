@@ -88,19 +88,16 @@ func process_input():
 	if grab_combo and (name == "Standing" or name == "Walking" or name == "Running"):
 		return "Grab"
 	
-	var buttons = get_buttons()
-	
-	if buttons.size() > 0:
-		var motion_input
-		for i in range(Constants.MotionInput.size()):
-			var motion = controller.read_motion_input(i, host.flipped)
-			if motion:
-				motion_input = i
-				break
-		if motion_input != null:
-			var state = get_attack_state(motion_input, axis)
-			if state:
-				return state
+	var motion_input
+	for i in range(Constants.MotionInput.size()):
+		var motion = controller.read_motion_input(i, host.flipped)
+		if motion:
+			motion_input = i
+			break
+	if motion_input != null:
+		var state = get_attack_state(motion_input, axis)
+		if state:
+			return state
 
 func process_physics(delta):
 	if !host.grounded():
