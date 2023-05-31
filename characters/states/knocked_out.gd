@@ -16,6 +16,7 @@ func enter():
 	host.jumps = host.max_jumps
 	host.hit_confirmed = false
 	host.hitstun = 0
+	host.projectiles.clear()
 		
 func process_physics(delta):
 	host.velocity.y += host.gravity * host.gravity_modifier

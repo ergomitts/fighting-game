@@ -6,7 +6,7 @@ var value := 0
 
 func use(amount: int):
 	if amount <= value:
-		value -= amount
+		value = max(value - amount, 0)
 
 func gain(amount: int):
 	value = min(amount + value, max_value)

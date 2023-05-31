@@ -73,10 +73,10 @@ func _physics_process(delta):
 		var pressed = last_label.get_node("Pressed")
 		if i == 1:
 			counter1 = min(counter1 + 1, 999)
-			pressed.get_node("Frames").text = str(counter1).pad_zeros(3)
+			pressed.get_node("Frames").text = str(counter1).rpad(3)
 		else:
 			counter2 = min(counter2 + 1, 999)
-			pressed.get_node("Frames").text = str(counter2).pad_zeros(3)
+			pressed.get_node("Frames").text = str(counter2).lpad(3)
 	
 			
 		

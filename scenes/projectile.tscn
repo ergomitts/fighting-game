@@ -1,0 +1,148 @@
+[gd_scene load_steps=20 format=3 uid="uid://blkvlytydv0q7"]
+
+[ext_resource type="Script" path="res://scripts/projectile.gd" id="1_3inw7"]
+[ext_resource type="Script" path="res://scripts/hit_box.gd" id="2_ghrgo"]
+[ext_resource type="Texture2D" uid="uid://dj4wejkasdaft" path="res://assets/textures/effects/block_0.png" id="2_vmlj2"]
+[ext_resource type="Texture2D" uid="uid://u1o6musssk86" path="res://assets/textures/effects/block_1.png" id="3_j6rx8"]
+[ext_resource type="Texture2D" uid="uid://dk0lctmhygolt" path="res://assets/textures/effects/block_2.png" id="4_on5bc"]
+[ext_resource type="Texture2D" uid="uid://bdn8paiha5d1c" path="res://assets/textures/effects/block_3.png" id="5_fdj1p"]
+[ext_resource type="Texture2D" uid="uid://bvh73mfr2ve8y" path="res://assets/textures/effects/block_4.png" id="6_j2jte"]
+[ext_resource type="Texture2D" uid="uid://chnw4se8dx447" path="res://assets/textures/effects/block_5.png" id="7_dlurp"]
+[ext_resource type="Texture2D" uid="uid://dmgvxierfwfoi" path="res://assets/textures/effects/circle.png" id="8_o28iq"]
+[ext_resource type="Texture2D" uid="uid://b76uagajqg86" path="res://assets/textures/effects/fireball_0.png" id="9_w8esg"]
+[ext_resource type="Texture2D" uid="uid://ddafab6mi2cjg" path="res://assets/textures/effects/fireball_1.png" id="10_87jue"]
+[ext_resource type="Texture2D" uid="uid://cqi1ie7nqg10x" path="res://assets/textures/effects/impact_0.png" id="11_ssr0g"]
+[ext_resource type="Texture2D" uid="uid://dcfi0p5ar8fli" path="res://assets/textures/effects/impact_1.png" id="12_j7tue"]
+[ext_resource type="Texture2D" uid="uid://bpdfy2kanfck4" path="res://assets/textures/effects/impact_2.png" id="13_aihoe"]
+[ext_resource type="Texture2D" uid="uid://dywphrmjdsdmc" path="res://assets/textures/effects/impact_3.png" id="14_qtdam"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bpkoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vmlj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j6rx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_on5bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fdj1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j2jte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dlurp")
+}],
+"loop": true,
+"name": &"blocking",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_o28iq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_w8esg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_87jue")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ssr0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_j7tue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_aihoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qtdam")
+}],
+"loop": true,
+"name": &"impact",
+"speed": 15.0
+}]
+
+[sub_resource type="Animation" id="Animation_6eo8e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Main:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_bws6c"]
+resource_name = "default"
+length = 0.13334
+loop_mode = 1
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Main:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gcba7"]
+_data = {
+"RESET": SubResource("Animation_6eo8e"),
+"default": SubResource("Animation_bws6c")
+}
+
+[node name="Projectile" type="Node2D" node_paths=PackedStringArray("hit_box", "sprite_container", "animation_player")]
+script = ExtResource("1_3inw7")
+hit_box = NodePath("HitBox")
+despawn_time = 3.0
+sprite_container = NodePath("SpriteContainer")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HitBox" type="Node2D" parent="."]
+z_index = 99
+z_as_relative = false
+script = ExtResource("2_ghrgo")
+data = [Rect2(-33, -33, 66, 66)]
+
+[node name="SpriteContainer" type="Marker2D" parent="."]
+
+[node name="Main" type="AnimatedSprite2D" parent="SpriteContainer"]
+z_index = 2
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_bpkoo")
+animation = &"fireball"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gcba7")
+}

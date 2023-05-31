@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bkjutxn8uw17d"]
+[gd_scene load_steps=22 format=3 uid="uid://bkjutxn8uw17d"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_g72on"]
 [ext_resource type="Texture2D" uid="uid://bqhqw7nbphki6" path="res://assets/textures/health_back.png" id="1_ww5tb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://4ehf5amxob4b" path="res://assets/textures/timer_back.png" id="5_ustri"]
 [ext_resource type="FontFile" uid="uid://c8ejx8kh1xebr" path="res://assets/fonts/framd.ttf" id="6_bvxul"]
 [ext_resource type="Texture2D" uid="uid://bs6pytbc87mqg" path="res://assets/textures/shield.png" id="7_heolb"]
+[ext_resource type="Texture2D" uid="uid://prfjdiwi4vym" path="res://assets/textures/star.png" id="9_bujlf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eoys"]
 bg_color = Color(0.0627451, 0.0745098, 0.145098, 1)
@@ -274,3 +275,47 @@ offset_right = -76.0
 offset_bottom = 368.0
 grow_horizontal = 0
 texture = ExtResource("7_heolb")
+
+[node name="P1Win_1" type="TextureRect" parent="Main"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 781.0
+offset_top = 294.0
+offset_right = 879.0
+offset_bottom = 392.0
+texture = ExtResource("9_bujlf")
+expand_mode = 1
+
+[node name="P1Win_2" type="TextureRect" parent="Main"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 846.0
+offset_top = 329.0
+offset_right = 944.0
+offset_bottom = 427.0
+texture = ExtResource("9_bujlf")
+expand_mode = 1
+
+[node name="P2Win_1" type="TextureRect" parent="Main"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 1037.0
+offset_top = 294.0
+offset_right = 1135.0
+offset_bottom = 392.0
+texture = ExtResource("9_bujlf")
+expand_mode = 1
+
+[node name="P2Win_2" type="TextureRect" parent="Main"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 958.0
+offset_top = 329.0
+offset_right = 1056.0
+offset_bottom = 427.0
+texture = ExtResource("9_bujlf")
+expand_mode = 1

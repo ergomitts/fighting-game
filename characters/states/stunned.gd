@@ -11,7 +11,7 @@ func enter():
 
 func process_input():
 	var controller := InputManager.controllers[host.id - 1] as Controller
-	var burst_combo = controller.check_combined_buttons(["light", "medium", "heavy", "special"])
+	var burst_combo = controller.check_combined_buttons(["light", "medium", "heavy"])
 	if burst_combo:
 		return "Burst"
 

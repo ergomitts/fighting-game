@@ -81,7 +81,7 @@ theme_override_constants/separation = 8
 custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 theme = SubResource("Theme_khgof")
-text = "000"
+text = "0"
 label_settings = SubResource("LabelSettings_5hs18")
 
 [node name="Arrow" type="TextureRect" parent="Pressed"]

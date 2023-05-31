@@ -69,6 +69,10 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 					continue
 				elif i.direction == Vector2.ZERO and (axis.y == 1) != i.crouch:
 					continue
+			if i.spawn_projectile and !host.projectiles.can_spawn_projectile():
+				continue
+			if i.is_finisher and host.nemesis.health.value > host.nemesis.health.max_health/2:
+				continue
 			if (host.grounded() and i.ground) or (!host.grounded() and i.aerial):
 				state = i.name
 				InputManager.controllers[host.id - 1].clear()
@@ -93,19 +97,10 @@ func process_input():
 			if motion:
 				motion_input = i
 				break
-		if motion_input:
+		if motion_input != null:
 			var state = get_attack_state(motion_input, axis)
 			if state:
 				return state
-		
-		if controller.read_directional_input(Vector2.LEFT, "special", host.flipped) or controller.read_directional_input(Vector2.DOWN + Vector2.LEFT, "special", host.flipped):
-			return get_attack_state(Constants.MotionInput.QuarterCircleB)
-		elif controller.read_directional_input(Vector2.RIGHT, "special", host.flipped):	
-			return get_attack_state(Constants.MotionInput.QuarterCircleF)
-		elif controller.read_directional_input(Vector2.DOWN + Vector2.RIGHT, "special", host.flipped):	
-			return get_attack_state(Constants.MotionInput.DragonPunch)
-		elif controller.read_directional_input(Vector2.DOWN, "special", host.flipped):
-			return get_attack_state(Constants.MotionInput.HalfCircleF)
 
 func process_physics(delta):
 	if !host.grounded():

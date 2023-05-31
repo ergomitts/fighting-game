@@ -46,6 +46,10 @@ class_name ActionState
 @export var otg := false
 @export var hit_delay := 0
 @export var jump_cancelable := false
+@export var spawn_projectile := false
+@export var projectile_speed := 10.0
+@export var projectile_hit_amount := 1
+@export var is_finisher := false
 
 @export_category("States")
 @export var can_cancel_startup := false
@@ -80,7 +84,6 @@ func enter():
 	
 func exit():
 	host.animation_player.stop()
-	host.hit_box.clear()
 	host.counterable = false
 	host.punishable = false
 	host.hit_confirmed = false
@@ -96,7 +99,7 @@ func physics_process(delta):
 		else:
 			host.crouching = get_axis().y == 1
 			var controller := InputManager.controllers[host.id - 1] as Controller
-			if get_axis().y == -1 and jump_cancelable or (is_a_throw and controller.read_motion_input(Constants.MotionInput.HalfCircleF_GG, host.flipped)):
+			if (get_axis().y == -1 and jump_cancelable and host.jumps > 0) or (is_a_throw and controller.read_motion_input(Constants.MotionInput.HalfCircleF_GG, host.flipped)):
 				host.velocity.x = 0.0
 				return "Prejump"
 			var state = process_input()
@@ -119,6 +122,8 @@ func physics_process(delta):
 			var controller := InputManager.controllers[host.id - 1] as Controller
 			if controller.check_combined_buttons(["light", "medium"]):
 				return "Grab"
+	if frame == startup_frames and spawn_projectile:
+		host.projectiles.spawn_projectile(host.sprite_container.get_node("ProjectilePosition").global_position, self, host.flipped)
 	frame += 1			
 	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=226 format=3 uid="uid://cosc2d17vuk1b"]
+[gd_scene load_steps=254 format=3 uid="uid://danqhif04gnwb"]
 
 [ext_resource type="Script" path="res://characters/character_object.gd" id="1_7v1m0"]
 [ext_resource type="Script" path="res://scripts/fsm/state_machine.gd" id="2_ii632"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://characters/states/standing.gd" id="3_ruyv0"]
 [ext_resource type="Script" path="res://characters/states/crouching.gd" id="4_6ks4i"]
 [ext_resource type="Script" path="res://scripts/hit_box.gd" id="4_cji4j"]
+[ext_resource type="Script" path="res://characters/states/idle.gd" id="4_f8dyp"]
 [ext_resource type="Script" path="res://characters/states/action_state.gd" id="4_fh8td"]
 [ext_resource type="Script" path="res://characters/components/health.gd" id="4_lmlhl"]
 [ext_resource type="Script" path="res://characters/states/walking.gd" id="5_frrp1"]
@@ -36,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://c6exalbi7por6" path="res://characters/shoto/sprites/back_dash_0.png" id="20_ua71g"]
 [ext_resource type="Texture2D" uid="uid://dpsmibdmonasd" path="res://characters/shoto/sprites/back_dash_1.png" id="21_2cqc5"]
 [ext_resource type="Texture2D" uid="uid://bxqwq7ixr13si" path="res://characters/shoto/sprites/light_jab_0.png" id="21_jrtq4"]
+[ext_resource type="Script" path="res://characters/shoto/states/buster.gd" id="21_mlyrs"]
 [ext_resource type="Texture2D" uid="uid://1s3n8hc1u2wm" path="res://characters/shoto/sprites/jump_0.png" id="21_pq0ul"]
 [ext_resource type="Texture2D" uid="uid://emlocp25mn2a" path="res://characters/shoto/sprites/back_dash_2.png" id="22_b0a7i"]
 [ext_resource type="Texture2D" uid="uid://d1ty7heah40n5" path="res://characters/shoto/sprites/light_jab_1.png" id="22_by1nu"]
@@ -61,8 +63,10 @@
 [ext_resource type="Texture2D" uid="uid://1h6f1fuxc0re" path="res://characters/shoto/sprites/launched_2.png" id="28_daygn"]
 [ext_resource type="Texture2D" uid="uid://dui2waf2q4qou" path="res://characters/shoto/sprites/burst_1.png" id="29_t63i7"]
 [ext_resource type="Texture2D" uid="uid://c6ns80uigtdif" path="res://characters/shoto/sprites/burst_2.png" id="30_gs2cu"]
+[ext_resource type="Script" path="res://characters/components/effects_manager.gd" id="30_sxtjp"]
 [ext_resource type="Texture2D" uid="uid://cumr13i6nqm7i" path="res://characters/shoto/sprites/walk_0.png" id="30_ue0lj"]
 [ext_resource type="Texture2D" uid="uid://cqf52jiiyfjno" path="res://characters/shoto/sprites/crouch_jab_0.png" id="31_7e0i0"]
+[ext_resource type="Script" path="res://characters/components/projectiles_manager.gd" id="31_svqb8"]
 [ext_resource type="Texture2D" uid="uid://ctn0ebk08mun1" path="res://characters/shoto/sprites/walk_1.png" id="31_vcxsp"]
 [ext_resource type="Texture2D" uid="uid://6k35frkd7b6f" path="res://characters/shoto/sprites/walk_2.png" id="32_mg817"]
 [ext_resource type="Texture2D" uid="uid://px134d7qledp" path="res://characters/shoto/sprites/stun_crouch_0.png" id="32_n1hss"]
@@ -98,10 +102,14 @@
 [ext_resource type="Texture2D" uid="uid://c176nnaugh2c1" path="res://characters/shoto/sprites/crouch_uppercut_6.png" id="42_0mwnu"]
 [ext_resource type="Texture2D" uid="uid://eufk0ufph55e" path="res://characters/shoto/sprites/dp_8.png" id="42_s2ian"]
 [ext_resource type="Texture2D" uid="uid://fasu7abde3om" path="res://characters/shoto/sprites/dp_9.png" id="43_2ur0f"]
+[ext_resource type="Texture2D" uid="uid://bgd8huiwq1lwq" path="res://characters/shoto/sprites/buster_0.png" id="43_e1etx"]
 [ext_resource type="Texture2D" uid="uid://dm2wjm3dagkba" path="res://characters/shoto/sprites/crouch_uppercut_7.png" id="43_t7ddk"]
+[ext_resource type="Texture2D" uid="uid://gjgv4wbjlw83" path="res://characters/shoto/sprites/buster_1.png" id="44_0lobr"]
 [ext_resource type="Texture2D" uid="uid://bebxl2lp637xo" path="res://characters/shoto/sprites/fireball_special_0.png" id="44_ndw7v"]
+[ext_resource type="Texture2D" uid="uid://uvd44lbgvl3p" path="res://characters/shoto/sprites/buster_2.png" id="45_acfig"]
 [ext_resource type="Texture2D" uid="uid://dn2sp0blsc4ni" path="res://characters/shoto/sprites/fireball_special_1.png" id="45_cc14h"]
 [ext_resource type="Texture2D" uid="uid://7ylfs68efv6m" path="res://characters/shoto/sprites/fireball_special_2.png" id="46_1gib8"]
+[ext_resource type="Texture2D" uid="uid://dlvnfsniptlee" path="res://characters/shoto/sprites/buster_3.png" id="46_h268e"]
 [ext_resource type="Texture2D" uid="uid://tfb3jbamrxko" path="res://characters/shoto/sprites/fireball_special_3.png" id="47_indww"]
 [ext_resource type="Texture2D" uid="uid://dm0fpgp2j5s8n" path="res://characters/shoto/sprites/fireball_special_4.png" id="48_eamw2"]
 [ext_resource type="Texture2D" uid="uid://chl24otcyimw4" path="res://characters/shoto/sprites/fireball_special_5.png" id="49_aq7i3"]
@@ -138,6 +146,11 @@
 [ext_resource type="Texture2D" uid="uid://dtayhna1kdknr" path="res://characters/shoto/sprites/kick_6.png" id="75_l3jw4"]
 [ext_resource type="Texture2D" uid="uid://55ks7nsa8eu3" path="res://characters/shoto/sprites/kick_7.png" id="76_djhvw"]
 [ext_resource type="Texture2D" uid="uid://b5e4ny0k12r15" path="res://characters/shoto/sprites/kick_8.png" id="77_5olqs"]
+[ext_resource type="Texture2D" uid="uid://dnqofat5cxpiv" path="res://characters/shoto/sprites/hadouken_0.png" id="78_nnuqg"]
+[ext_resource type="Texture2D" uid="uid://dy1qvby7jo2s3" path="res://characters/shoto/sprites/hadouken_1.png" id="79_mf78o"]
+[ext_resource type="Texture2D" uid="uid://bvwkstgfv4tdw" path="res://characters/shoto/sprites/hadouken_2.png" id="80_cw4fy"]
+[ext_resource type="Texture2D" uid="uid://dv4b0f2kk25a3" path="res://characters/shoto/sprites/hadouken_3.png" id="81_geau6"]
+[ext_resource type="Texture2D" uid="uid://t7feoj4jqii4" path="res://characters/shoto/sprites/hadouken_4.png" id="82_wlf1b"]
 [ext_resource type="Texture2D" uid="uid://dlvk628kxigsh" path="res://characters/shoto/sprites/punch_0.png" id="86_5ag0x"]
 [ext_resource type="Texture2D" uid="uid://bxj6dsa8r286t" path="res://characters/shoto/sprites/punch_1.png" id="87_ivofh"]
 [ext_resource type="Texture2D" uid="uid://cndsc1nhqxpcg" path="res://characters/shoto/sprites/punch_2.png" id="88_rg8ff"]
@@ -178,6 +191,8 @@
 [ext_resource type="Texture2D" uid="uid://bsvsls42xyew6" path="res://characters/shoto/sprites/spin_kick_9.png" id="153_vf2aq"]
 [ext_resource type="Texture2D" uid="uid://bkmdoquc5d6x6" path="res://characters/shoto/sprites/spin_kick_10.png" id="154_5rblt"]
 [ext_resource type="Texture2D" uid="uid://glodexdrgrss" path="res://characters/shoto/sprites/spin_kick_11.png" id="155_28erv"]
+[ext_resource type="Texture2D" uid="uid://dsyma1kgdv34e" path="res://characters/shoto/sprites/victory_0.png" id="183_r8cqe"]
+[ext_resource type="Texture2D" uid="uid://dmgvxierfwfoi" path="res://assets/textures/effects/circle.png" id="192_td0xc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wme6b"]
 resource_local_to_scene = true
@@ -234,6 +249,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"burst",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_e1etx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_0lobr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_acfig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_h268e")
+}],
+"loop": true,
+"name": &"buster",
 "speed": 5.0
 }, {
 "frames": [{
@@ -380,6 +412,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"fireball_special",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("78_nnuqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_mf78o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_cw4fy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_geau6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_wlf1b")
+}],
+"loop": true,
+"name": &"hadouken",
 "speed": 5.0
 }, {
 "frames": [{
@@ -758,6 +810,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("183_r8cqe")
+}],
+"loop": true,
+"name": &"victory",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("30_ue0lj")
 }, {
 "duration": 1.0,
@@ -788,6 +848,46 @@ animations = [{
 "name": &"walking",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_8p3ed"]
+colors = PackedColorArray(1, 1, 1, 1, 0.67069, 0.67069, 0.67069, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pa5t3"]
+gradient = SubResource("Gradient_8p3ed")
+
+[sub_resource type="Curve" id="Curve_1rupq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.155844, 0.908163), 0.0, 0.0, 0, 0, Vector2(0.805195, 0.336735), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lohdw"]
+curve = SubResource("Curve_1rupq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5o0ta"]
+particle_flag_disable_z = true
+direction = Vector3(-1, -0.5, 0)
+spread = 25.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 101.27
+initial_velocity_max = 202.53
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 27.84
+scale_curve = SubResource("CurveTexture_lohdw")
+color_ramp = SubResource("GradientTexture1D_pa5t3")
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2v11s"]
+gradient = SubResource("Gradient_8p3ed")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f4pyp"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 22.26
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 27.84
+scale_curve = SubResource("CurveTexture_lohdw")
+color_ramp = SubResource("GradientTexture1D_2v11s")
 
 [sub_resource type="Animation" id="Animation_fdqo7"]
 resource_local_to_scene = true
@@ -865,6 +965,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteContainer/GrabPosition:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, -27)]
 }
 
 [sub_resource type="Animation" id="Animation_6j4sk"]
@@ -2498,9 +2610,279 @@ tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.533333, 0.65),
-"transitions": PackedFloat32Array(1, 1, 1),
+"transitions": PackedFloat32Array(0, 0, 0),
 "update": 0,
 "values": [Vector2(76, -14), Vector2(76, -14), Vector2(41, -15)]
+}
+
+[sub_resource type="Animation" id="Animation_tedwp"]
+resource_local_to_scene = true
+resource_name = "hadouken"
+length = 0.500002
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:data")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.25),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)]), Array[Rect2]([Rect2(-64, -94, 128, 240), Rect2(55, -50, 32, 55)]), Array[Rect2]([Rect2(-64, -94, 128, 240)])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PushBox:can_push")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteContainer/Main:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hadouken"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteContainer/Main:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.116667, 0.183333, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteContainer/ProjectilePosition:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(99, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_mxb2l"]
+resource_local_to_scene = true
+resource_name = "hadouken_h"
+length = 0.500002
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:data")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.466667),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)]), Array[Rect2]([Rect2(-64, -94, 128, 240), Rect2(55, -50, 32, 55)]), Array[Rect2]([Rect2(-64, -94, 128, 240)])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PushBox:can_push")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteContainer/Main:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hadouken"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteContainer/Main:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteContainer/ProjectilePosition:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(99, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_xap7x"]
+resource_local_to_scene = true
+resource_name = "hadouken_m"
+length = 0.500002
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:data")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.35),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)]), Array[Rect2]([Rect2(-64, -94, 128, 240), Rect2(55, -50, 32, 55)]), Array[Rect2]([Rect2(-64, -94, 128, 240)])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PushBox:can_push")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteContainer/Main:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hadouken"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteContainer/Main:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.216667, 0.283333, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteContainer/ProjectilePosition:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(99, 2)]
 }
 
 [sub_resource type="Animation" id="Animation_yrd35"]
@@ -4256,6 +4638,264 @@ tracks/6/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
+[sub_resource type="Animation" id="Animation_savor"]
+resource_local_to_scene = true
+resource_name = "buster_start"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:data")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PushBox:can_push")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteContainer/Main:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"buster"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteContainer/Main:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.55, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteContainer/GrabPosition:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.55),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Vector2(-20, -27), Vector2(-20, -89)]
+}
+
+[sub_resource type="Animation" id="Animation_ryh62"]
+resource_local_to_scene = true
+resource_name = "buster_end"
+length = 0.466668
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:data")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(0, 0),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-50, -100, 100, 200)]), Array[Rect2]([])]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PushBox:can_push")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteContainer/Main:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"buster"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteContainer/Main:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.116667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteContainer/GrabPosition:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Vector2(-20, -89), Vector2(-20, -27)]
+}
+
+[sub_resource type="Animation" id="Animation_egtkl"]
+resource_local_to_scene = true
+resource_name = "victory"
+length = 0.0166683
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:data")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([])]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBox:data")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)])]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PushBox:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0),
+"update": 1,
+"values": [Rect2(-48, -14, 96, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PushBox:can_push")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteContainer/Main:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"victory"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteContainer/Main:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_omfbg"]
 _data = {
 "RESET": SubResource("Animation_fdqo7"),
@@ -4263,6 +4903,8 @@ _data = {
 "back_dash_end": SubResource("Animation_0xkc7"),
 "back_dash_start": SubResource("Animation_udolo"),
 "burst": SubResource("Animation_bjivm"),
+"buster_end": SubResource("Animation_ryh62"),
+"buster_start": SubResource("Animation_savor"),
 "crouch_blocking": SubResource("Animation_424jo"),
 "crouch_jab": SubResource("Animation_v7raj"),
 "crouch_kick": SubResource("Animation_itp2s"),
@@ -4280,6 +4922,9 @@ _data = {
 "grab": SubResource("Animation_81sw0"),
 "grabbed": SubResource("Animation_4de7t"),
 "grabbing": SubResource("Animation_pqyb4"),
+"hadouken": SubResource("Animation_tedwp"),
+"hadouken_h": SubResource("Animation_mxb2l"),
+"hadouken_m": SubResource("Animation_xap7x"),
 "jump_kick": SubResource("Animation_yrd35"),
 "jump_punch": SubResource("Animation_k65r1"),
 "jump_spike": SubResource("Animation_f31cj"),
@@ -4301,16 +4946,19 @@ _data = {
 "standing_blocking": SubResource("Animation_x7fwe"),
 "standing_stunned": SubResource("Animation_uwae6"),
 "throw_clash": SubResource("Animation_23n4h"),
+"victory": SubResource("Animation_egtkl"),
 "walking": SubResource("Animation_ws6q1")
 }
 
-[node name="CharacterObject" type="Node2D" node_paths=PackedStringArray("state_machine", "health", "defense", "special", "push_box", "hurt_box", "hit_box", "sprite_container", "animation_player")]
+[node name="CharacterObject" type="Node2D" node_paths=PackedStringArray("state_machine", "health", "defense", "special", "effects", "projectiles", "push_box", "hurt_box", "hit_box", "sprite_container", "animation_player")]
 script = ExtResource("1_7v1m0")
 state_machine = NodePath("StateMachine")
 health = NodePath("Health")
 defense = NodePath("DefenseMeter")
 special = NodePath("SpecialMeter")
-attack_states = Array[String](["Light", "Light_Air", "Light_Crouch", "Medium", "Medium_Air", "Medium_Crouch", "Heavy", "Heavy_Air", "Heavy_Crouch", "SpinKick_M", "SpinKick_S", "SpinKick_H", "DragonPunch_M", "DragonPunch_H", "DragonPunch_S"])
+effects = NodePath("EffectsManager")
+projectiles = NodePath("ProjectilesManager")
+attack_states = Array[String](["BusterGrab", "Light", "Light_Air", "Light_Crouch", "Medium", "Medium_Air", "Medium_Crouch", "Heavy", "Heavy_Air", "Heavy_Crouch", "SpinKick_M", "SpinKick_S", "SpinKick_H", "DragonPunch_M", "DragonPunch_H", "DragonPunch_S", "Hadouken_L", "Hadouken_M", "Hadouken_H", "Hadouken_S"])
 push_box = NodePath("PushBox")
 hurt_box = NodePath("HurtBox")
 hit_box = NodePath("HitBox")
@@ -4322,10 +4970,17 @@ animation_player = NodePath("AnimationPlayer")
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("host")]
 script = ExtResource("2_ii632")
 host = NodePath("..")
-default_state = "Standing"
+default_state = "Idle"
 
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("12_c7v56")
+
+[node name="Victory" type="Node" parent="StateMachine"]
+script = ExtResource("4_f8dyp")
+animation = "victory"
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_f8dyp")
 
 [node name="Grounded" type="Node" parent="StateMachine"]
 script = ExtResource("3_4lhrq")
@@ -4434,50 +5089,64 @@ attack_level = 3
 [node name="ThrowClash" type="Node" parent="StateMachine"]
 script = ExtResource("18_nf8vm")
 
+[node name="BusterGrab" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+motion = 0
+animation = "grab"
+startup_frames = 2
+active_frames = 2
+recovery_frames = 20
+hitstun = 100
+hitstop = 5
+attack_type = 4
+is_a_grab = true
+grabbed_state = "Bustered"
+throw_state = "Buster"
+force_proration = true
+damage = 0
+push_back = 0
+push_back_block = 0
+meter_usage = 100
+attack_level = 2
+is_finisher = true
+
+[node name="Buster" type="Node" parent="StateMachine"]
+script = ExtResource("21_mlyrs")
+animation = "buster_start"
+startup_frames = 30
+active_frames = 60
+recovery_frames = 30
+hitstop = 40
+attack_type = 4
+hard_knockdown = true
+is_a_throw = true
+force_proration = true
+damage = 10000
+push_back = 50
+launch_on_hit = true
+launch_velocity = 20
+attack_level = 3
+
+[node name="Bustered" type="Node" parent="StateMachine"]
+script = ExtResource("17_wa42t")
+can_clash = false
+
 [node name="Burst" type="Node" parent="StateMachine"]
 script = ExtResource("20_tbwwb")
-motion = null
-direction = null
 button = 3
-can_special = null
 animation = "burst"
 startup_frames = 14
 active_frames = 12
 recovery_frames = 30
 hitstun = 40
 blockstun = 12
-hitstop = 5
-v_hitstop = null
-aerial = null
-crouch = null
-attack_type = null
-force_stance = null
-hard_knockdown = null
-is_a_grab = null
-is_a_command_grab = null
-grabbed_state = null
-throw_state = null
-is_a_throw = null
-proration = null
-force_proration = null
-max_uses_in_combos = null
+hitstop = 40
 damage = 0
-chip_damage = null
 push_back = 60
 push_back_block = 40
 launch_on_hit = true
-launch_velocity = null
-wall_bounce = null
-meter_gain = null
 meter_usage = 100
 attack_level = 3
-gravity_modifier = null
-otg = null
-hit_delay = null
-jump_cancelable = null
-can_cancel_startup = null
-cancel_into = null
-hit_amount = null
 
 [node name="Light" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
@@ -4511,10 +5180,10 @@ attack_type = 2
 damage = 22
 push_back = 15
 push_back_block = 10
-launch_velocity = 65
+launch_velocity = 70
 meter_gain = 2
 jump_cancelable = true
-cancel_into = PackedStringArray("Light_Air", "Medium_Air")
+cancel_into = PackedStringArray("Light_Air")
 
 [node name="Light_Crouch" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
@@ -4568,7 +5237,7 @@ hitstop = 10
 crouch = true
 attack_type = 1
 hard_knockdown = true
-proration = 0.65
+proration = 0.8
 damage = 24
 push_back = 4
 push_back_block = 10
@@ -4593,13 +5262,14 @@ hitstop = 6
 ground = false
 aerial = true
 attack_type = 2
+proration = 0.8
 damage = 28
 push_back = 18
 push_back_block = 14
-launch_velocity = 70
+launch_velocity = 75
 meter_gain = 4
 jump_cancelable = true
-cancel_into = PackedStringArray("SpinKick_M_Air", "SpinKick_H")
+cancel_into = PackedStringArray("SpinKick_M", "SpinKick_H")
 
 [node name="Heavy" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
@@ -4608,9 +5278,10 @@ animation = "punch"
 startup_frames = 13
 active_frames = 3
 recovery_frames = 22
-hitstun = 46
+hitstun = 44
 blockstun = 10
 hitstop = 12
+proration = 0.8
 damage = 50
 push_back = 24
 push_back_block = 20
@@ -4657,6 +5328,7 @@ hitstop = 15
 ground = false
 aerial = true
 attack_type = 2
+proration = 0.65
 damage = 36
 push_back = 20
 push_back_block = 14
@@ -4788,7 +5460,7 @@ hitstun = 22
 blockstun = 16
 hitstop = 40
 hard_knockdown = true
-damage = 120
+damage = 180
 push_back = 45
 push_back_block = 30
 launch_on_hit = true
@@ -4796,6 +5468,77 @@ launch_velocity = 100
 meter_usage = 50
 attack_level = 3
 gravity_modifier = 0.7
+
+[node name="Hadouken_L" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+motion = 4
+animation = "hadouken"
+startup_frames = 14
+recovery_frames = 16
+hitstun = 20
+blockstun = 14
+hitstop = 5
+damage = 30
+push_back = 25
+push_back_block = 15
+meter_gain = 2
+attack_level = 1
+spawn_projectile = true
+projectile_speed = 15.0
+
+[node name="Hadouken_M" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+motion = 4
+button = 1
+animation = "hadouken_m"
+startup_frames = 21
+recovery_frames = 12
+hitstun = 24
+blockstun = 16
+hitstop = 5
+damage = 30
+push_back = 30
+push_back_block = 20
+meter_gain = 4
+attack_level = 1
+hit_delay = 10
+spawn_projectile = true
+projectile_hit_amount = 2
+
+[node name="Hadouken_H" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+motion = 4
+button = 2
+animation = "hadouken_h"
+startup_frames = 28
+recovery_frames = 20
+hitstun = 35
+blockstun = 24
+hitstop = 5
+damage = 45
+push_back = 5
+push_back_block = 20
+meter_usage = 100
+attack_level = 1
+hit_delay = 10
+spawn_projectile = true
+projectile_speed = 5.0
+projectile_hit_amount = 10
+
+[node name="Hadouken_S" type="Node" parent="StateMachine"]
+script = ExtResource("4_fh8td")
+button = 3
+animation = "hadouken"
+startup_frames = 14
+active_frames = 16
+hitstun = 20
+blockstun = 14
+hitstop = 5
+damage = 30
+push_back = 25
+push_back_block = 15
+attack_level = 1
+spawn_projectile = true
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_lmlhl")
@@ -4824,6 +5567,12 @@ z_index = 99
 z_as_relative = false
 script = ExtResource("4_cji4j")
 
+[node name="EffectsManager" type="Node" parent="."]
+script = ExtResource("30_sxtjp")
+
+[node name="ProjectilesManager" type="Node" parent="."]
+script = ExtResource("31_svqb8")
+
 [node name="SpriteContainer" type="Marker2D" parent="."]
 
 [node name="Main" type="AnimatedSprite2D" parent="SpriteContainer"]
@@ -4835,10 +5584,29 @@ sprite_frames = SubResource("SpriteFrames_7e7rr")
 animation = &"standing"
 
 [node name="GrabPosition" type="Marker2D" parent="SpriteContainer"]
-position = Vector2(76, -14)
+position = Vector2(7, -27)
+rotation = 1.5708
 
 [node name="ProjectilePosition" type="Marker2D" parent="SpriteContainer"]
-position = Vector2(90, -54)
+position = Vector2(99, 2)
+
+[node name="DashParticle" type="GPUParticles2D" parent="SpriteContainer"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-91, 141)
+emitting = false
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_5o0ta")
+texture = ExtResource("192_td0xc")
+
+[node name="LaunchParticle" type="GPUParticles2D" parent="SpriteContainer"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(4, -22)
+emitting = false
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_f4pyp")
+texture = ExtResource("192_td0xc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -13,6 +13,8 @@ var StageRight = 1920.0
 var limit_left = -960.0
 var limit_right = 960.0
 
+var winner = -1
+
 var players = []
 
 func _process(delta):

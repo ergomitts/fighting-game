@@ -1,0 +1,162 @@
+[gd_scene load_steps=20 format=3 uid="uid://d18km81pjsfqa"]
+
+[ext_resource type="Script" path="res://scripts/effect.gd" id="1_p2p31"]
+[ext_resource type="Texture2D" uid="uid://dj4wejkasdaft" path="res://assets/textures/effects/block_0.png" id="2_4n77j"]
+[ext_resource type="Texture2D" uid="uid://u1o6musssk86" path="res://assets/textures/effects/block_1.png" id="3_5bvn5"]
+[ext_resource type="Texture2D" uid="uid://dk0lctmhygolt" path="res://assets/textures/effects/block_2.png" id="4_uyfa7"]
+[ext_resource type="Texture2D" uid="uid://bdn8paiha5d1c" path="res://assets/textures/effects/block_3.png" id="5_q7xsk"]
+[ext_resource type="Texture2D" uid="uid://bvh73mfr2ve8y" path="res://assets/textures/effects/block_4.png" id="6_joebw"]
+[ext_resource type="Texture2D" uid="uid://chnw4se8dx447" path="res://assets/textures/effects/block_5.png" id="7_wfupp"]
+[ext_resource type="Texture2D" uid="uid://dmgvxierfwfoi" path="res://assets/textures/effects/circle.png" id="8_djfm7"]
+[ext_resource type="Texture2D" uid="uid://b76uagajqg86" path="res://assets/textures/effects/fireball_0.png" id="9_svvtd"]
+[ext_resource type="Texture2D" uid="uid://ddafab6mi2cjg" path="res://assets/textures/effects/fireball_1.png" id="10_q23vd"]
+[ext_resource type="Texture2D" uid="uid://cqi1ie7nqg10x" path="res://assets/textures/effects/impact_0.png" id="11_fqni4"]
+[ext_resource type="Texture2D" uid="uid://dcfi0p5ar8fli" path="res://assets/textures/effects/impact_1.png" id="12_g06w0"]
+[ext_resource type="Texture2D" uid="uid://bpdfy2kanfck4" path="res://assets/textures/effects/impact_2.png" id="13_2q7qo"]
+[ext_resource type="Texture2D" uid="uid://dywphrmjdsdmc" path="res://assets/textures/effects/impact_3.png" id="14_1m8no"]
+[ext_resource type="Texture2D" uid="uid://dcxkqgb7t6aip" path="res://icon.svg" id="15_ds85s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bpkoo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4n77j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5bvn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uyfa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q7xsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_joebw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wfupp")
+}],
+"loop": true,
+"name": &"blocking",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_djfm7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_svvtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_q23vd")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_fqni4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_g06w0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2q7qo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1m8no")
+}],
+"loop": true,
+"name": &"impact",
+"speed": 15.0
+}]
+
+[sub_resource type="Animation" id="Animation_su01i"]
+resource_name = "boom"
+length = 0.250002
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burst:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.250002),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burst:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7826p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Burst:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Burst:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ry8po"]
+_data = {
+"RESET": SubResource("Animation_7826p"),
+"boom": SubResource("Animation_su01i")
+}
+
+[node name="Effect" type="Node2D"]
+script = ExtResource("1_p2p31")
+animation = "impact"
+
+[node name="Main" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_bpkoo")
+frame_progress = 0.225079
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Burst" type="Sprite2D" parent="."]
+texture = ExtResource("15_ds85s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ry8po")
+}

@@ -21,6 +21,8 @@ func exit():
 	host.gravity = host.default_gravity
 	
 func physics_process(delta):
+	if frame == startup_frames:
+		host.effects.spawn_effect(host.global_position, "burst", 1.0, host.flipped)
 	if frame >= startup_frames + active_frames:
 		host.gravity = host.default_gravity
 	process_physics(delta)

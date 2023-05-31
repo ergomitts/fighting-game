@@ -28,5 +28,9 @@ func update_bars(player1: CharacterObject, player2: CharacterObject):
 	special1.value = player1.special.value
 	special2.value = player2.special.value
 	
-func update():
-	pass
+func update_timer(time):
+	timer_label.text = str(time)
+	
+func update_wins(i, win):
+	var n := "P" + str(i + 1) + "Win_"
+	main.get_node(n + str(win)).show()

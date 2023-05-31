@@ -27,6 +27,9 @@ func get_distance():
 	return abs(left - right)	
 	
 func _process(delta):
+	if Globals.players.size() < 1:
+		return
+	
 	var center = get_center()
 	position = center + center_offset
 	

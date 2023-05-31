@@ -11,10 +11,12 @@ func enter():
 	host.animation_player.play("running_start")
 	dir = Vector2.ZERO
 	dir.x = get_axis().x
+	host.sprite_container.get_node("DashParticle").emitting = true
 
 func exit():
-	host.face_target()	
+	host.face_target()
 	host.punishable = false
+	host.sprite_container.get_node("DashParticle").emitting = false
 	
 func physics_process(delta):
 	if !started:
@@ -33,6 +35,7 @@ func physics_process(delta):
 	elif stopped:
 		host.velocity.x = lerp(host.velocity.x, 0.0, host.friction * delta)
 		host.punishable = true
+		host.sprite_container.get_node("DashParticle").emitting = false
 		var state = process_input()
 		if state in host.attack_states:
 			return state

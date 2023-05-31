@@ -39,6 +39,10 @@ func push_collisions():
 	var player1 = Globals.players[0]
 	var player2 = Globals.players[1]
 	
+	for i in Globals.players:
+		if i.state_machine.state is GrabbedState:
+			i.global_position = i.nemesis.sprite_container.get_node("GrabPosition").global_position
+	
 	var p1_corner = player1.get_corner()
 	var p2_corner = player2.get_corner()
 	
@@ -117,12 +121,50 @@ func hit_collisions():
 					p1_clash = true
 				elif i == 1:
 					p2_clash = true
+				p1_hit = clash	
+					
+	var p1_p_hit
+	var p2_p_hit
+	var p1_p_attack
+	var p2_p_attack
+	var projectile
+	var p_clash
 	
+	for i in range(0, 2):
+		var hitter = player1 if i == 0 else player2
+		var victim = player2 if i == 0 else player1
+		var projectiles = hitter.projectiles.get_children()
+		var projectiles_2 = victim.projectiles.get_children()
+		for p in projectiles:
+			var hit = p.hit_box.check_collision(victim.hurt_box)
+			if hit != null and !victim.projectile_immune:
+				if i == 0:
+					p1_p_hit = hit
+					p1_p_attack = p.attack
+					p2_p_attack = p2_attack
+				else:
+					p2_p_hit = hit
+					p1_p_attack = p1_attack
+					p2_p_attack = p.attack
+				projectile = p
+				break
+			for x in projectiles_2:
+				p_clash = p.hit_box.check_collision(x.hit_box)
+				if p_clash != null:
+					hitter.effects.spawn_effect(p_clash, "impact", 1.0, hitter.flipped)
+					p.call_deferred("despawn")
+					x.call_deferred("despawn")
+					break
+	
+	if (p1_p_hit or p2_p_hit) and !p_clash and projectile != null:
+		player_hit.emit(p1_p_hit, p2_p_hit, false, p1_p_attack, p2_p_attack, true, projectile)	
+			
 	if p1_hit or p2_hit or (p1_clash and p2_clash):
 		player_hit.emit(p1_hit, p2_hit, p1_clash and p2_clash, p1_attack, p2_attack)
 		
 func _physics_process(delta):
-	push_collisions()
-	update_walls()
-	hit_collisions()
+	if Globals.players.size() > 1:
+		push_collisions()
+		update_walls()
+		hit_collisions()
 	

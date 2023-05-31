@@ -6,6 +6,8 @@ class_name CharacterObject
 @export var health : Node
 @export var defense : Node
 @export var special : Node
+@export var effects : Node
+@export var projectiles : Node
 @export var attack_states : Array[String] = []
 
 @export var push_box : PushBox
@@ -33,7 +35,7 @@ class_name CharacterObject
 @export var punishable := false
 @export var crouching := false
 @export var hard_knockdown := false
-@export var max_jumps := 2
+@export var max_jumps := 4
 
 @export_category("Cheats")
 @export var autoblock := false
