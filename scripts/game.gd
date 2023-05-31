@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var training_mode = false
+
 @onready var round_timer = $RoundTimer
 @onready var hud_layer = $HUDLayer
 @onready var game_layer = $GameLayer
@@ -17,13 +19,18 @@ var hitstop := 0
 var hit_delay := 0
 
 var running := -1
-var round := 0
+var round_num := 0
 
 var player_data = []
 
 func _ready():
 	load_players()
-	start_round()
+	if !training_mode:
+		start_round()
+	else:
+		reset_players()
+		Globals.players[0].state_machine.change_state("Standing")
+		Globals.players[1].state_machine.change_state("Standing")
 	collisions = PLAYER_COLLISIONS.new()
 	camera = CAMERA_SCENE.new()
 	$GameLayer.add_child(collisions)
@@ -76,9 +83,9 @@ func reset_players():
 	
 func start_round():
 	running = -1	
-	round += 1
+	round_num += 1
 	reset_players()
-	callout_layer.round_start(round)
+	callout_layer.round_start(round_num)
 	round_timer.start(2.0)
 	await round_timer.timeout
 	running = 0
@@ -363,8 +370,12 @@ func on_player_hit(p1_hit, p2_hit, clashing, p1_attack, p2_attack, is_projectile
 	
 	for i in Globals.players:
 		if i.is_dead():
-			end_round()
-			break
+			if training_mode:
+				i.health.heal(999999)
+				break
+			else:
+				end_round()
+				break
 					
 
 func _physics_process(delta):

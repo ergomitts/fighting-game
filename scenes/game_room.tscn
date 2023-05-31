@@ -1,17 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpg42uirkseid"]
+[gd_scene load_steps=8 format=3 uid="uid://bwyumkyjjlgbg"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_v1fn0"]
-[ext_resource type="Texture2D" uid="uid://2ojiuhh4ylty" path="res://assets/textures/stages/mountains/ground.png" id="3_tav31"]
-[ext_resource type="PackedScene" uid="uid://bkjutxn8uw17d" path="res://scenes/ui/hud.tscn" id="4_46sha"]
-[ext_resource type="Texture2D" uid="uid://dkuil2n2chv6r" path="res://assets/textures/stages/mountains/layer1.png" id="5_6p5ci"]
-[ext_resource type="PackedScene" uid="uid://bjepiygra8opl" path="res://scenes/ui/callouts.tscn" id="5_g1d0m"]
-[ext_resource type="Texture2D" uid="uid://dryie24s05sef" path="res://assets/textures/stages/mountains/layer2.png" id="6_igkck"]
-[ext_resource type="PackedScene" uid="uid://crkyk6ro8eos1" path="res://scenes/frame_viewer.tscn" id="7_pdabq"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_sf6jn"]
+[ext_resource type="Texture2D" uid="uid://2ojiuhh4ylty" path="res://assets/textures/stages/mountains/ground.png" id="2_kmr5v"]
+[ext_resource type="Texture2D" uid="uid://dkuil2n2chv6r" path="res://assets/textures/stages/mountains/layer1.png" id="3_5nkim"]
+[ext_resource type="Texture2D" uid="uid://dryie24s05sef" path="res://assets/textures/stages/mountains/layer2.png" id="4_mkrb7"]
+[ext_resource type="PackedScene" uid="uid://bkjutxn8uw17d" path="res://scenes/ui/hud.tscn" id="5_1gumb"]
+[ext_resource type="PackedScene" uid="uid://bjepiygra8opl" path="res://scenes/ui/callouts.tscn" id="6_645xr"]
+[ext_resource type="PackedScene" uid="uid://crkyk6ro8eos1" path="res://scenes/frame_viewer.tscn" id="7_l2ltd"]
 
 [node name="Game" type="Node2D"]
 process_mode = 3
-script = ExtResource("1_v1fn0")
-training_mode = true
+script = ExtResource("1_sf6jn")
 
 [node name="RoundTimer" type="Timer" parent="."]
 process_mode = 3
@@ -24,7 +23,7 @@ follow_viewport_enabled = true
 texture_filter = 1
 position = Vector2(0, 783)
 scale = Vector2(3, 3)
-texture = ExtResource("3_tav31")
+texture = ExtResource("2_kmr5v")
 metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="StageBackground"]
@@ -37,7 +36,7 @@ motion_scale = Vector2(0.2, 0.5)
 texture_filter = 1
 position = Vector2(0, 136)
 scale = Vector2(3, 3)
-texture = ExtResource("5_6p5ci")
+texture = ExtResource("3_5nkim")
 metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer1" type="ParallaxLayer" parent="StageBackground/ParallaxBackground"]
@@ -47,15 +46,14 @@ motion_scale = Vector2(0.6, 0.6)
 texture_filter = 1
 position = Vector2(0, 632)
 scale = Vector2(3, 3)
-texture = ExtResource("6_igkck")
+texture = ExtResource("4_mkrb7")
 metadata/_edit_lock_ = true
 
-[node name="HUDLayer" parent="." instance=ExtResource("4_46sha")]
+[node name="HUDLayer" parent="." instance=ExtResource("5_1gumb")]
 
 [node name="GameLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="CalloutLayer" parent="." instance=ExtResource("5_g1d0m")]
+[node name="CalloutLayer" parent="." instance=ExtResource("6_645xr")]
 
-[node name="FrameLayer" parent="." instance=ExtResource("7_pdabq")]
-visible = true
+[node name="FrameLayer" parent="." instance=ExtResource("7_l2ltd")]

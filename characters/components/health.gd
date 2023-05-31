@@ -18,4 +18,4 @@ func take_damage(amount: int, ignore := false):
 	value -= max(damage, 1) if amount > 0 else 0
 	
 func heal(amount: int):
-	value += amount
+	value = min(value + amount, max_health)

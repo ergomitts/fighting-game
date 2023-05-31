@@ -9,6 +9,7 @@ func spawn_projectile(pos, attack: ActionState, flipped := false):
 	var projectile = PROJECTILE_SCENE.instantiate()
 	projectile.attack = attack
 	projectile.speed = attack.projectile_speed
+	projectile.despawn_time = attack.projectile_lifetime
 	projectile.hits = attack.projectile_hit_amount
 	projectile.global_position = pos
 	add_child(projectile)

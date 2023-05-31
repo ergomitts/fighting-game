@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf2qj5gmmi0k1"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_tdreg"]
+[ext_resource type="FontFile" uid="uid://md21pn2vcn2a" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="2_i477a"]
+[ext_resource type="FontFile" uid="uid://m0qt8fyv5drw" path="res://assets/fonts/WindyCity.ttf" id="3_feonr"]
+
+[sub_resource type="Gradient" id="Gradient_pxag5"]
+offsets = PackedFloat32Array(0, 0.612903)
+colors = PackedColorArray(0.30096, 0.2656, 0.32, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b5d32"]
+gradient = SubResource("Gradient_pxag5")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Theme" id="Theme_aqi5p"]
+default_font = ExtResource("3_feonr")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0i6wx"]
+font_size = 48
+font_color = Color(0.658824, 0.658824, 0.658824, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_c0bbf"]
+default_font = ExtResource("2_i477a")
+default_font_size = 172
+
+[sub_resource type="LabelSettings" id="LabelSettings_wq8l2"]
+font_size = 128
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tdreg")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_b5d32")
+metadata/_edit_lock_ = true
+
+[node name="Label1" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.5
+offset_top = -25.5
+offset_right = 382.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_aqi5p")
+text = "[PRESS A TO FIGHT]"
+label_settings = SubResource("LabelSettings_0i6wx")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.5
+offset_top = 54.5
+offset_right = 382.5
+offset_bottom = 105.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_aqi5p")
+text = "[PRESS D TO TRAIN]"
+label_settings = SubResource("LabelSettings_0i6wx")
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -894.0
+offset_top = 272.0
+offset_right = 894.0
+offset_bottom = 458.0
+grow_horizontal = 2
+theme = SubResource("Theme_c0bbf")
+text = "UNTITLED FIGHTING GAME"
+label_settings = SubResource("LabelSettings_wq8l2")

@@ -21,7 +21,7 @@ func enter():
 	host.hit_confirmed = false
 	host.hitstun = 0
 	host.projectiles.clear()
-	host.velocity.x = 15.0 * host.get_flipped()
+	host.velocity.x = -15.0 * host.get_flipped()
 		
 func process_physics(delta):
 	host.velocity.y += gravity

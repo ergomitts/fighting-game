@@ -5,8 +5,8 @@ extends CanvasLayer
 @onready var player1 := $Player1
 @onready var player2 := $Player2
 
-func round_start(round):
-	main.get_node("Ready").text = "Round " + str(round)
+func round_start(round_num):
+	main.get_node("Ready").text = "Round " + str(round_num)
 	animation_player.play("round_start")
 
 func round_end(victor):

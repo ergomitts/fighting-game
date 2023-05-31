@@ -49,6 +49,7 @@ class_name ActionState
 @export var spawn_projectile := false
 @export var projectile_speed := 10.0
 @export var projectile_hit_amount := 1
+@export var projectile_lifetime := 5.0
 @export var is_finisher := false
 
 @export_category("States")
