@@ -1,12 +1,24 @@
+<<<<<<< HEAD
 [gd_scene load_steps=20 format=3 uid="uid://bkjutxn8uw17d"]
 
+=======
+[gd_scene load_steps=22 format=3 uid="uid://bkjutxn8uw17d"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_g72on"]
+>>>>>>> dev
 [ext_resource type="Texture2D" uid="uid://bqhqw7nbphki6" path="res://assets/textures/health_back.png" id="1_ww5tb"]
 [ext_resource type="Texture2D" uid="uid://bbipjbwqgf4ha" path="res://assets/textures/health_border.png" id="2_0hsh2"]
 [ext_resource type="Texture2D" uid="uid://cw2iil7yjljow" path="res://assets/textures/health_front.png" id="3_psh5t"]
 [ext_resource type="FontFile" uid="uid://bxdlr7x70a115" path="res://assets/fonts/battlenet.ttf" id="4_jp1cl"]
 [ext_resource type="Texture2D" uid="uid://4ehf5amxob4b" path="res://assets/textures/timer_back.png" id="5_ustri"]
+<<<<<<< HEAD
 [ext_resource type="FontFile" uid="uid://c8ejx8kh1xebr" path="res://assets/fonts/framd.ttf" id="6_bvxul"]
 [ext_resource type="Texture2D" uid="uid://bs6pytbc87mqg" path="res://assets/textures/shield.png" id="7_heolb"]
+=======
+[ext_resource type="Texture2D" uid="uid://bs6pytbc87mqg" path="res://assets/textures/shield.png" id="7_heolb"]
+[ext_resource type="FontFile" uid="uid://m0qt8fyv5drw" path="res://assets/fonts/WindyCity.ttf" id="7_mumhv"]
+[ext_resource type="Texture2D" uid="uid://prfjdiwi4vym" path="res://assets/textures/star.png" id="9_bujlf"]
+>>>>>>> dev
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eoys"]
 bg_color = Color(0.0627451, 0.0745098, 0.145098, 1)
@@ -91,7 +103,11 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_qtx3c"]
+<<<<<<< HEAD
 default_font = ExtResource("6_bvxul")
+=======
+default_font = ExtResource("7_mumhv")
+>>>>>>> dev
 default_font_size = 32
 ProgressBar/styles/background = SubResource("StyleBoxFlat_8eoys")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
@@ -102,6 +118,10 @@ outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
 [node name="HUDLayer" type="CanvasLayer"]
+<<<<<<< HEAD
+=======
+script = ExtResource("1_g72on")
+>>>>>>> dev
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 3
@@ -249,7 +269,11 @@ theme_override_constants/outline_size = 6
 text = "00"
 label_settings = SubResource("LabelSettings_w7bet")
 horizontal_alignment = 1
+<<<<<<< HEAD
 vertical_alignment = 1
+=======
+vertical_alignment = 2
+>>>>>>> dev
 
 [node name="DefenseIcon1" type="TextureRect" parent="Main"]
 texture_filter = 1
@@ -272,3 +296,50 @@ offset_right = -76.0
 offset_bottom = 368.0
 grow_horizontal = 0
 texture = ExtResource("7_heolb")
+<<<<<<< HEAD
+=======
+
+[node name="P1Win_1" type="TextureRect" parent="Main"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 781.0
+offset_top = 294.0
+offset_right = 879.0
+offset_bottom = 392.0
+texture = ExtResource("9_bujlf")
+expand_mode = 1
+
+[node name="P1Win_2" type="TextureRect" parent="Main"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 846.0
+offset_top = 329.0
+offset_right = 944.0
+offset_bottom = 427.0
+texture = ExtResource("9_bujlf")
+expand_mode = 1
+
+[node name="P2Win_1" type="TextureRect" parent="Main"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 1037.0
+offset_top = 294.0
+offset_right = 1135.0
+offset_bottom = 392.0
+texture = ExtResource("9_bujlf")
+expand_mode = 1
+
+[node name="P2Win_2" type="TextureRect" parent="Main"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 958.0
+offset_top = 329.0
+offset_right = 1056.0
+offset_bottom = 427.0
+texture = ExtResource("9_bujlf")
+expand_mode = 1
+>>>>>>> dev

@@ -3,8 +3,13 @@ class_name CharacterState
 
 func get_input() -> FGInput:
 	var controller = InputManager.controllers[host.id - 1]
+<<<<<<< HEAD
 	var input = controller.buffer[controller.BUFFER_FRAMES - 1]
 	return input
+=======
+	var _input = controller.buffer[controller.BUFFER_FRAMES - 1]
+	return _input
+>>>>>>> dev
 func get_axis() -> Vector2:
 	var controller = InputManager.controllers[host.id - 1]
 	return controller.get_axis()
@@ -20,6 +25,35 @@ func get_dir() -> int:
 func is_pressing(button := "") -> bool:
 	var controller = InputManager.controllers[host.id - 1]
 	return controller.is_pressing(button)
+<<<<<<< HEAD
+=======
+func is_holding_away():
+	var axis = get_axis()
+	var dir = host.get_flipped()
+	if axis.x * dir == -1:
+		return true
+	return false
+		
+func on_hit(attack: ActionState):
+	if (is_holding_away() or host.autoblock) and host.defense.value > 0 and attack.attack_type != Constants.AttackType.Unblockable and name != "Launched" and name != "Stunned" and name != "Grabbed" and name != "HardKnockdown" and self is ActionState == false:
+		var axis = get_axis()
+		var crouching = axis.y == 1
+		var low = crouching and attack.attack_type != Constants.AttackType.High
+		var high = !crouching and attack.attack_type != Constants.AttackType.Low
+		var air = !host.grounded() and attack.attack_type != Constants.AttackType.AirUnblockable
+		if host.autoblock and attack.attack_type != Constants.AttackType.Medium:
+			host.crouching = attack.attack_type == Constants.AttackType.Low
+		if low or high or air or host.autoblock:
+			return "Blocking"
+	if attack.launch_on_hit or !host.grounded():
+		return "Launched"
+	elif name != "Knockdown":
+		if attack.force_stance == "Standing":
+			host.crouching = false
+		elif attack.force_stance == "Crouching":
+			host.crouching = true
+		return "Stunned"
+>>>>>>> dev
 	
 func get_attack_state(motion_input, axis := Vector2.ZERO):
 	var state := ""
@@ -32,6 +66,7 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 		pressing = Constants.Buttons.Medium
 	elif is_pressing("light"):
 		pressing = Constants.Buttons.Light
+<<<<<<< HEAD
 	
 	for attack_name in host.attack_states:
 		var i = host.get_attack_state(attack_name)
@@ -41,6 +76,24 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 					continue
 			print(attack_name)
 			if (host.grounded() and !i.aerial) or (!host.grounded() and i.aerial):
+=======
+
+	for attack_name in host.attack_states:
+		var i = host.get_attack_state(attack_name)
+		if i.motion == motion_input and (i.button == pressing or (i.can_special and pressing == Constants.Buttons.Special)) and host.special.value >= i.meter_usage:
+			if i.motion == Constants.MotionInput.Empty:
+				var dir := axis
+				dir.x *= host.get_flipped()
+				if i.direction != dir and i.direction != Vector2.ZERO:
+					continue
+				elif i.direction == Vector2.ZERO and (axis.y == 1) != i.crouch:
+					continue
+			if i.spawn_projectile and !host.projectiles.can_spawn_projectile():
+				continue
+			if i.is_finisher and host.nemesis.health.value > host.nemesis.health.max_health/2:
+				continue
+			if (host.grounded() and i.ground) or (!host.grounded() and i.aerial):
+>>>>>>> dev
 				state = i.name
 				InputManager.controllers[host.id - 1].clear()
 				break
@@ -49,6 +102,7 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 	
 func process_input():
 	var controller := InputManager.controllers[host.id - 1] as Controller
+<<<<<<< HEAD
 	var input = controller.buffer[controller.BUFFER_FRAMES - 1]
 	var axis = input.axis
 	
@@ -74,6 +128,24 @@ func process_input():
 			return get_attack_state(Constants.MotionInput.DragonPunch)
 		elif controller.read_directional_input(Vector2.DOWN, "special", host.flipped):
 			return get_attack_state(Constants.MotionInput.HalfCircleF)
+=======
+	var axis = get_axis()
+	
+	var grab_combo = controller.check_combined_buttons(["light", "medium"])
+	if grab_combo and (name == "Standing" or name == "Walking" or name == "Running"):
+		return "Grab"
+	
+	var motion_input
+	for i in range(Constants.MotionInput.size()):
+		var motion = controller.read_motion_input(i, host.flipped)
+		if motion:
+			motion_input = i
+			break
+	if motion_input != null:
+		var state = get_attack_state(motion_input, axis)
+		if state:
+			return state
+>>>>>>> dev
 
 func process_physics(delta):
 	if !host.grounded():

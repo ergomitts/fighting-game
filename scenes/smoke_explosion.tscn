@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://l5qohcpgwyli"]
+
+[ext_resource type="Texture2D" uid="uid://dmgvxierfwfoi" path="res://assets/textures/effects/circle.png" id="1_tr0ng"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cks4l"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="Smoke" type="Node2D"]
+
+[node name="Particle" type="GPUParticles2D" parent="."]
+texture_filter = 1
+process_material = SubResource("ParticleProcessMaterial_cks4l")
+texture = ExtResource("1_tr0ng")

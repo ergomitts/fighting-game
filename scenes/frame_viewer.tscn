@@ -1,0 +1,222 @@
+[gd_scene load_steps=7 format=3 uid="uid://crkyk6ro8eos1"]
+
+[ext_resource type="Script" path="res://scripts/state_viewer.gd" id="1_a5pmf"]
+[ext_resource type="FontFile" uid="uid://c8ejx8kh1xebr" path="res://assets/fonts/framd.ttf" id="2_yh4rj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eoys"]
+bg_color = Color(0.0627451, 0.0745098, 0.145098, 1)
+skew = Vector2(-0.25, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuu68"]
+bg_color = Color(0.470588, 0.85098, 1, 1)
+skew = Vector2(-0.25, 0)
+
+[sub_resource type="Theme" id="Theme_87t3r"]
+default_font = ExtResource("2_yh4rj")
+default_font_size = 32
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8eoys")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
+
+[sub_resource type="LabelSettings" id="LabelSettings_g45ui"]
+font_size = 24
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="FrameLayer" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_a5pmf")
+
+[node name="FrameDataViewer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Status1" type="ColorRect" parent="FrameDataViewer"]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 144.0
+offset_right = 763.0
+offset_bottom = 366.0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="CenterContainer" type="CenterContainer" parent="FrameDataViewer/Status1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerStatus1" type="GridContainer" parent="FrameDataViewer/Status1/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Damage" type="Label" parent="FrameDataViewer/Status1/CenterContainer/PlayerStatus1"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Damage: 0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="MaxComboDamage" type="Label" parent="FrameDataViewer/Status1/CenterContainer/PlayerStatus1"]
+custom_minimum_size = Vector2(230, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Max Damage: 0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="ComboHits" type="Label" parent="FrameDataViewer/Status1/CenterContainer/PlayerStatus1"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Combo Hits: 0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="Proration" type="Label" parent="FrameDataViewer/Status1/CenterContainer/PlayerStatus1"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Proration: 1.0%"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="Frame" type="Label" parent="FrameDataViewer/Status1/CenterContainer/PlayerStatus1"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Frame: 0/0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="FrameAdvantage" type="Label" parent="FrameDataViewer/Status1/CenterContainer/PlayerStatus1"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Frame Adv: +0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="State" type="Label" parent="FrameDataViewer/Status1/CenterContainer/PlayerStatus1"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "State: "
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="Stun" type="Label" parent="FrameDataViewer/Status1/CenterContainer/PlayerStatus1"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Stun Frames: 0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="Status2" type="ColorRect" parent="FrameDataViewer"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -763.0
+offset_top = 144.0
+offset_right = -286.0
+offset_bottom = 366.0
+grow_horizontal = 0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="CenterContainer" type="CenterContainer" parent="FrameDataViewer/Status2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerStatus2" type="GridContainer" parent="FrameDataViewer/Status2/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Damage" type="Label" parent="FrameDataViewer/Status2/CenterContainer/PlayerStatus2"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Damage: 0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="MaxComboDamage" type="Label" parent="FrameDataViewer/Status2/CenterContainer/PlayerStatus2"]
+custom_minimum_size = Vector2(230, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Max Damage: 0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="ComboHits" type="Label" parent="FrameDataViewer/Status2/CenterContainer/PlayerStatus2"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Combo Hits: 0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="Proration" type="Label" parent="FrameDataViewer/Status2/CenterContainer/PlayerStatus2"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Proration: 1.0%"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="Frame" type="Label" parent="FrameDataViewer/Status2/CenterContainer/PlayerStatus2"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Frame: 0/0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="FrameAdvantage" type="Label" parent="FrameDataViewer/Status2/CenterContainer/PlayerStatus2"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Frame Adv: +0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="State" type="Label" parent="FrameDataViewer/Status2/CenterContainer/PlayerStatus2"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "State: "
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3
+
+[node name="Stun" type="Label" parent="FrameDataViewer/Status2/CenterContainer/PlayerStatus2"]
+custom_minimum_size = Vector2(200, 25)
+layout_mode = 2
+theme = SubResource("Theme_87t3r")
+text = "Stun Frames: 0"
+label_settings = SubResource("LabelSettings_g45ui")
+text_overrun_behavior = 3

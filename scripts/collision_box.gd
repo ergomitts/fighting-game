@@ -6,11 +6,19 @@ var color := Color.BLUE_VIOLET
 
 @export var active := true
 @export var flipped := false : set = _flip
+<<<<<<< HEAD
 @export var data : Array[Rect2] = [] : set = _update
 
 var _flipped_data := []
 var _data := []
 var _modified := false
+=======
+@export var data : Array = [] : set = _update
+
+var flipped_data := []
+var data_meat := []
+var modified := false
+>>>>>>> dev
 	
 func _init():
 	z_index = 99
@@ -20,6 +28,7 @@ func _flip(value):
 	if Engine.is_editor_hint():
 		return
 	flipped = value
+<<<<<<< HEAD
 	if flipped and !_modified:
 		_modified = true
 		_data = _flipped_data
@@ -38,12 +47,38 @@ func _update(value):
 		_flipped_data.append(Rect2(Vector2(-(value[i].position.x + value[i].size.x), value[i].position.y), value[i].size))
 	if flipped:
 		_flip(true)
+=======
+	if flipped and !modified:
+		modified = true
+		data_meat = flipped_data
+	elif !flipped and modified:
+		modified = false
+		data_meat = data
+	return value
+
+func _update(value):
+	data = value
+	data_meat = value
+	if Engine.is_editor_hint():
+		return
+	flipped_data.clear()
+	modified = false
+	for i in range(0, value.size()):
+		flipped_data.append(Rect2(Vector2(-(value[i].position.x + value[i].size.x), value[i].position.y), value[i].size))
+	if flipped:
+		_flip(true)
+	return value
+>>>>>>> dev
 		
 func clear():
 	data.clear()
 	
 func get_boxes():
+<<<<<<< HEAD
 	return _data
+=======
+	return data_meat
+>>>>>>> dev
 	
 func check_collision(other : CollisionBox):
 	var my_boxes = get_boxes()
@@ -62,9 +97,15 @@ func check_collision(other : CollisionBox):
 		return pos
 
 func draw_collisions():
+<<<<<<< HEAD
 	for rect in _data:
 		draw_rect(rect, color, false)
 	#	draw_rect(rect, Color(color, 0.2), true)
+=======
+	for rect in data_meat:
+		draw_rect(rect, color, false)
+		draw_rect(rect, Color(color, 0.1), true)
+>>>>>>> dev
 		
 func _process(_delta: float):
 	queue_redraw()
