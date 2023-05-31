@@ -1,6 +1,7 @@
 extends Control
 
 var eready := false
+var pressed := false
 
 func _ready():
 	if Globals.winner != -1:
@@ -12,8 +13,12 @@ func _input(event):
 	if event.is_echo():
 		return
 	if event is InputEventKey and event.is_pressed() and eready:
+		if pressed:
+			return
 		if event.is_action_pressed("p1_left"):
+			pressed = true
 			get_tree().change_scene_to_file("res://scenes/game_room.tscn")
 		elif event.is_action_pressed("p1_right"):
+			pressed = true
 			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 

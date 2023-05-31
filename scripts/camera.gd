@@ -1,10 +1,5 @@
 extends Camera2D
 
-<<<<<<< HEAD
-@export var cutoff := 960
-@export var center_offset := Vector2(0, -90)
-@export var zoom_scale := 1.2
-=======
 @onready var shaker := Shaker.new()
 
 @export var cutoff := 960
@@ -15,7 +10,6 @@ extends Camera2D
 
 func _ready():
 	add_child(shaker)
->>>>>>> dev
 
 func get_center():
 	return (Globals.players[0].global_position + Globals.players[1].global_position)/2
@@ -33,28 +27,6 @@ func get_distance():
 	
 	return abs(left - right)	
 	
-<<<<<<< HEAD
-func _physics_process(delta):
-	var center = get_center()
-	position = center + center_offset
-	
-#	limit_left = Globals.limit_left
-#	limit_right = Globals.limit_right
-	
-#	var left = center.x - Globals.MAX_PLAYER_DISTANCE/2
-#	var right = center.x + Globals.MAX_PLAYER_DISTANCE/2
-#	if left < Globals.StageLeft:
-#		position.x += Globals.StageLeft - left
-#	elif right > Globals.StageRight:
-#		position.x += Globals.StageRight - right
-	
-	var distance = get_distance()
-	var _zoom = zoom_scale
-	if distance > cutoff:
-		_zoom = zoom_scale + (1-zoom_scale) * ((distance - cutoff)/(Globals.MAX_PLAYER_DISTANCE - cutoff)) 
-	zoom = lerp(zoom, Vector2(_zoom, _zoom), 50 * delta)
-	
-=======
 func _process(delta):
 	if Globals.players.size() < 1:
 		return
@@ -83,5 +55,4 @@ func _process(delta):
 		zoom = lerp(zoom, Vector2(_zoom, _zoom), 50 * delta)
 		
 		offset = shaker.position
->>>>>>> dev
 	

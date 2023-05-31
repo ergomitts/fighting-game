@@ -8,10 +8,7 @@ layer = 2
 script = ExtResource("1_kx8s5")
 
 [node name="InputViewer" type="Control" parent="."]
-<<<<<<< HEAD
-=======
 visible = false
->>>>>>> dev
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,11 +22,7 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_top = 144.0
-<<<<<<< HEAD
-offset_right = 345.0
-=======
 offset_right = 445.0
->>>>>>> dev
 offset_bottom = 144.0
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
@@ -41,15 +34,9 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-<<<<<<< HEAD
-offset_left = -259.0
-offset_top = 144.0
-offset_right = 86.0
-=======
 offset_left = -334.0
 offset_top = 144.0
 offset_right = 111.0
->>>>>>> dev
 offset_bottom = 144.0
 grow_horizontal = 0
 grow_vertical = 2

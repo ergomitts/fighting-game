@@ -37,11 +37,7 @@ func init(init_state: String = default_state):
 	active = true
 	change_state(init_state)
 	
-<<<<<<< HEAD
-func change_state(state_name: String):
-=======
 func change_state(state_name := ""):
->>>>>>> dev
 	if state_name == "!previous":
 		_stack.pop_front()
 	elif !state_name.is_empty(): 

@@ -39,13 +39,8 @@ const MOTION_INPUT_DATA = {
 	# Tricky Inputs
 	MotionInput.HalfCircleF_GG : {
 		'directions' : [Vector2.RIGHT, Vector2.RIGHT + Vector2.DOWN, Vector2.DOWN, Vector2.DOWN + Vector2.LEFT, Vector2.LEFT, Vector2.RIGHT], 
-<<<<<<< HEAD
-		'duration' : 26, 
-		'misinputs' : 4
-=======
 		'duration' : 38, 
 		'misinputs' : 6
->>>>>>> dev
 	},
 	MotionInput.HalfCircleF : {
 		'directions' : [Vector2.LEFT, Vector2.LEFT + Vector2.DOWN, Vector2.DOWN, Vector2.DOWN + Vector2.RIGHT, Vector2.RIGHT], 

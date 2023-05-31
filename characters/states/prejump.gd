@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-extends AerialState
-
-func enter():
-	host.animation_player.play("prejump")
-	
-func physics_process(delta):
-	if host.animation_finished():
-=======
 extends CharacterState
 
 var jump_dir := 0
@@ -25,6 +16,5 @@ func exit():
 func physics_process(delta):
 	if host.animation_finished() or !host.grounded():
 		host.jump_dir = jump_dir
->>>>>>> dev
 		return "Jumping"
 	

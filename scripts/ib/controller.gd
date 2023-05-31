@@ -37,11 +37,7 @@ func get_buttons(frame := BUFFER_FRAMES):
 	return buttons
 
 func is_pressing(button := "") -> bool:
-<<<<<<< HEAD
-	for i in range(BUFFER_FRAMES, BUFFER_FRAMES - 5, -1):
-=======
 	for i in range(BUFFER_FRAMES, BUFFER_FRAMES - 10, -1):
->>>>>>> dev
 		var buttons = get_buttons(i)
 		if buttons.has(button):
 			return buttons.get(button) == 1
@@ -54,11 +50,7 @@ func check_combined_buttons(combo_buttons := [], duration := 10, start := BUFFER
 		var buttons := buffer[i].buttons as Dictionary
 		for x in combo_buttons:
 			if buttons.has(x) and !found_buttons.has(x):
-<<<<<<< HEAD
-				if buttons.get(x) >= 0:
-=======
 				if buttons.get(x) > 0:
->>>>>>> dev
 					found_buttons.append(x)
 		if found_buttons.hash() == combo_buttons.hash():
 			break
@@ -92,10 +84,6 @@ func read_motion_input(index: int, flipped := false, start := BUFFER_FRAMES - 1)
 		var duration := Constants.MOTION_INPUT_DATA[index].get('duration', 0) as int
 		var directions := Constants.MOTION_INPUT_DATA[index].get('directions', []) as Array
 		var misinputs := Constants.MOTION_INPUT_DATA[index].get('misinputs', 0) as int
-<<<<<<< HEAD
-		var ignore := Constants.MOTION_INPUT_DATA[index].get('ignore', []) as Array
-=======
->>>>>>> dev
 		
 		var checks := directions.size() - 1
 		var mistakes := 0 
@@ -114,27 +102,12 @@ func read_motion_input(index: int, flipped := false, start := BUFFER_FRAMES - 1)
 					if dir == target_dir:
 						checks -= 1
 					elif last_dir != dir:
-<<<<<<< HEAD
-					#	if ignore.size() > 0 and ignore.find(checks) != -1:
-					#		checks -= 1
-					#	else:
-					#		mistakes += 1	
 						mistakes += 1
-					#	print(last_dir, i, " got: ", dir, " expected: ", target_dir)
-=======
-						mistakes += 1
->>>>>>> dev
 					
 			if checks < 0:
 				failed = false
 				break
 			last_dir = dir
-<<<<<<< HEAD
-		
-#		if !failed:
-#			print(Constants.MotionInput.keys()[index])
-=======
->>>>>>> dev
 
 	return !failed
 
@@ -155,12 +128,6 @@ func process_input():
 					input.axis.x += strength
 		else:
 			if Input.is_action_just_pressed(action):
-<<<<<<< HEAD
-				input.buttons[raw_action] = 1
-				has_changed = true
-			elif Input.is_action_pressed(action):
-				input.buttons[raw_action] = 0
-=======
 				input.buttons[raw_action] = 1 
 				has_changed = true
 			elif Input.is_action_pressed(action):
@@ -169,7 +136,6 @@ func process_input():
 					input.buttons[raw_action] = 1
 				else:
 					input.buttons[raw_action] = 0
->>>>>>> dev
 			elif Input.is_action_just_released(action):
 				input.buttons[raw_action] = -1
 				has_changed = true
@@ -192,15 +158,9 @@ func update_charge(axis):
 	
 func update():
 	var _input = process_input()
-<<<<<<< HEAD
-	update_charge(_input.axis)
-	buffer.pop_front()
-	buffer.append(_input)
-=======
 	buffer.pop_front()
 	buffer.append(_input)
 	update_charge(_input.axis)
->>>>>>> dev
 	if has_changed:
 		has_changed = false
 		changed.emit(id)

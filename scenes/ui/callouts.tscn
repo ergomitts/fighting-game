@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-[gd_scene load_steps=6 format=3 uid="uid://bjepiygra8opl"]
-
-[ext_resource type="FontFile" uid="uid://c8ejx8kh1xebr" path="res://assets/fonts/framd.ttf" id="1_jj1a5"]
-=======
 [gd_scene load_steps=19 format=3 uid="uid://bjepiygra8opl"]
 
 [ext_resource type="Script" path="res://scripts/callouts.gd" id="1_24ikm"]
 [ext_resource type="FontFile" uid="uid://md21pn2vcn2a" path="res://assets/fonts/PermanentMarker-Regular.ttf" id="2_217ec"]
->>>>>>> dev
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8eoys"]
 bg_color = Color(0.0627451, 0.0745098, 0.145098, 1)
@@ -27,17 +21,11 @@ bg_color = Color(0.470588, 0.85098, 1, 1)
 skew = Vector2(-0.25, 0)
 
 [sub_resource type="Theme" id="Theme_qtx3c"]
-<<<<<<< HEAD
-default_font = ExtResource("1_jj1a5")
-=======
 default_font = ExtResource("2_217ec")
->>>>>>> dev
 default_font_size = 32
 ProgressBar/styles/background = SubResource("StyleBoxFlat_8eoys")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_cuu68")
 
-<<<<<<< HEAD
-=======
 [sub_resource type="LabelSettings" id="LabelSettings_j4wva"]
 font_size = 72
 outline_size = 8
@@ -115,15 +103,11 @@ font_color = Color(1, 0.266667, 0.0470588, 1)
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
->>>>>>> dev
 [sub_resource type="LabelSettings" id="LabelSettings_w7bet"]
 font_size = 192
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
-<<<<<<< HEAD
-[node name="UILayer" type="CanvasLayer"]
-=======
 [sub_resource type="Animation" id="Animation_pnao3"]
 length = 0.001
 tracks/0/type = "value"
@@ -402,7 +386,6 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_bgc04")
 }
->>>>>>> dev
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 3
@@ -457,11 +440,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Winner" type="Label" parent="Main"]
-<<<<<<< HEAD
-visible = false
-=======
 self_modulate = Color(1, 1, 1, 0)
->>>>>>> dev
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -481,8 +460,6 @@ text = "PLAYER 1 WINS!"
 label_settings = SubResource("LabelSettings_w7bet")
 horizontal_alignment = 1
 vertical_alignment = 1
-<<<<<<< HEAD
-=======
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Main"]
 libraries = {
@@ -497,4 +474,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
->>>>>>> dev

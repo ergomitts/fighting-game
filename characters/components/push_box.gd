@@ -8,11 +8,6 @@ var color := Color.YELLOW
 @export var can_push := true
 @export var shape := Rect2(-32, -32, 64, 64)
 
-<<<<<<< HEAD
-var _shape := shape
-
-=======
->>>>>>> dev
 func _init():
 	z_index = 99
 	z_as_relative = false

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=160 format=3 uid="uid://cosc2d17vuk1b"]
-=======
 [gd_scene load_steps=254 format=3 uid="uid://danqhif04gnwb"]
->>>>>>> dev
 
 [ext_resource type="Script" path="res://characters/character_object.gd" id="1_7v1m0"]
 [ext_resource type="Script" path="res://scripts/fsm/state_machine.gd" id="2_ii632"]
@@ -12,10 +8,7 @@
 [ext_resource type="Script" path="res://characters/states/standing.gd" id="3_ruyv0"]
 [ext_resource type="Script" path="res://characters/states/crouching.gd" id="4_6ks4i"]
 [ext_resource type="Script" path="res://scripts/hit_box.gd" id="4_cji4j"]
-<<<<<<< HEAD
-=======
 [ext_resource type="Script" path="res://characters/states/idle.gd" id="4_f8dyp"]
->>>>>>> dev
 [ext_resource type="Script" path="res://characters/states/action_state.gd" id="4_fh8td"]
 [ext_resource type="Script" path="res://characters/components/health.gd" id="4_lmlhl"]
 [ext_resource type="Script" path="res://characters/states/walking.gd" id="5_frrp1"]
@@ -25,28 +18,15 @@
 [ext_resource type="Script" path="res://characters/states/landing.gd" id="6_mghvc"]
 [ext_resource type="Script" path="res://characters/states/aerial.gd" id="6_r3syh"]
 [ext_resource type="Script" path="res://characters/states/jumping.gd" id="7_7qu6k"]
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://characters/states/prejump.gd" id="8_pdhdy"]
-[ext_resource type="Script" path="res://characters/shoto/states/dragon_punch.gd" id="9_5rtk8"]
-=======
 [ext_resource type="Script" path="res://characters/states/back_dash.gd" id="7_grwx5"]
 [ext_resource type="Script" path="res://characters/states/prejump.gd" id="8_pdhdy"]
 [ext_resource type="Script" path="res://characters/shoto/states/dragon_punch.gd" id="9_5rtk8"]
 [ext_resource type="Script" path="res://characters/states/knocked_out.gd" id="12_c7v56"]
 [ext_resource type="Script" path="res://characters/states/launched.gd" id="15_1lq0p"]
->>>>>>> dev
 [ext_resource type="Shader" path="res://characters/color.gdshader" id="15_35ltf"]
 [ext_resource type="Texture2D" uid="uid://dbdpcop36jf3d" path="res://characters/shoto/sprites/idle_0.png" id="16_y1cw6"]
 [ext_resource type="Texture2D" uid="uid://cbq8tge1csp0b" path="res://characters/shoto/sprites/crouch_0.png" id="16_yg0pm"]
 [ext_resource type="Texture2D" uid="uid://b0wdvsour0yes" path="res://characters/shoto/sprites/crouch_1.png" id="17_mndmk"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://dgo2vsl7xo4fq" path="res://characters/shoto/sprites/crouch_2.png" id="18_l43hp"]
-[ext_resource type="Texture2D" uid="uid://c3gfxuh0aosax" path="res://characters/shoto/sprites/crouch_3.png" id="19_1wgba"]
-[ext_resource type="Texture2D" uid="uid://bitsjhdp44r6p" path="res://characters/shoto/sprites/crouch_4.png" id="20_b0wuy"]
-[ext_resource type="Texture2D" uid="uid://c6exalbi7por6" path="res://characters/shoto/sprites/back_dash_0.png" id="20_ua71g"]
-[ext_resource type="Texture2D" uid="uid://dpsmibdmonasd" path="res://characters/shoto/sprites/back_dash_1.png" id="21_2cqc5"]
-[ext_resource type="Texture2D" uid="uid://bxqwq7ixr13si" path="res://characters/shoto/sprites/light_jab_0.png" id="21_jrtq4"]
-=======
 [ext_resource type="Script" path="res://characters/states/grabbed.gd" id="17_wa42t"]
 [ext_resource type="Texture2D" uid="uid://dgo2vsl7xo4fq" path="res://characters/shoto/sprites/crouch_2.png" id="18_l43hp"]
 [ext_resource type="Script" path="res://characters/states/throw_clash.gd" id="18_nf8vm"]
@@ -58,7 +38,6 @@
 [ext_resource type="Texture2D" uid="uid://dpsmibdmonasd" path="res://characters/shoto/sprites/back_dash_1.png" id="21_2cqc5"]
 [ext_resource type="Texture2D" uid="uid://bxqwq7ixr13si" path="res://characters/shoto/sprites/light_jab_0.png" id="21_jrtq4"]
 [ext_resource type="Script" path="res://characters/shoto/states/buster.gd" id="21_mlyrs"]
->>>>>>> dev
 [ext_resource type="Texture2D" uid="uid://1s3n8hc1u2wm" path="res://characters/shoto/sprites/jump_0.png" id="21_pq0ul"]
 [ext_resource type="Texture2D" uid="uid://emlocp25mn2a" path="res://characters/shoto/sprites/back_dash_2.png" id="22_b0a7i"]
 [ext_resource type="Texture2D" uid="uid://d1ty7heah40n5" path="res://characters/shoto/sprites/light_jab_1.png" id="22_by1nu"]
@@ -69,11 +48,8 @@
 [ext_resource type="Texture2D" uid="uid://d3hg1xbnov8vu" path="res://characters/shoto/sprites/block_high_1.png" id="24_8ht2b"]
 [ext_resource type="Texture2D" uid="uid://0pits1yuvaq0" path="res://characters/shoto/sprites/landing_0.png" id="24_ha8ej"]
 [ext_resource type="Texture2D" uid="uid://dgmhp2wpn4f7k" path="res://characters/shoto/sprites/light_jab_3.png" id="24_mq2cu"]
-<<<<<<< HEAD
-=======
 [ext_resource type="Script" path="res://characters/components/defense_meter.gd" id="24_twdjm"]
 [ext_resource type="Script" path="res://characters/components/special_meter.gd" id="25_bve3b"]
->>>>>>> dev
 [ext_resource type="Texture2D" uid="uid://ca5rjkpvaw0aj" path="res://characters/shoto/sprites/landing_1.png" id="25_dme8p"]
 [ext_resource type="Texture2D" uid="uid://dgbsyhudwu8ii" path="res://characters/shoto/sprites/block_low_0.png" id="25_pao1v"]
 [ext_resource type="Texture2D" uid="uid://cyculsnaw247r" path="res://characters/shoto/sprites/run_0.png" id="25_ut08m"]
@@ -82,17 +58,6 @@
 [ext_resource type="Texture2D" uid="uid://c8emwffmg0i4j" path="res://characters/shoto/sprites/block_low_1.png" id="26_y8f63"]
 [ext_resource type="Texture2D" uid="uid://dg7y1dw46ehv8" path="res://characters/shoto/sprites/run_2.png" id="27_c584u"]
 [ext_resource type="Texture2D" uid="uid://cgd7rchviamu5" path="res://characters/shoto/sprites/launched_1.png" id="27_h87v1"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://ckxgr5mknd8ov" path="res://characters/shoto/sprites/run_3.png" id="28_21w0c"]
-[ext_resource type="Texture2D" uid="uid://1h6f1fuxc0re" path="res://characters/shoto/sprites/launched_2.png" id="28_daygn"]
-[ext_resource type="Texture2D" uid="uid://cumr13i6nqm7i" path="res://characters/shoto/sprites/walk_0.png" id="30_ue0lj"]
-[ext_resource type="Texture2D" uid="uid://ctn0ebk08mun1" path="res://characters/shoto/sprites/walk_1.png" id="31_vcxsp"]
-[ext_resource type="Texture2D" uid="uid://6k35frkd7b6f" path="res://characters/shoto/sprites/walk_2.png" id="32_mg817"]
-[ext_resource type="Texture2D" uid="uid://px134d7qledp" path="res://characters/shoto/sprites/stun_crouch_0.png" id="32_n1hss"]
-[ext_resource type="Texture2D" uid="uid://chvu7a1484ee5" path="res://characters/shoto/sprites/walk_3.png" id="33_adr15"]
-[ext_resource type="Texture2D" uid="uid://cl2m18o6bi5w" path="res://characters/shoto/sprites/stun_crouch_1.png" id="33_e6v6b"]
-[ext_resource type="Texture2D" uid="uid://buadvxdyqv0dl" path="res://characters/shoto/sprites/prejump_0.png" id="33_o7lf2"]
-=======
 [ext_resource type="Texture2D" uid="uid://csslk34wysgv4" path="res://characters/shoto/sprites/burst_0.png" id="28_1by8y"]
 [ext_resource type="Texture2D" uid="uid://ckxgr5mknd8ov" path="res://characters/shoto/sprites/run_3.png" id="28_21w0c"]
 [ext_resource type="Texture2D" uid="uid://1h6f1fuxc0re" path="res://characters/shoto/sprites/launched_2.png" id="28_daygn"]
@@ -111,30 +76,11 @@
 [ext_resource type="Texture2D" uid="uid://buadvxdyqv0dl" path="res://characters/shoto/sprites/prejump_0.png" id="33_o7lf2"]
 [ext_resource type="Texture2D" uid="uid://bv7loq2nq5ybi" path="res://characters/shoto/sprites/crouch_jab_2.png" id="33_viexg"]
 [ext_resource type="Texture2D" uid="uid://d15fs2cqdure6" path="res://characters/shoto/sprites/crouch_kick_0.png" id="34_3bw11"]
->>>>>>> dev
 [ext_resource type="Texture2D" uid="uid://dadj2f2sufgob" path="res://characters/shoto/sprites/dp_0.png" id="34_l2nxu"]
 [ext_resource type="Texture2D" uid="uid://duujdl426wfcs" path="res://characters/shoto/sprites/walk_4.png" id="34_qwmnq"]
 [ext_resource type="Texture2D" uid="uid://bnpj8exuwocvo" path="res://characters/shoto/sprites/prejump_1.png" id="34_yg00w"]
 [ext_resource type="Texture2D" uid="uid://bb574hf3qc0k4" path="res://characters/shoto/sprites/dp_1.png" id="35_2ww34"]
 [ext_resource type="Texture2D" uid="uid://piiuj6obnfmm" path="res://characters/shoto/sprites/walk_5.png" id="35_8jmhp"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://cnjjnmya4kp8s" path="res://characters/shoto/sprites/walk_6.png" id="36_ujrr7"]
-[ext_resource type="Texture2D" uid="uid://cne85bpwqccua" path="res://characters/shoto/sprites/dp_2.png" id="36_xn7h8"]
-[ext_resource type="Texture2D" uid="uid://3q24dxaf03ml" path="res://characters/shoto/sprites/walk_7.png" id="37_bwxge"]
-[ext_resource type="Texture2D" uid="uid://dx50sfv7sl7km" path="res://characters/shoto/sprites/dp_3.png" id="37_mgaqm"]
-[ext_resource type="Texture2D" uid="uid://cuo1s0obej0q6" path="res://characters/shoto/sprites/walk_8.png" id="38_pjjg0"]
-[ext_resource type="Texture2D" uid="uid://ruulf7tofxro" path="res://characters/shoto/sprites/dp_4.png" id="38_t8iyk"]
-[ext_resource type="Texture2D" uid="uid://d0s6ml2yopfyg" path="res://characters/shoto/sprites/dp_5.png" id="39_2wvmv"]
-[ext_resource type="Texture2D" uid="uid://dj4fne6l01w61" path="res://characters/shoto/sprites/dp_6.png" id="40_e4nt5"]
-[ext_resource type="Texture2D" uid="uid://kguqgh2rsbyp" path="res://characters/shoto/sprites/stun_0.png" id="40_pclwd"]
-[ext_resource type="Texture2D" uid="uid://dsthdts6las8j" path="res://characters/shoto/sprites/stun_1.png" id="41_1da4f"]
-[ext_resource type="Texture2D" uid="uid://cibt571k4saep" path="res://characters/shoto/sprites/dp_7.png" id="41_5a16h"]
-[ext_resource type="Texture2D" uid="uid://eufk0ufph55e" path="res://characters/shoto/sprites/dp_8.png" id="42_s2ian"]
-[ext_resource type="Texture2D" uid="uid://fasu7abde3om" path="res://characters/shoto/sprites/dp_9.png" id="43_2ur0f"]
-[ext_resource type="Texture2D" uid="uid://bebxl2lp637xo" path="res://characters/shoto/sprites/fireball_special_0.png" id="44_ndw7v"]
-[ext_resource type="Texture2D" uid="uid://dn2sp0blsc4ni" path="res://characters/shoto/sprites/fireball_special_1.png" id="45_cc14h"]
-[ext_resource type="Texture2D" uid="uid://7ylfs68efv6m" path="res://characters/shoto/sprites/fireball_special_2.png" id="46_1gib8"]
-=======
 [ext_resource type="Texture2D" uid="uid://dtrf1erggbka0" path="res://characters/shoto/sprites/crouch_kick_1.png" id="35_ba1gi"]
 [ext_resource type="Texture2D" uid="uid://ddjujwry5wqh0" path="res://characters/shoto/sprites/crouch_uppercut_0.png" id="36_lw5da"]
 [ext_resource type="Texture2D" uid="uid://cnjjnmya4kp8s" path="res://characters/shoto/sprites/walk_6.png" id="36_ujrr7"]
@@ -164,7 +110,6 @@
 [ext_resource type="Texture2D" uid="uid://dn2sp0blsc4ni" path="res://characters/shoto/sprites/fireball_special_1.png" id="45_cc14h"]
 [ext_resource type="Texture2D" uid="uid://7ylfs68efv6m" path="res://characters/shoto/sprites/fireball_special_2.png" id="46_1gib8"]
 [ext_resource type="Texture2D" uid="uid://dlvnfsniptlee" path="res://characters/shoto/sprites/buster_3.png" id="46_h268e"]
->>>>>>> dev
 [ext_resource type="Texture2D" uid="uid://tfb3jbamrxko" path="res://characters/shoto/sprites/fireball_special_3.png" id="47_indww"]
 [ext_resource type="Texture2D" uid="uid://dm0fpgp2j5s8n" path="res://characters/shoto/sprites/fireball_special_4.png" id="48_eamw2"]
 [ext_resource type="Texture2D" uid="uid://chl24otcyimw4" path="res://characters/shoto/sprites/fireball_special_5.png" id="49_aq7i3"]
@@ -186,15 +131,10 @@
 [ext_resource type="Texture2D" uid="uid://h85pv6ayh0ly" path="res://characters/shoto/sprites/jump_punch_6.png" id="65_h5ro1"]
 [ext_resource type="Texture2D" uid="uid://c7vaj2j2m73gh" path="res://characters/shoto/sprites/jump_punch_7.png" id="66_v24y2"]
 [ext_resource type="Texture2D" uid="uid://b5faky48kw88j" path="res://characters/shoto/sprites/kick_0.png" id="69_thrtd"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://b451410v12k8q" path="res://characters/shoto/sprites/kick_1.png" id="70_cg810"]
-[ext_resource type="Texture2D" uid="uid://bbt3d7poiu6y8" path="res://characters/shoto/sprites/land_back_1.png" id="70_glyqv"]
-=======
 [ext_resource type="Texture2D" uid="uid://cwu7oevsbbhs" path="res://characters/shoto/sprites/jump_block_0.png" id="69_ya20w"]
 [ext_resource type="Texture2D" uid="uid://b451410v12k8q" path="res://characters/shoto/sprites/kick_1.png" id="70_cg810"]
 [ext_resource type="Texture2D" uid="uid://bbt3d7poiu6y8" path="res://characters/shoto/sprites/land_back_1.png" id="70_glyqv"]
 [ext_resource type="Texture2D" uid="uid://c0psh20lrupy6" path="res://characters/shoto/sprites/jump_block_1.png" id="70_xom4q"]
->>>>>>> dev
 [ext_resource type="Texture2D" uid="uid://ckpl8yuwljyy" path="res://characters/shoto/sprites/kick_2.png" id="71_pyj4h"]
 [ext_resource type="Texture2D" uid="uid://b7h7jk68072yx" path="res://characters/shoto/sprites/land_back_2.png" id="71_vbu4b"]
 [ext_resource type="Texture2D" uid="uid://bvokeyvd65hi0" path="res://characters/shoto/sprites/land_front_0.png" id="72_t5e4q"]
@@ -206,14 +146,11 @@
 [ext_resource type="Texture2D" uid="uid://dtayhna1kdknr" path="res://characters/shoto/sprites/kick_6.png" id="75_l3jw4"]
 [ext_resource type="Texture2D" uid="uid://55ks7nsa8eu3" path="res://characters/shoto/sprites/kick_7.png" id="76_djhvw"]
 [ext_resource type="Texture2D" uid="uid://b5e4ny0k12r15" path="res://characters/shoto/sprites/kick_8.png" id="77_5olqs"]
-<<<<<<< HEAD
-=======
 [ext_resource type="Texture2D" uid="uid://dnqofat5cxpiv" path="res://characters/shoto/sprites/hadouken_0.png" id="78_nnuqg"]
 [ext_resource type="Texture2D" uid="uid://dy1qvby7jo2s3" path="res://characters/shoto/sprites/hadouken_1.png" id="79_mf78o"]
 [ext_resource type="Texture2D" uid="uid://bvwkstgfv4tdw" path="res://characters/shoto/sprites/hadouken_2.png" id="80_cw4fy"]
 [ext_resource type="Texture2D" uid="uid://dv4b0f2kk25a3" path="res://characters/shoto/sprites/hadouken_3.png" id="81_geau6"]
 [ext_resource type="Texture2D" uid="uid://t7feoj4jqii4" path="res://characters/shoto/sprites/hadouken_4.png" id="82_wlf1b"]
->>>>>>> dev
 [ext_resource type="Texture2D" uid="uid://dlvk628kxigsh" path="res://characters/shoto/sprites/punch_0.png" id="86_5ag0x"]
 [ext_resource type="Texture2D" uid="uid://bxj6dsa8r286t" path="res://characters/shoto/sprites/punch_1.png" id="87_ivofh"]
 [ext_resource type="Texture2D" uid="uid://cndsc1nhqxpcg" path="res://characters/shoto/sprites/punch_2.png" id="88_rg8ff"]
@@ -242,10 +179,6 @@
 [ext_resource type="Texture2D" uid="uid://do5xd0cq7dnr4" path="res://characters/shoto/sprites/spike_9.png" id="115_dysbi"]
 [ext_resource type="Texture2D" uid="uid://456mx86nc87i" path="res://characters/shoto/sprites/spike_10.png" id="116_h74jo"]
 [ext_resource type="Texture2D" uid="uid://c688iavr131s0" path="res://characters/shoto/sprites/spike_11.png" id="117_4doc2"]
-<<<<<<< HEAD
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wme6b"]
-=======
 [ext_resource type="Texture2D" uid="uid://bdaukbg25bddq" path="res://characters/shoto/sprites/spin_kick_0.png" id="144_kt1x1"]
 [ext_resource type="Texture2D" uid="uid://cuennqmqfak0d" path="res://characters/shoto/sprites/spin_kick_1.png" id="145_gtwso"]
 [ext_resource type="Texture2D" uid="uid://da0bu2a2to17u" path="res://characters/shoto/sprites/spin_kick_2.png" id="146_h33n1"]
@@ -263,7 +196,6 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wme6b"]
 resource_local_to_scene = true
->>>>>>> dev
 shader = ExtResource("15_35ltf")
 shader_parameter/main_color = Color(0.701961, 0.227451, 0.207843, 1)
 
@@ -307,8 +239,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-<<<<<<< HEAD
-=======
 "texture": ExtResource("28_1by8y")
 }, {
 "duration": 1.0,
@@ -394,7 +324,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
->>>>>>> dev
 "texture": ExtResource("16_yg0pm")
 }, {
 "duration": 1.0,
@@ -487,8 +416,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-<<<<<<< HEAD
-=======
 "texture": ExtResource("78_nnuqg")
 }, {
 "duration": 1.0,
@@ -520,7 +447,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
->>>>>>> dev
 "texture": ExtResource("51_okyac")
 }, {
 "duration": 1.0,
@@ -824,8 +750,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-<<<<<<< HEAD
-=======
 "texture": ExtResource("144_kt1x1")
 }, {
 "duration": 1.0,
@@ -867,7 +791,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
->>>>>>> dev
 "texture": ExtResource("16_y1cw6")
 }],
 "loop": true,
@@ -887,8 +810,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-<<<<<<< HEAD
-=======
 "texture": ExtResource("183_r8cqe")
 }],
 "loop": true,
@@ -897,7 +818,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
->>>>>>> dev
 "texture": ExtResource("30_ue0lj")
 }, {
 "duration": 1.0,
@@ -929,10 +849,6 @@ animations = [{
 "speed": 5.0
 }]
 
-<<<<<<< HEAD
-[sub_resource type="Animation" id="Animation_ftweh"]
-length = 0.001
-=======
 [sub_resource type="Gradient" id="Gradient_8p3ed"]
 colors = PackedColorArray(1, 1, 1, 1, 0.67069, 0.67069, 0.67069, 0)
 
@@ -978,7 +894,6 @@ resource_local_to_scene = true
 resource_name = "RESET"
 length = 0.0166683
 step = 0.0166667
->>>>>>> dev
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -987,11 +902,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-=======
 "transitions": PackedFloat32Array(0),
->>>>>>> dev
 "update": 1,
 "values": [Array[Rect2]([])]
 }
@@ -1003,120 +914,67 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-=======
 "transitions": PackedFloat32Array(0),
->>>>>>> dev
 "update": 1,
 "values": [Array[Rect2]([Rect2(-64, -94, 128, 240)])]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-=======
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-48, -14, 96, 160)]
->>>>>>> dev
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-<<<<<<< HEAD
-tracks/3/path = NodePath("PushBox:shape")
-=======
 tracks/3/path = NodePath("PushBox:can_push")
->>>>>>> dev
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-<<<<<<< HEAD
-"update": 0,
-"values": [Rect2(-48, -14, 96, 160)]
-=======
 "update": 1,
 "values": [true]
->>>>>>> dev
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-<<<<<<< HEAD
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"standing"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
->>>>>>> dev
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [&"standing"]
-=======
 "values": [0]
->>>>>>> dev
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-<<<<<<< HEAD
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-=======
 tracks/6/path = NodePath("SpriteContainer/GrabPosition:position")
->>>>>>> dev
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-<<<<<<< HEAD
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_sj0bu"]
-resource_name = "crouching"
-length = 0.0666733
-loop_mode = 1
-=======
 "update": 0,
 "values": [Vector2(7, -27)]
 }
@@ -1615,7 +1473,6 @@ tracks/6/keys = {
 resource_local_to_scene = true
 resource_name = "crouch_blocking"
 length = 0.13334
->>>>>>> dev
 step = 0.0666667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1644,40 +1501,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-=======
->>>>>>> dev
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-48, 86, 96, 60)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -1694,28 +1526,17 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"block_low"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -2021,21 +1842,11 @@ tracks/4/path = NodePath("SpriteContainer/Main:animation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"crouching"]
 }
-<<<<<<< HEAD
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-=======
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
@@ -2043,7 +1854,6 @@ tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -2051,10 +1861,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_p0h54"]
-<<<<<<< HEAD
-=======
 resource_local_to_scene = true
->>>>>>> dev
 resource_name = "crouching_enter"
 length = 0.33334
 step = 0.0666667
@@ -2085,40 +1892,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-=======
 tracks/2/path = NodePath("PushBox:shape")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0, 0.0666667),
 "transitions": PackedFloat32Array(0, 0),
 "update": 1,
 "values": [Rect2(-48, -14, 96, 160), Rect2(-48, 86, 96, 60)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -2135,45 +1917,21 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"crouching"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"crouching"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
@@ -2181,10 +1939,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_h1a4a"]
-<<<<<<< HEAD
-=======
 resource_local_to_scene = true
->>>>>>> dev
 resource_name = "crouching_exit"
 length = 0.33334
 step = 0.0666667
@@ -2215,40 +1970,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-=======
 tracks/2/path = NodePath("PushBox:shape")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0, 0.0666667),
 "transitions": PackedFloat32Array(0, 0),
 "update": 1,
 "values": [Rect2(-48, 86, 96, 60), Rect2(-48, -14, 96, 160)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -2265,54 +1995,27 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"crouching"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"crouching"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [4, 3, 2, 1, 0]
 }
 
-<<<<<<< HEAD
-[sub_resource type="Animation" id="Animation_txjh3"]
-=======
 [sub_resource type="Animation" id="Animation_4l3oa"]
 resource_local_to_scene = true
 resource_name = "crouching_stunned"
@@ -2472,7 +2175,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_txjh3"]
 resource_local_to_scene = true
->>>>>>> dev
 resource_name = "default"
 step = 0.0166667
 tracks/0/type = "value"
@@ -2502,43 +2204,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-=======
->>>>>>> dev
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-48, -14, 96, 160)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -2546,16 +2220,12 @@ tracks/3/path = NodePath("PushBox:can_push")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
 
-<<<<<<< HEAD
-[sub_resource type="Animation" id="Animation_ssp0j"]
-=======
 [sub_resource type="Animation" id="Animation_jbf4a"]
 resource_local_to_scene = true
 resource_name = "dp"
@@ -2714,7 +2384,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_ssp0j"]
 resource_local_to_scene = true
->>>>>>> dev
 resource_name = "falling"
 loop_mode = 1
 tracks/0/type = "value"
@@ -2744,40 +2413,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-=======
->>>>>>> dev
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-45, -14, 90, 70)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -2794,36 +2438,24 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"jumping"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
->>>>>>> dev
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [&"jumping"]
-=======
 "values": [1]
 }
 
@@ -2903,28 +2535,16 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
->>>>>>> dev
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-<<<<<<< HEAD
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-=======
 tracks/6/path = NodePath("SpriteContainer/ProjectilePosition:position")
->>>>>>> dev
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-<<<<<<< HEAD
-"update": 1,
-"values": [1]
-}
-
-[sub_resource type="Animation" id="Animation_6uu5i"]
-=======
 "update": 0,
 "values": [Vector2(90, -54)]
 }
@@ -3680,7 +3300,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_6uu5i"]
 resource_local_to_scene = true
->>>>>>> dev
 resource_name = "jumping"
 length = 0.10001
 tracks/0/type = "value"
@@ -3710,40 +3329,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-=======
->>>>>>> dev
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-45, -14, 90, 70)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -3760,45 +3354,21 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"jumping"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"jumping"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -3806,11 +3376,6 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_pc3t4"]
-<<<<<<< HEAD
-resource_name = "landing"
-length = 0.13334
-step = 0.0666667
-=======
 resource_local_to_scene = true
 resource_name = "landing"
 length = 0.233335
@@ -3893,7 +3458,6 @@ resource_local_to_scene = true
 resource_name = "landing_back"
 length = 0.500002
 step = 0.0166667
->>>>>>> dev
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -3916,49 +3480,20 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(0),
 "update": 1,
-<<<<<<< HEAD
-"values": [Array[Rect2]([Rect2(-64, -54, 128, 200)])]
-=======
 "values": [Array[Rect2]([])]
->>>>>>> dev
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-=======
->>>>>>> dev
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-48, -14, 96, 160)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -4130,47 +3665,17 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"launched"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"landing"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.0666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_p73yi"]
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -4183,7 +3688,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_p73yi"]
 resource_local_to_scene = true
->>>>>>> dev
 resource_name = "light_jab"
 length = 0.200002
 step = 0.0166667
@@ -4214,40 +3718,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-=======
->>>>>>> dev
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-48, -14, 96, 160)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -4264,54 +3743,27 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"light"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"light"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0, 0.0166667, 0.05, 0.0666667, 0.133333, 0.183333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 1, 0]
 }
 
-<<<<<<< HEAD
-[sub_resource type="Animation" id="Animation_w6e8u"]
-=======
 [sub_resource type="Animation" id="Animation_1xquf"]
 resource_local_to_scene = true
 resource_name = "light_kick"
@@ -4392,7 +3844,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_w6e8u"]
 resource_local_to_scene = true
->>>>>>> dev
 resource_name = "prejump"
 length = 0.13334
 step = 0.0666667
@@ -4423,40 +3874,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-=======
->>>>>>> dev
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-48, -14, 96, 160)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -4473,54 +3899,27 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"prejump"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"prejump"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0, 0.0666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
 }
 
-<<<<<<< HEAD
-[sub_resource type="Animation" id="Animation_47gxx"]
-=======
 [sub_resource type="Animation" id="Animation_vo8td"]
 resource_local_to_scene = true
 resource_name = "punch"
@@ -4601,7 +4000,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_47gxx"]
 resource_local_to_scene = true
->>>>>>> dev
 resource_name = "running"
 length = 0.40001
 loop_mode = 1
@@ -4632,40 +4030,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-=======
->>>>>>> dev
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-48, -14, 96, 160)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -4682,56 +4055,27 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"running"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"running"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
->>>>>>> dev
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
 }
 
-<<<<<<< HEAD
-[sub_resource type="Animation" id="Animation_2hqdu"]
-resource_name = "standing"
-loop_mode = 1
-=======
 [sub_resource type="Animation" id="Animation_tjkja"]
 resource_local_to_scene = true
 resource_name = "running_end"
@@ -5052,7 +4396,6 @@ resource_name = "standing"
 length = 0.0166683
 loop_mode = 1
 step = 0.0166667
->>>>>>> dev
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -5080,40 +4423,15 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-<<<<<<< HEAD
-tracks/2/path = NodePath("HurtBox:active")
-=======
 tracks/2/path = NodePath("PushBox:shape")
->>>>>>> dev
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
-<<<<<<< HEAD
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-=======
->>>>>>> dev
 "transitions": PackedFloat32Array(0),
 "update": 1,
 "values": [Rect2(-48, -14, 96, 160)]
 }
-<<<<<<< HEAD
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-=======
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -5130,53 +4448,24 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SpriteContainer/Main:animation")
->>>>>>> dev
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [true]
-=======
 "values": [&"standing"]
->>>>>>> dev
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-<<<<<<< HEAD
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-=======
 tracks/5/path = NodePath("SpriteContainer/Main:frame")
->>>>>>> dev
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-<<<<<<< HEAD
-"values": [&"standing"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_uwae6"]
-resource_name = "standing_stunned"
-length = 0.33334
-=======
 "values": [0]
 }
 
@@ -5262,7 +4551,6 @@ tracks/5/keys = {
 resource_local_to_scene = true
 resource_name = "standing_stunned"
 length = 0.13334
->>>>>>> dev
 step = 0.0666667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -5343,19 +4631,12 @@ tracks/6/path = NodePath("SpriteContainer/Main:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-<<<<<<< HEAD
-"times": PackedFloat32Array(0, 0.2),
-=======
 "times": PackedFloat32Array(0, 0.133333),
->>>>>>> dev
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
 }
 
-<<<<<<< HEAD
-[sub_resource type="Animation" id="Animation_ws6q1"]
-=======
 [sub_resource type="Animation" id="Animation_23n4h"]
 resource_local_to_scene = true
 resource_name = "throw_clash"
@@ -5527,7 +4808,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_ws6q1"]
 resource_local_to_scene = true
->>>>>>> dev
 resource_name = "walking"
 length = 0.90001
 loop_mode = 1
@@ -5616,301 +4896,6 @@ tracks/6/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
-<<<<<<< HEAD
-[sub_resource type="Animation" id="Animation_1xquf"]
-resource_name = "light_kick"
-length = 0.366668
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox:data")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.183333),
-"transitions": PackedFloat32Array(0, 0, 0),
-"update": 1,
-"values": [Array[Rect2]([]), Array[Rect2]([Rect2(64, 50, 60, 55)]), Array[Rect2]([])]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox:data")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.183333),
-"transitions": PackedFloat32Array(0, 0, 0),
-"update": 1,
-"values": [Array[Rect2]([Rect2(-64, -94, 128, 240)]), Array[Rect2]([Rect2(-64, -94, 128, 240), Rect2(64, 45, 45, 55)]), Array[Rect2]([Rect2(-64, -94, 128, 240)])]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HurtBox:active")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0),
-"update": 1,
-"values": [Rect2(-48, -14, 96, 160)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"kick"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.2, 0.25, 0.3, 0.35),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
-
-[sub_resource type="Animation" id="Animation_k65r1"]
-resource_name = "jump_punch"
-length = 0.300002
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox:data")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.1),
-"transitions": PackedFloat32Array(0, 1, 0),
-"update": 1,
-"values": [Array[Rect2]([]), Array[Rect2]([Rect2(65, 5, 32, 45)]), Array[Rect2]([])]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox:data")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.1),
-"transitions": PackedFloat32Array(0, 1, 0),
-"update": 1,
-"values": [Array[Rect2]([Rect2(-40, -94, 115, 150)]), Array[Rect2]([Rect2(-40, -94, 115, 150), Rect2(55, 0, 35, 35)]), Array[Rect2]([Rect2(-40, -94, 115, 150)])]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HurtBox:active")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0),
-"update": 1,
-"values": [Rect2(-45, -14, 90, 70)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"jump_punch"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.15, 0.2, 0.25, 0.283333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 6, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_jbf4a"]
-resource_name = "dp"
-length = 0.666668
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox:data")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.2),
-"transitions": PackedFloat32Array(0, 0, 0),
-"update": 1,
-"values": [Array[Rect2]([]), Array[Rect2]([Rect2(-15, -145, 65, 95)]), Array[Rect2]([])]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HurtBox:data")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.116667, 0.15, 0.2),
-"transitions": PackedFloat32Array(0, 0, 0, 1, 0),
-"update": 1,
-"values": [Array[Rect2]([]), Array[Rect2]([Rect2(-64, -64, 128, 210)]), Array[Rect2]([Rect2(-64, -64, 128, 210)]), Array[Rect2]([Rect2(-64, -64, 128, 150)]), Array[Rect2]([Rect2(-64, -94, 128, 240)])]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("HurtBox:active")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PushBox:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0),
-"update": 1,
-"values": [Rect2(-48, -14, 96, 160)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PushBox:can_push")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("SpriteContainer/Main:animation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"dp"]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("SpriteContainer/Main:frame")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.05, 0.0666667, 0.116667, 0.2, 0.433333, 0.533333, 0.6, 0.65),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_omfbg"]
-_data = {
-"RESET": SubResource("Animation_ftweh"),
-"crouching": SubResource("Animation_sj0bu"),
-"crouching_enter": SubResource("Animation_p0h54"),
-"crouching_exit": SubResource("Animation_h1a4a"),
-"default": SubResource("Animation_txjh3"),
-"dp": SubResource("Animation_jbf4a"),
-"falling": SubResource("Animation_ssp0j"),
-"jump_punch": SubResource("Animation_k65r1"),
-"jumping": SubResource("Animation_6uu5i"),
-"landing": SubResource("Animation_pc3t4"),
-"light_jab": SubResource("Animation_p73yi"),
-"light_kick": SubResource("Animation_1xquf"),
-"prejump": SubResource("Animation_w6e8u"),
-"running": SubResource("Animation_47gxx"),
-"standing": SubResource("Animation_2hqdu"),
-"standing_stunned": SubResource("Animation_uwae6"),
-"walking": SubResource("Animation_ws6q1")
-}
-
-[node name="CharacterObject" type="Node2D" node_paths=PackedStringArray("state_machine", "health", "push_box", "hurt_box", "hit_box", "sprite_container", "animation_player")]
-script = ExtResource("1_7v1m0")
-state_machine = NodePath("StateMachine")
-health = NodePath("Health")
-attack_states = Array[String](["LightAttack", "MediumKick", "JumpPunch", "DragonPunchM"])
-=======
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_omfbg"]
 _data = {
 "RESET": SubResource("Animation_fdqo7"),
@@ -5974,7 +4959,6 @@ special = NodePath("SpecialMeter")
 effects = NodePath("EffectsManager")
 projectiles = NodePath("ProjectilesManager")
 attack_states = Array[String](["SBusterGrab", "BusterGrab", "SpinKick_M", "SpinKick_S", "SpinKick_H", "DragonPunch_M", "DragonPunch_H", "DragonPunch_S", "Hadouken_L", "Hadouken_M", "Hadouken_H", "Hadouken_S", "Light", "Light_Air", "Light_Crouch", "Medium", "Medium_Air", "Medium_Crouch", "Heavy", "Heavy_Air", "Heavy_Crouch"])
->>>>>>> dev
 push_box = NodePath("PushBox")
 hurt_box = NodePath("HurtBox")
 hit_box = NodePath("HitBox")
@@ -5986,9 +4970,6 @@ animation_player = NodePath("AnimationPlayer")
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("host")]
 script = ExtResource("2_ii632")
 host = NodePath("..")
-<<<<<<< HEAD
-default_state = "Standing"
-=======
 default_state = "Idle"
 
 [node name="Dead" type="Node" parent="StateMachine"]
@@ -6000,7 +4981,6 @@ animation = "victory"
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_f8dyp")
->>>>>>> dev
 
 [node name="Grounded" type="Node" parent="StateMachine"]
 script = ExtResource("3_4lhrq")
@@ -6014,83 +4994,18 @@ script = ExtResource("5_frrp1")
 [node name="Running" type="Node" parent="StateMachine"]
 script = ExtResource("6_1wp87")
 
-<<<<<<< HEAD
-[node name="Crouching" type="Node" parent="StateMachine"]
-script = ExtResource("4_6ks4i")
-
-[node name="LightAttack" type="Node" parent="StateMachine"]
-script = ExtResource("4_fh8td")
-animation = "light_jab"
-startup_frames = 3
-active_frames = 2
-recovery_frames = 6
-hitstun = 15
-blockstun = 7
-hitstop = 3
-push_back = 15
-cancel_into = PackedStringArray("LightAttack", "MediumKick")
-
-[node name="JumpPunch" type="Node" parent="StateMachine"]
-script = ExtResource("4_fh8td")
-animation = "jump_punch"
-startup_frames = 4
-active_frames = 2
-recovery_frames = 11
-hitstun = 15
-blockstun = 7
-hitstop = 3
-aerial = true
-push_back = 15
-cancel_into = PackedStringArray("JumpPunch")
-
-[node name="MediumKick" type="Node" parent="StateMachine"]
-script = ExtResource("4_fh8td")
-button = 1
-animation = "light_kick"
-startup_frames = 9
-active_frames = 2
-recovery_frames = 10
-hitstun = 15
-blockstun = 7
-hitstop = 3
-push_back = 15
-
-[node name="DragonPunchM" type="Node" parent="StateMachine"]
-script = ExtResource("9_5rtk8")
-motion = 3
-button = 1
-can_special = true
-animation = "dp"
-startup_frames = 9
-active_frames = 3
-recovery_frames = 27
-hitstun = 15
-blockstun = 7
-hitstop = 4
-push_back = 15
-
-=======
 [node name="BackDash" type="Node" parent="StateMachine"]
 script = ExtResource("7_grwx5")
 
 [node name="Crouching" type="Node" parent="StateMachine"]
 script = ExtResource("4_6ks4i")
 
->>>>>>> dev
 [node name="Blocking" type="Node" parent="StateMachine"]
 script = ExtResource("6_ahygp")
 
 [node name="Stunned" type="Node" parent="StateMachine"]
 script = ExtResource("6_cg38t")
 
-<<<<<<< HEAD
-[node name="Landing" type="Node" parent="StateMachine"]
-script = ExtResource("6_mghvc")
-
-[node name="Landing_DP" type="Node" parent="StateMachine"]
-script = ExtResource("6_mghvc")
-frames = 22
-=======
 [node name="Launched" type="Node" parent="StateMachine"]
 script = ExtResource("15_1lq0p")
 
@@ -6121,7 +5036,6 @@ animation = "dp_landing"
 [node name="Landing_Burst" type="Node" parent="StateMachine"]
 script = ExtResource("6_mghvc")
 frames = 16
->>>>>>> dev
 
 [node name="Aerial" type="Node" parent="StateMachine"]
 script = ExtResource("6_r3syh")
@@ -6129,22 +5043,12 @@ script = ExtResource("6_r3syh")
 [node name="BlockingAir" type="Node" parent="StateMachine"]
 script = ExtResource("6_r3syh")
 
-<<<<<<< HEAD
-[node name="Launched" type="Node" parent="StateMachine"]
-script = ExtResource("6_r3syh")
-
-=======
->>>>>>> dev
 [node name="Jumping" type="Node" parent="StateMachine"]
 script = ExtResource("7_7qu6k")
 
 [node name="Prejump" type="Node" parent="StateMachine"]
 script = ExtResource("8_pdhdy")
 
-<<<<<<< HEAD
-[node name="Health" type="Node" parent="."]
-script = ExtResource("4_lmlhl")
-=======
 [node name="Grab" type="Node" parent="StateMachine"]
 script = ExtResource("4_fh8td")
 animation = "grab"
@@ -6685,7 +5589,6 @@ script = ExtResource("24_twdjm")
 
 [node name="SpecialMeter" type="Node" parent="."]
 script = ExtResource("25_bve3b")
->>>>>>> dev
 
 [node name="PushBox" type="Node2D" parent="."]
 z_index = 99
@@ -6704,15 +5607,12 @@ z_index = 99
 z_as_relative = false
 script = ExtResource("4_cji4j")
 
-<<<<<<< HEAD
-=======
 [node name="EffectsManager" type="Node" parent="."]
 script = ExtResource("30_sxtjp")
 
 [node name="ProjectilesManager" type="Node" parent="."]
 script = ExtResource("31_svqb8")
 
->>>>>>> dev
 [node name="SpriteContainer" type="Marker2D" parent="."]
 
 [node name="Main" type="AnimatedSprite2D" parent="SpriteContainer"]
@@ -6723,8 +5623,6 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7e7rr")
 animation = &"standing"
 
-<<<<<<< HEAD
-=======
 [node name="GrabPosition" type="Marker2D" parent="SpriteContainer"]
 position = Vector2(7, -27)
 rotation = 1.5708
@@ -6750,7 +5648,6 @@ amount = 60
 process_material = SubResource("ParticleProcessMaterial_f4pyp")
 texture = ExtResource("192_td0xc")
 
->>>>>>> dev
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_omfbg")

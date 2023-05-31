@@ -15,17 +15,6 @@ class_name ActionState
 @export var hitstun := 0
 @export var blockstun := 0
 @export var hitstop := 0
-<<<<<<< HEAD
-
-@export_category("Attributes")
-@export var aerial := false
-@export var attack_type : Constants.AttackType
-@export var force_stance : Constants.Stance
-@export var hard_knockdown := false
-@export var is_a_grab := false
-@export var proration := 1.0
-@export var max_uses_in_combos := 1
-=======
 @export var v_hitstop := 0
 
 @export_category("Attributes")
@@ -43,17 +32,12 @@ class_name ActionState
 @export var proration := 1.0
 @export var force_proration := false
 @export var max_uses_in_combos := -1
->>>>>>> dev
 @export var damage := 100
 @export var chip_damage := 0
 @export var push_back := 100
 @export var push_back_block := 50
 @export var launch_on_hit := false
 @export var launch_velocity := 50
-<<<<<<< HEAD
-@export var max_wall_bounce := 0
-@export var max_ground_bounce := 0
-=======
 @export var wall_bounce := false
 @export var meter_gain := 0
 @export var meter_usage := 0
@@ -67,7 +51,6 @@ class_name ActionState
 @export var projectile_hit_amount := 1
 @export var projectile_lifetime := 5.0
 @export var is_finisher := false
->>>>>>> dev
 
 @export_category("States")
 @export var can_cancel_startup := false
@@ -80,14 +63,6 @@ var hits := 0
 func enter():
 	hits = hit_amount
 	frame = 0
-<<<<<<< HEAD
-	host.animation_player.play(animation)
-	
-func exit():
-	host.animation_player.stop()
-	host.hit_confirmed = false
-	host.hit_box.clear()
-=======
 	host.animation_player.stop()
 	host.animation_player.play(animation)
 	host.counterable = true
@@ -114,29 +89,12 @@ func exit():
 	host.punishable = false
 	host.hit_confirmed = false
 	host.crouching = crouch
->>>>>>> dev
 	
 func physics_process(delta):
 	process_physics(delta)
 	if aerial and host.grounded():
 		return "Landing"
 	if host.hit_confirmed:
-<<<<<<< HEAD
-		var state = process_input()
-		if state:
-			if state in cancel_into:
-				if state == name:
-					exit()
-					enter()
-				else:
-					return state
-	if host.animation_finished():
-		if aerial:
-			return "Aerial"
-		else:
-			return "Grounded"
-	frame += 1
-=======
 		if is_a_grab:
 			return throw_state
 		else:
@@ -170,4 +128,3 @@ func physics_process(delta):
 	frame += 1			
 	
 	
->>>>>>> dev

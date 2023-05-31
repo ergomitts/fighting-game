@@ -3,13 +3,8 @@ class_name CharacterState
 
 func get_input() -> FGInput:
 	var controller = InputManager.controllers[host.id - 1]
-<<<<<<< HEAD
-	var input = controller.buffer[controller.BUFFER_FRAMES - 1]
-	return input
-=======
 	var _input = controller.buffer[controller.BUFFER_FRAMES - 1]
 	return _input
->>>>>>> dev
 func get_axis() -> Vector2:
 	var controller = InputManager.controllers[host.id - 1]
 	return controller.get_axis()
@@ -25,8 +20,6 @@ func get_dir() -> int:
 func is_pressing(button := "") -> bool:
 	var controller = InputManager.controllers[host.id - 1]
 	return controller.is_pressing(button)
-<<<<<<< HEAD
-=======
 func is_holding_away():
 	var axis = get_axis()
 	var dir = host.get_flipped()
@@ -53,7 +46,6 @@ func on_hit(attack: ActionState):
 		elif attack.force_stance == "Crouching":
 			host.crouching = true
 		return "Stunned"
->>>>>>> dev
 	
 func get_attack_state(motion_input, axis := Vector2.ZERO):
 	var state := ""
@@ -66,17 +58,6 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 		pressing = Constants.Buttons.Medium
 	elif is_pressing("light"):
 		pressing = Constants.Buttons.Light
-<<<<<<< HEAD
-	
-	for attack_name in host.attack_states:
-		var i = host.get_attack_state(attack_name)
-		if i.motion == motion_input and (i.button == pressing or (i.can_special and pressing == Constants.Buttons.Special)):
-			if i.motion == Constants.MotionInput.Empty:
-				if i.direction != axis and i.direction != Vector2.ZERO:
-					continue
-			print(attack_name)
-			if (host.grounded() and !i.aerial) or (!host.grounded() and i.aerial):
-=======
 
 	for attack_name in host.attack_states:
 		var i = host.get_attack_state(attack_name)
@@ -93,7 +74,6 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 			if i.is_finisher and host.nemesis.health.value > host.nemesis.health.max_health/2:
 				continue
 			if (host.grounded() and i.ground) or (!host.grounded() and i.aerial):
->>>>>>> dev
 				state = i.name
 				InputManager.controllers[host.id - 1].clear()
 				break
@@ -102,33 +82,6 @@ func get_attack_state(motion_input, axis := Vector2.ZERO):
 	
 func process_input():
 	var controller := InputManager.controllers[host.id - 1] as Controller
-<<<<<<< HEAD
-	var input = controller.buffer[controller.BUFFER_FRAMES - 1]
-	var axis = input.axis
-	
-	var buttons = get_buttons()
-	
-	if buttons.size() > 0:
-		var motion_input
-		for i in range(Constants.MotionInput.size()):
-			var motion = controller.read_motion_input(i, host.flipped)
-			if motion:
-				motion_input = i
-				break
-		if motion_input:
-			var state = get_attack_state(motion_input, axis)
-			if state:
-				return state
-		
-		if controller.read_directional_input(Vector2.LEFT, "special", host.flipped) or controller.read_directional_input(Vector2.DOWN + Vector2.LEFT, "special", host.flipped):
-			return get_attack_state(Constants.MotionInput.QuarterCircleB)
-		elif controller.read_directional_input(Vector2.RIGHT, "special", host.flipped):	
-			return get_attack_state(Constants.MotionInput.QuarterCircleF)
-		elif controller.read_directional_input(Vector2.DOWN + Vector2.RIGHT, "special", host.flipped):	
-			return get_attack_state(Constants.MotionInput.DragonPunch)
-		elif controller.read_directional_input(Vector2.DOWN, "special", host.flipped):
-			return get_attack_state(Constants.MotionInput.HalfCircleF)
-=======
 	var axis = get_axis()
 	
 	var grab_combo = controller.check_combined_buttons(["light", "medium"])
@@ -145,7 +98,6 @@ func process_input():
 		var state = get_attack_state(motion_input, axis)
 		if state:
 			return state
->>>>>>> dev
 
 func process_physics(delta):
 	if !host.grounded():
