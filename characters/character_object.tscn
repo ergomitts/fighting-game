@@ -5326,7 +5326,6 @@ launch_velocity = 70
 meter_gain = 6
 attack_level = 2
 jump_cancelable = true
-can_cancel_startup = true
 cancel_into = PackedStringArray("SpinKick_M", "DragonPunch_M", "DragonPunch_H")
 
 [node name="Heavy_Crouch" type="Node" parent="StateMachine"]
@@ -5349,7 +5348,6 @@ meter_gain = 6
 attack_level = 2
 gravity_modifier = 0.75
 jump_cancelable = true
-can_cancel_startup = true
 cancel_into = PackedStringArray("SpinKick_H")
 
 [node name="Heavy_Air" type="Node" parent="StateMachine"]
