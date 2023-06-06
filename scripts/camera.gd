@@ -38,6 +38,7 @@ func _process(delta):
 	else:
 		var center = get_center()
 		position = center + center_offset
+		position.y = min(position.y, 244)
 		
 		var left = center.x - Globals.MAX_PLAYER_DISTANCE/2.0
 		var right = center.x + Globals.MAX_PLAYER_DISTANCE/2.0

@@ -3844,8 +3844,8 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_w6e8u"]
 resource_local_to_scene = true
 resource_name = "prejump"
-length = 0.13334
-step = 0.0666667
+length = 0.033335
+step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -3913,7 +3913,7 @@ tracks/5/path = NodePath("SpriteContainer/Main:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.0666667),
+"times": PackedFloat32Array(0, 0.0166667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -5512,8 +5512,8 @@ motion = 4
 animation = "hadouken"
 startup_frames = 14
 recovery_frames = 16
-hitstun = 20
-blockstun = 14
+hitstun = 18
+blockstun = 12
 hitstop = 5
 damage = 26
 push_back = 15
@@ -5530,8 +5530,8 @@ button = 1
 animation = "hadouken_m"
 startup_frames = 21
 recovery_frames = 12
-hitstun = 24
-blockstun = 16
+hitstun = 20
+blockstun = 14
 hitstop = 5
 damage = 26
 push_back = 20
