@@ -46,6 +46,7 @@ This is a fighting game made in the [Godot Engine](https://godotengine.org/) usi
     * Moves the player horizontally
     * Multi-hit attack
     * Heavy version moves diagonally
+    * Can use in the air
 * Dragon Punch (623M/H, 3S)
     * Anti-air attack
     * Invincible for 5 frames on startup
